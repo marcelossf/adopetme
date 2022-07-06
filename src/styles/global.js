@@ -9,10 +9,15 @@ const GlobalStyle = createGlobalStyle`
        --petroleumBlue: #4DB1B3;
        --white: #F2F2F2;
     }  
-    
-    body {
+
+    * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        
         font-family: 'Comfortaa';
     }
 
