@@ -1,11 +1,11 @@
-import { Carousel } from "./components/Carousel";
+import Home from "./pages/Home";
 import GlobalStyle from "./styles/global";
 
 function App() {
   return (
     <>
-    <GlobalStyle />
-    <Carousel/>
+      <GlobalStyle />
+      <Home/>
     </>
   );
 }
