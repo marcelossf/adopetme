@@ -15,6 +15,8 @@ function Vitrine() {
       .catch((err) => err);
   }, []);
 
+  //contexto acima
+
   return (
     <Container>
       <ul>

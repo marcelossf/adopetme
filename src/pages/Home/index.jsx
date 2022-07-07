@@ -1,25 +1,28 @@
 import React from "react";
-<<<<<<< HEAD
+import { Carousel } from "../../components/Carousel";
 import { Footer } from "../../components/Footer";
-=======
-import { SloganContainer } from "./styles";
->>>>>>> feat-page-home
+import { MenuFooter } from "../../components/MenuFooter";
+import Vitrine from "../../components/Vitrine";
+import { Container } from "./styles";
 
 // import { Container } from './styles';
 
 function Home() {
   return (
-<<<<<<< HEAD
-    <div>
-      <Footer />
-    </div>
-=======
-    <>
-      <SloganContainer>
-        <h3>Conectando diariamente ONGs parceiras com potenciais adotantes</h3>
-      </SloganContainer>
-    </>
->>>>>>> feat-page-home
+    <Container>
+      <Carousel />
+      <h2>
+        Amigo não se compra, <span>adota!</span>
+      </h2>
+      <Vitrine />
+      <Footer>
+        <MenuFooter>
+          <li>Quem Somos</li>
+          <li>Login</li>
+          <li>Register</li>
+        </MenuFooter>
+      </Footer>
+    </Container>
   );
 }
 

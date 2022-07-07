@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const FootContainer = styled.footer`
   width: 100%;
   max-width: 1300px;
-  background-color: var(--green);
+  background-color: var(--green); 
 `;
 
 export const Container = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   min-height: 200px;
   max-height: 300px;
   padding: 0 1rem;
