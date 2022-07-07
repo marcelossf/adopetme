@@ -10,14 +10,14 @@ const GlobalStyle = createGlobalStyle`
        --white: #F2F2F2;
     }  
 
-    * {
+    *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
     
     body {
-        
+      
         font-family: 'Comfortaa';
     }
 
