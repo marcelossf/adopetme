@@ -7,9 +7,7 @@ function App() {
   return (
     <>
     <GlobalStyle />
-    <Button blackSchema>
-      Enviar
-    </Button>
+    <Vitrine />
     </>
   );
 }

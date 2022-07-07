@@ -1,6 +1,12 @@
 import { Container, DivInfos, FigureStyled } from "./styles";
+import {Button} from '../Button';
+import {useContext} from 'react';
+import {PetContext} from '../../providers/Pet'
 
 function Card({ pet }) {
+
+  const {} = useContext(PetContext);
+
   return (
     <Container>
       <FigureStyled>
@@ -12,10 +18,9 @@ function Card({ pet }) {
         <span>Raça: {pet.breed}</span>
         <span>Idade: {pet.age.replace(pet.age[0], pet.age[0].toUpperCase())}</span>
         <span>ONG: {pet.ONG}</span>
-        <span></span>
       </DivInfos>
-
-      <button>Solicitar Adoção</button>
+      
+      <Button>Solicitar Adoção</Button>
     </Container>
   );
 }

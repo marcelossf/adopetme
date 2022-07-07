@@ -15,6 +15,8 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
 
+  box-shadow: 11px 11px 10px rgba(0, 0, 0, 0.25);
+
   @media (min-width: 1000px) {
     width: 400px;
     padding-left: 10px;
