@@ -1,4 +1,4 @@
-import { List, Main } from "./style";
+import { DivText, List, Main } from "./style";
 import Dev1 from "../../assets/dev1.png";
 import Dev2 from "../../assets/dev2.png";
 import Dev3 from "../../assets/dev3.png";
@@ -6,9 +6,8 @@ import Dev4 from "../../assets/dev4.png";
 import Dev5 from "../../assets/dev5.png";
 import LogoGit from "../../assets/git.png";
 import LogoLinkedin from "../../assets/linkedin.png";
-import Paws from "../../assets/paws.png";
-import "./style.css";
-import Header from "../HeaderOff";
+import redPaw from "../../assets/paws.png";
+import Header from "../HeaderMobile";
 
 export const QuemSomos = () => {
   const images = [
@@ -71,11 +70,11 @@ export const QuemSomos = () => {
           Dessa forma, conseguimos aumentar a rotatividade dos animais
           abrigados.
         </p>
-        <div className="div-hide">
-          <img className="paw-red" src={Paws} alt="Patinha"></img>
-          <h1 className="title-ul">Conheça nossa equipe!</h1>
-        </div>
+        <img className="redPaw" src={redPaw} alt="Patinha vermelha"></img>
       </Main>
+      <DivText>
+        <p className="title-ul">Conheça nossa equipe!</p>
+      </DivText>
       <List>
         {images.map((pick, index) => (
           <li className="list-who" key={index}>

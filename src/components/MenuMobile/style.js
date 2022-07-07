@@ -5,9 +5,10 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   max-width: 341px;
-  height: 320px;
+  min-height: 320px;
   border-radius: 0px 25px 25px 0px;
   position: fixed;
+  min-width: 307px;
 
   .container-img {
     display: flex;
@@ -30,11 +31,13 @@ export const Section = styled.section`
     padding-left: 25px;
   }
   .logoBlack {
-    width: 273px;
+    max-width: 273px;
+    min-width: 195px;
     margin-top: 12px;
   }
   .logoClose {
-    width: 39px;
+    max-width: 39px;
+    min-width: 29px;
     margin-top: 19px;
   }
 `;

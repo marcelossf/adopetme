@@ -18,9 +18,42 @@ export const Main = styled.main`
     color: white;
     box-shadow: 1px 2px 3px 5px #4db1b3;
     margin-bottom: 25px;
+    width: 100%;
+    max-height: 200px;
+    min-height: 157px;
   }
-  .div-hide {
-    display: none;
+
+  @media (min-width: 1025px) {
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    .div-half {
+      display: block;
+      background-color: #f2ae2f;
+      height: 180px;
+      min-width: 2px;
+      max-width: 5px;
+      position: relative;
+      margin-bottom: 31px;
+    }
+    .paragraph {
+      margin-top: 66px;
+      padding-right: 15px;
+      padding-left: 15px;
+      text-align: justify;
+    }
+
+    .redPaw {
+      width: 148px;
+      height: 139px;
+      position: absolute;
+      display: block;
+    }
+  }
+  @media (max-width: 1025px) {
+    .redPaw {
+      display: none;
+    }
   }
 `;
 
@@ -30,10 +63,13 @@ export const List = styled.ul`
   align-items: center;
   overflow: scroll;
   margin-top: -13px;
-  height: 345px;
+  max-height: 345px;
+  height: 331px;
+  min-width: 271px;
 
   .imgFace {
-    width: 124px;
+    max-width: 124px;
+    min-width: 103px;
   }
 
   .list-who {
@@ -49,16 +85,20 @@ export const List = styled.ul`
     flex-direction: column;
     background-color: #d9d9d9;
     border-radius: 30px;
-    width: 153px;
+    max-width: 153px;
     border-radius: 30px;
-    height: 142px;
+    max-height: 142px;
     justify-content: center;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    min-width: 141px;
+    min-height: 121px;
   }
   .logoLink,
   .logoGit {
-    width: 31px;
-    height: 31px;
+    max-width: 31px;
+    max-height: 31px;
+    min-width: 23px;
+    min-height: 26px;
   }
 
   .box-link,
@@ -75,5 +115,33 @@ export const List = styled.ul`
     font-weight: 700;
     color: black;
     text-decoration: none;
+  }
+
+  @media (min-width: 1025px) {
+    justify-content: center;
+    overflow: hidden;
+
+    .list-who {
+      margin-right: 74px;
+    }
+  }
+
+  @media (min-width: 800px) {
+    justify-content: center;
+  }
+`;
+
+export const DivText = styled.div`
+  display: flex;
+  justify-content: center;
+
+  .title-ul {
+    font-size: 35px;
+    font-family: "Fredoka One";
+    color: #f22222;
+  }
+
+  @media (max-width: 1025px) {
+    display: none;
   }
 `;

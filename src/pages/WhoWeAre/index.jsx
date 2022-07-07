@@ -1,4 +1,4 @@
-import { QuemSomos } from "../../components/QuemSomos";
+import { QuemSomos } from "../../components/WhoWe";
 
 function WhoWeAre() {
   return <QuemSomos />;
