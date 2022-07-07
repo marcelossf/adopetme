@@ -22,6 +22,7 @@ export const Carousel = () => {
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             spaceBetween={30}
             modules={[Autoplay, Pagination, Navigation]}
+            className="swiperContainer"
           >
             <SwiperSlide className="imgContainer">
               <img src={Capivara} alt="" />
