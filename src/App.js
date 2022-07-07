@@ -5,7 +5,7 @@ function App() {
   return (
     <>
     <GlobalStyle />
-    <Button>
+    <Button blackSchema>
       Enviar
     </Button>
     </>
