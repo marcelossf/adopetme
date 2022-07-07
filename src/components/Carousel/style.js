@@ -1,5 +1,18 @@
 import styled from "styled-components";
 
+import dogSM from "../../assets/dog370.png";
+import dogLG from "../../assets/dogDesk.png";
+import dogMD from "../../assets/dogMD.png";
+
+import hamLG from "../../assets/hamLG.png";
+import hamMD from "../../assets/hamMD.png";
+import hamSM from "../../assets/hamSM.png";
+
+import catLG from "../../assets/catDesk.png";
+import catMD from "../../assets/catMD.png";
+import catSM from "../../assets/catSM.png";
+
+
 export const SectionContainer = styled.section`
   width: 100%;
 
@@ -34,22 +47,72 @@ export const CarouselContainer = styled.div`
 
   .swiperContainer {
     width: 100%;
-    height: 300px;
-    border: 4px solid var(--orange);
-    border-radius: 30px;
+
   }
+
+    
+    /* border-top: 4px solid var(--orange);
+    border-bottom: 4px solid var(--orange);
+     */
 
   .imgContainer {
     width: 100%;
-    height: 300px;
+    height: 250px;  
+    
+    /* position: relative; */
+    /* overflow: hidden; */
+    @media(min-width:1024px) {
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+  .image{
+    height: 100%;
+    max-width: 100%;
+    
+    background: no-repeat center; 
+    background-size: cover;
+    
+    @media(min-width:1024px) {
+      margin: 0 auto;
+      border-radius: 30px;
+      width: 80%;
+    }
 
-    img {
-      width: 100%;
-      height: 300px;
+  }
+  
+  .cat{
+    background-image:  url(${catLG});
+    @media(max-width:1024px){
+      background-image: url(${catMD});
+    }
+    @media(max-width:425px){
+      background-image: ${catSM};
     }
   }
 
-  @media (min-width: 1024px) {
-    max-width: 90%;
+  .dog {
+    background-image:  url(${dogLG});
+    
+    @media(max-width:1024px){
+      background-image: url(${dogMD});
+    }
+
+    @media(max-width:425px){
+      background-image: ${dogSM};
+    }
   }
-`;
+    .hamster{
+      background-image:  url(${hamLG});
+
+
+
+      @media(max-width:1024px){
+        background-image: url(${hamMD});
+      }
+      
+      @media(max-width:425px){
+        background-image: ${hamSM};
+      }
+    }
+`
