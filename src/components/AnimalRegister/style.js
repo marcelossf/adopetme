@@ -139,3 +139,8 @@ export const ColumnForm = styled.div`
     width: 100%;
   }
 `;
+
+export const ButtonContainer = styled.div`
+ display: flex;
+ justify-content: center;
+`

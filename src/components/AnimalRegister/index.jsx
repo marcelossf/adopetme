@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
+  ButtonContainer,
   ColumnContainer,
   ColumnForm,
   Container,
@@ -163,9 +164,11 @@ export const AnimalRegister = () => {
                     {!!errors && <Error>{errors?.situation?.message}</Error>}
                   </ColumnForm>
                 </ColumnContainer>
-                <Button blackSchema type="submit">
-                  Enviar
-                </Button>
+                <ButtonContainer>
+                  <Button width={"200px"} blackSchema type="submit">
+                    Enviar
+                  </Button>
+                </ButtonContainer>
               </form>
             </Container>
           </FormContainer>
@@ -265,9 +268,11 @@ export const AnimalRegister = () => {
                     {!!errors && <Error>{errors?.situation?.message}</Error>}
                   </ColumnForm>
                 </ColumnContainer>
-                <Button blackSchema type="submit">
-                  Enviar
-                </Button>
+                <ButtonContainer>
+                  <Button width={"200px"} blackSchema type="submit">
+                    Enviar
+                  </Button>
+                </ButtonContainer>
               </form>
             </Container>
           </FormContainer>
