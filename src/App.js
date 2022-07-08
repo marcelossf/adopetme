@@ -1,14 +1,11 @@
-import GlobalStyle from "./styles/global";
-import { LoginForm } from "./components/LoginForm/index";
-import { CadastreForm } from "./components/CadastreForm";
+import { AnimalsListProvider } from "./context/animals";
+import Routes from "./Routes";
+
 function App() {
   return (
-    <>
-    <GlobalStyle />
-    <CadastreForm></CadastreForm>
-    <LoginForm/>
-  
-    </>
+    <AnimalsListProvider>
+      <Routes />
+    </AnimalsListProvider>
   );
 }
 
