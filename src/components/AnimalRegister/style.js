@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const FolderContainer = styled.section`
   width: 100vw;
   max-width: 1000px;
-  /* height: 100%; */
   margin: 1rem auto;
   display: flex;
   flex-direction: column;
@@ -50,8 +49,7 @@ export const Container = styled.div`
   border-radius: 0.7rem;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  /* border: 3px solid #ffffff; */
-
+  
   h2 {
     font-family: "Fredoka";
     font-style: normal;
