@@ -11,6 +11,7 @@ import {
   HeaderFormContainer,
 } from "./style";
 import { Button } from "../Button";
+import { Error } from "../Error";
 
 export const AnimalRegister = () => {
   const formSchema = yup.object().shape({
@@ -26,6 +27,9 @@ export const AnimalRegister = () => {
     description: yup.string().required("Campo Obrigatório"),
     situation: yup.string().required("Campo Obrigatório"),
   });
+   
+  ////////////////////Pegar dados da ONG//////////////////////////
+  ///////////Fazer o POST pra api/////////////////////////
 
   const {
     register,
@@ -36,9 +40,9 @@ export const AnimalRegister = () => {
   function onSubmitFunction(animalData) {
     const newData = { ...animalData, idOwner: 2, address: "adff" };
 
-    console.log(newData);
+   
   }
-
+  
   return (
     <FolderContainer>
       <HeaderFormContainer>
@@ -53,6 +57,7 @@ export const AnimalRegister = () => {
             <ColumnContainer>
               <ColumnForm>
                 <label htmlFor="">Nome:</label>
+                {errors && <Error error={errors?.petName?.message} />}
                 <input
                   type="text"
                   placeholder="Nome"
