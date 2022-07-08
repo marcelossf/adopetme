@@ -5,7 +5,6 @@ export const AnimalsListContext = createContext([]);
 
 export const AnimalsListProvider = ({ children }) => {
   const [pets, setPets] = useState([]);
-  
 
   useEffect(() => {
     api
