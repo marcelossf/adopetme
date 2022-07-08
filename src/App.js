@@ -1,11 +1,13 @@
-import Vitrine from "./components/Vitrine";
 import GlobalStyle from "./styles/global";
-
+import { LoginForm } from "./components/LoginForm/index";
+import { CadastreForm } from "./components/CadastreForm";
 function App() {
   return (
     <>
     <GlobalStyle />
-    <Vitrine />
+    <CadastreForm></CadastreForm>
+    <LoginForm/>
+  
     </>
   );
 }
