@@ -1,6 +1,6 @@
-// import Paw from "../../assets/pawsLogo.svg";
+import Paw from "../../assets/pawsLogo.svg";
 
-import { Autoplay, Navigation, Pagination } from "swiper";
+import { Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,31 +13,30 @@ export const Carousel = () => {
       <SectionContainer>
         <CarouselContainer>
           <Swiper
-            navigation={true}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             spaceBetween={50}
-            modules={[Autoplay, Pagination, Navigation]}
+            modules={[Autoplay]}
             className="swiperContainer"
           >
             <SwiperSlide className="imgContainer">
               <div className="image cat">
-                <h1>Gato</h1>
+                <h2>Azar mesmo é não ter esse carinho!</h2>
               </div>
             </SwiperSlide>
             <SwiperSlide className="imgContainer" >
               <div className="image dog">
-                <h1>Cachorro</h1>
+                <h2>Cachorro</h2>
               </div>
             </SwiperSlide>
             <SwiperSlide className="imgContainer">
               <div className="image hamster">
-                <h1>hamster</h1>
+                <h2>hamster</h2>
               </div>
             </SwiperSlide>
           </Swiper>
         </CarouselContainer>
+      <img className="paws" src={Paw} alt="icone de pata" />
       </SectionContainer>
-      {/* <img className="paws" src={Paw} alt="" /> */}
     </>
   );
 };
