@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, SpanError } from "./style";
 
-export const Error = ({ error }) => {
+export const Error = ({ children }) => {
   return (
     <Container>
-      <SpanError>{error}</SpanError>
+      <SpanError>{children}</SpanError>
     </Container>
   );
 };
