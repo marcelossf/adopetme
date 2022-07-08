@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,6 +13,7 @@ import {
 } from "./style";
 import { Button } from "../Button";
 import { Error } from "../Error";
+import { AnimalsListContext } from "../../Context/animals";
 
 export const AnimalRegister = () => {
   const formSchema = yup.object().shape({
@@ -29,10 +30,10 @@ export const AnimalRegister = () => {
     situation: yup.string().required("Campo Obrigatório"),
   });
 
-  const [active, setActive] = useState(true);
   ////////////////////Pegar dados da ONG//////////////////////////
+  const { pets, active, setActive } = useContext(AnimalsListContext);
 
-  
+  console.log(pets);
 
   ///////////Fazer o POST pra api/////////////////////////
 
