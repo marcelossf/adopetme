@@ -76,6 +76,8 @@ export const CarouselContainer = styled.div`
     height: 100%;
     width: 100%;
     margin: 0 auto;
+    padding: 2em;
+    
     opacity: 0.8;
 
     background: no-repeat center; 
@@ -85,7 +87,8 @@ export const CarouselContainer = styled.div`
       border-radius: 30px;
     }
     
-    h2{
+    h2 {
+      opacity: 1;
       color: var(--white);
       width: 300px;
       
@@ -97,7 +100,6 @@ export const CarouselContainer = styled.div`
 
       @media(max-width: 768px){
         font-size: 36px;
-
       }
     }
 
@@ -120,7 +122,6 @@ export const CarouselContainer = styled.div`
     }
     h2{
       text-align: right;
-      margin-right: 1em;
     }
   }
 
@@ -135,7 +136,53 @@ export const CarouselContainer = styled.div`
       background-position: right;
       background-image: ${dogSM};
     }
+    
+    h2{
+      line-height: 44px;
+      color: var(--orange);
+
+      @media(min-width:768px) {
+        width: 100%;
+        font-weight: 700;
+        font-size: 50px;
+        line-height: 60px;
+      }
+    }
+
+    h3{
+      font-family: 'Fredoka';
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 29px;
+
+      color: #D4FEFF;
+      text-shadow: 2px 2px 4px #000000;
+
+      @media(min-width:768px) {
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 34px;
+      }
+    }
+
+    p {
+      margin: 1em 0;
+      
+      font-weight: 700;
+      font-size: 16px;
+
+      color: var(--white);
+
+      width: 160px;
+
+      @media(min-width:768px) {
+        width: 60%;
+        font-size: 22px;
+        line-height: 25px;
+      }
+    }
   }
+  
     .hamster{
       background-image:  url(${hamLG});
 

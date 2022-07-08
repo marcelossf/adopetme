@@ -25,12 +25,15 @@ export const Carousel = () => {
             </SwiperSlide>
             <SwiperSlide className="imgContainer" >
               <div className="image dog">
-                <h2>Cachorro</h2>
+                <h2>Adoção consciente</h2>
+                <p>Existe cerca de 30 milhões de animais vivendo nas ruas do Brasil.</p>
+                <h3>Eles não são brinquedos.</h3>
               </div>
             </SwiperSlide>
             <SwiperSlide className="imgContainer">
               <div className="image hamster">
-                <h2>hamster</h2>
+                <h2>Faça uma pancinha feliz!</h2>
+                <h3>adote!</h3>
               </div>
             </SwiperSlide>
           </Swiper>
