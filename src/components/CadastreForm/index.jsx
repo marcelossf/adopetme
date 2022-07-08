@@ -10,8 +10,8 @@ export const CadastreForm = () => {
 
         <div className="btns">        
         
-        <button type="" className="btnslogin">Login</button>
-        <button className="btnslogin">Cadastrar</button>
+        <button type="button" className="btnslogin">Login</button>
+        <button type="button" className="btnslogin">Cadastrar</button>
 
         </div>
 

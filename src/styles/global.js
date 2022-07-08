@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     li,ul {
         list-style: none;
     }
+
     h1, h2 {
         font-weight: bold;
         font-family: 'Fredoka', sans-serif;;
