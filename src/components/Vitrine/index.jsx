@@ -1,6 +1,6 @@
 import { useContext } from "react";
 // import api from "../../api/api";
-import { AnimalsListContext } from "../../Context/animals";
+import { AnimalsListContext } from "../../context/animals";
 import Card from "../Card";
 
 import { Container } from "./styles";
