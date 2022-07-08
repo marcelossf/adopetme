@@ -33,7 +33,7 @@ export const Carousel = () => {
             <SwiperSlide className="imgContainer">
               <div className="image hamster">
                 <h2>Faça uma pancinha feliz!</h2>
-                <h3>adote!</h3>
+                <p>adote!</p>
               </div>
             </SwiperSlide>
           </Swiper>

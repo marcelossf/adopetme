@@ -52,10 +52,6 @@ export const CarouselContainer = styled.div`
   width: 100%;
   height: 300px;
 
-  .swiperContainer {
-    width: 100%;
-  }
-
   .imgContainer {
     width: 100%;
     height: 300px;  
@@ -193,6 +189,26 @@ export const CarouselContainer = styled.div`
       @media(max-width:425px){
         background-image: ${hamSM};
         background-position: right;
+      }
+      h2 {
+        width: 180px;
+        font-weight: 700;
+        line-height: 58px;
+        font-size: 48px;
+        
+        @media(min-width:768px) {
+        width: 30%;
+        }
+      }
+      p{
+        margin-top: 1em;
+
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 36px;
+        letter-spacing: 0.06em;
+
+        color: var(--orange);
       }
     }
 `
