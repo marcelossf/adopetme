@@ -1,5 +1,5 @@
 import { AnimalRegister } from "./components/AnimalRegister";
-import { AnimalsListProvider } from "./Context/animals";
+import { AnimalsListProvider } from "./context/animals";
 import Routes from "./Routes";
 
 function App() {
