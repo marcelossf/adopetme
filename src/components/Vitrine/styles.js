@@ -40,3 +40,10 @@ export const AbaSolicitacoes = styled.div`
 
 
 `
+export const DivSolicitacoes = styled.div`
+  width: 346px;
+  height: 276px;
+  background-color: var(--petroleumBlue);
+
+  border-radius: 0 15px 15px 15px;
+`

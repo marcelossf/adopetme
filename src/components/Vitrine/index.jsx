@@ -3,7 +3,7 @@ import api from "../../api/api";
 import Card from "../Card";
 import { PetContext } from "../../providers/Pet";
 
-import { ContainerVitrine, ContainerOng, AbaSolicitacoes } from "./styles";
+import { ContainerVitrine, ContainerOng, AbaSolicitacoes, DivSolicitacoes } from "./styles";
 
 function Vitrine() {
   // const { type } = useContext(PetContext);
@@ -22,6 +22,7 @@ function Vitrine() {
     return (
       <ContainerOng>
         <AbaSolicitacoes>Solicitações</AbaSolicitacoes>
+        <DivSolicitacoes>asdsada</DivSolicitacoes>
       </ContainerOng>
     )
   }
