@@ -30,6 +30,8 @@ const GlobalStyle = createGlobalStyle`
     li,ul {
         list-style: none;
     }
-`;
+    
+`
+;
 
 export default GlobalStyle;
