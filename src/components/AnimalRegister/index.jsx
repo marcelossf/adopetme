@@ -33,7 +33,7 @@ export const AnimalRegister = () => {
   ////////////////////Pegar dados da ONG//////////////////////////
   const { pets, active, setActive } = useContext(AnimalsListContext);
 
-  console.log(pets);
+  
 
   ///////////Fazer o POST pra api/////////////////////////
 
