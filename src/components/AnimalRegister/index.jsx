@@ -13,7 +13,7 @@ import {
 } from "./style";
 import { Button } from "../Button";
 import { Error } from "../Error";
-import { AnimalsListContext } from "../../Context/animals";
+import { AnimalsListContext } from "../../context/animals";
 
 export const AnimalRegister = () => {
   const formSchema = yup.object().shape({
