@@ -18,11 +18,12 @@ export const Head = styled.header`
   }
 
   .imgLogo {
+    width: auto;
     max-width: 398px;
     max-height: 167px;
     min-width: 202px;
     min-height: 99px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
   }
 
   .pawsLogo,
@@ -30,7 +31,7 @@ export const Head = styled.header`
     display: none;
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1024px) {
     background-color: #f2ae2f;
     justify-content: flex-start;
     box-shadow: -3px 7px 9px 2px rgb(0 0 0 / 25%);
@@ -67,10 +68,10 @@ export const Head = styled.header`
 `;
 
 export const StyledButton = styled.button`
-  @media (max-width: 1025px) {
+  @media (max-width: 1024px) {
     display: none;
   }
-  @media (min-width: 1025px) {
+  @media (min-width: 1024px) {
     padding: 0.5rem 2rem;
     color: white;
     font-family: "Comfortaa";

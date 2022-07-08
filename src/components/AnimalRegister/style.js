@@ -4,7 +4,7 @@ export const SectionContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
 `;
 
 export const FolderContainer = styled.div`
