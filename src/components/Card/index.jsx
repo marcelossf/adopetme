@@ -1,3 +1,4 @@
+import { Button } from "../Button";
 import { Container, DivInfos, FigureStyled } from "./styles";
 
 function Card({ pet }) {
@@ -15,7 +16,7 @@ function Card({ pet }) {
         <span></span>
       </DivInfos>
 
-      <button>Solicitar Adoção</button>
+      <Button>Solicitar Adoção</Button>
     </Container>
   );
 }
