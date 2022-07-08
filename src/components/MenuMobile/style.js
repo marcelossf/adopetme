@@ -9,6 +9,7 @@ export const Section = styled.section`
   border-radius: 0px 25px 25px 0px;
   position: fixed;
   min-width: 307px;
+  z-index: 9999;
 
   .container-img {
     display: flex;
@@ -29,6 +30,7 @@ export const Section = styled.section`
     font-weight: bolder;
     font-size: 16px;
     padding-left: 25px;
+    margin-top: 19px;
   }
   .logoBlack {
     max-width: 273px;
