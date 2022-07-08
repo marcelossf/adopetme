@@ -20,4 +20,4 @@ export const AnimalsListProvider = ({ children }) => {
     <AnimalsListContext.Provider value={{ pets, setPets, active, setActive }}>
       {children}
     </AnimalsListContext.Provider>
-  );
+  )
