@@ -21,4 +21,3 @@ export const AnimalsListProvider = ({ children }) => {
       {children}
     </AnimalsListContext.Provider>
   );
-};
