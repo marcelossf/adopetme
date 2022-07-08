@@ -4,7 +4,7 @@ export const Container = styled.div`
   ul {
     display: flex;
     flex-direction: row;
-
+    overflow-x: auto;
     gap: 10px;
   }
 
