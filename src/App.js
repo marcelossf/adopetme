@@ -1,9 +1,13 @@
-import GlobalStyle from "./styles/global";
+
+import { AnimalsListProvider } from "./context/animals";
+import Routes from "./Routes";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
+      <AnimalsListProvider>
+        <Routes/>
+      </AnimalsListProvider>
     </>
   );
 }
