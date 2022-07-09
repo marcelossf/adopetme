@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import logoAdopet from "../../assets/logoAdopet.png";
 import { DivRigth, DivLeft, DivInstructionImg, DivsContainer } from "./styles";
 import { CadastreForm } from "../../components/CadastreForm";
 import { LoginForm } from "../../components/LoginForm";
+import {RedirectContext} from '../../context/redirect'
 
 function Login() {
   const [form, setForm] = useState(false);
+
+  const {redirectToPage} = useContext(RedirectContext);
 
   const instruction = [
     { img: "", Text: "oioi" },
@@ -51,7 +54,7 @@ function Login() {
           ))}
         </DivInstructionImg>
 
-        <button type="button" className="btnslogin">
+        <button type="button" className="btnslogin" onClick={() => {redirectToPage('/')}}>
           Voltar
         </button>
       </DivLeft>

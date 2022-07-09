@@ -1,15 +1,17 @@
 import React from "react";
-import { Footer } from "../../components/Footer";
-import Vitrine from "../../components/Vitrine";
-
-// import { Container } from './styles';
+import { Carousel } from "../../components/Carousel";
+import Header from "../../components/HeaderMobile";
+import SloganAdopetme from '../../components/SloganAdopetme';
+import Vitrine from '../../components/Vitrine'
 
 function Home() {
   return (
-    <div>
-      <Vitrine/>
-      <Footer />
-    </div>
+    <>
+    <Header />
+    <SloganAdopetme />
+    <Carousel />
+    <Vitrine />
+    </>
   );
 }
 

@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
         --red: #F22222;
         --petroleumBlue: #4DB1B3;
         --white: #F2F2F2;
+        --black: #000000;
     }  
 
     *{
