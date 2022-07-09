@@ -26,6 +26,11 @@ export const FormLogin = styled.form`
 
     
   }
+
+  .disable{
+    background-color:#3b8788;
+  }
+
   .btnslogin:hover{
     background-color: #3B8788;
   }

@@ -1,24 +1,76 @@
 import React from "react";
-import { Button } from "../Button";
 import { FormLogin } from "./style";
 import { Input } from "../InputLabel";
-export const LoginForm = () => {
-    return (
-        <>
-        <FormLogin>
 
-        <div className="btns">        
-        
-        <button type="button" className="btnslogin">Login</button>
-        <button type="button" className="btnslogin">Cadastrar</button>
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 
+import axios from "axios";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import * as yup from "yup";
+
+export const LoginForm = ({ setForm, form }) => {
+  const muda = () => {
+    setForm(!form);
+  };
+
+  const history = useHistory();
+
+  function navegation(path) {
+    return history.push(path);
+  }
+
+  const formSchema = yup.object().shape({
+    email: yup.string().required("Campo obrigatório"),
+    password: yup.string().required("Campo obrigatório"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(formSchema) });
+
+  function onLogin(dados) {
+
+     axios
+      .post("https://json-server-adopetme.herokuapp.com/login", dados)
+
+       .then((response) => localStorage.setItem("token",response.data.accessToken))
+        //  .then(() => navegation("/Home"))
+       .catch((error) => console.log(error));
+
+  }
+
+  return (
+    <>
+      <FormLogin onSubmit={handleSubmit(onLogin)}>
+        <div className="btns">
+          <button type="button" onClick={muda} className="btnslogin disable">
+            Login
+          </button>
+          <button type="button" onClick={muda} className="btnslogin">
+            Cadastrar
+          </button>
         </div>
-        <Input placeholderInput={"Nome"}  type="text"/>
-        <Input placeholderInput={"Senha"} type="password" />
-        <button className="btnslogin--orange">Cadastrar</button>
-
-        </FormLogin>
-        </>
-    )
-    
+        <Input
+          placeholderInput={"Email"}
+          register={register}
+          name="email"
+          type="text"
+        />
+        {errors.email && <span> {errors.email?.message}</span>}
+        <Input
+          placeholderInput={"Senha"}
+          register={register}
+          name="password"
+          type="password"
+        />
+        {errors.email && <span> {errors.email?.message}</span>}
+        <button type="submiit" className="btnslogin--orange">Logar</button>
+      </FormLogin>
+    </>
+  );
 };

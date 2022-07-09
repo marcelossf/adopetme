@@ -1,11 +1,11 @@
-
-import { GlobalStyle } from "./styles/global.js";
+import { AnimalsListProvider } from "./Context/animals";
+import Routes from "./Routes";
+import Login from "./pages/Login/index";
 
 function App() {
   return (
-    <>
-    <GlobalStyle />
-    </>
+      <Login/>
+    
   );
 }
 

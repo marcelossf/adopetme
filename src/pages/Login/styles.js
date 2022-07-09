@@ -67,9 +67,15 @@ export const DivLeft = styled.div`
     font-weight: bold;
     box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.25);
   }
+
+  .disable{
+    background-color:#3b8788;
+  }
+
   .btnslogin:hover {
     background-color: #3b8788;
   }
+
   .btns {
     width: 100%;
     display: flex;
@@ -99,21 +105,32 @@ export const DivInstructionImg = styled.div`
   flex-direction: row;
   justify-content: start;
   overflow-x: scroll;
-  gap:30px;
   padding-left:30px;
   ::-webkit-scrollbar {
     display: none;
   }
 
   .instructionimg {
-    width: 175px;
-    height: 175px;
-    border-radius: 100%;
+    width: 140px;
+    height: 140px;
+  }
+  .divimg{
+    height:130px;
+  }
 
-
+  .textimg{
+    width: 140px;
+    
+    display: flex;
+    flex-direction:column;
+    margin-left:30px;
+    font-size:12px;
+    justify-content:flex-start;
+    align-items:center;
+    text-align:center;
   }
   @media (min-width: 1025px) {
-    max-width:700px;
+    max-width:750px;
     overflow-x: hidden;
     display: flex;
     flex-direction: row;
@@ -124,9 +141,10 @@ export const DivInstructionImg = styled.div`
     gap: 30px;
   }
   .instructionimg {
-    width: 175px;
-    height: 175px;
-    border-radius: 100%;
+    max-width:130px;
+    max-height:130px;
+    width: auto;
+    height: auto;
     margin-left: 0;
   }
 `;
