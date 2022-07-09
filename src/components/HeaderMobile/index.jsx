@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Menu from "../../assets/Menu.png";
 import Logo from "../../assets/logoAdopet.png";
 import MenuMobile from "../MenuMobile";

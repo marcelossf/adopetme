@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Button } from "../Button";
 import { FormCadastre } from "./style";
 import { Input } from "../InputLabel";
 import { SelectForm } from "../SelectForm";
