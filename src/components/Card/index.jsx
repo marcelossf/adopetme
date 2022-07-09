@@ -2,6 +2,7 @@ import { Button } from "../Button";
 import { Container, DivInfos, FigureStyled } from "./styles";
 
 function Card({ pet }) {
+
   return (
     <Container>
       <FigureStyled>
@@ -16,7 +17,7 @@ function Card({ pet }) {
         <span></span>
       </DivInfos>
 
-      <Button>Solicitar Adoção</Button>
+      <Button >Solicitar Adoção</Button>
     </Container>
   );
 }
