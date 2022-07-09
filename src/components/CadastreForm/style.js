@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FormLogin = styled.form`
+export const FormCadastre = styled.form`
   background-color: var(--petroleumBlue);
   width: 330px;
   padding: 20px 0px;
@@ -39,8 +39,9 @@ export const FormLogin = styled.form`
     font-weight: bold;
     margin-top: 10px;
     box-shadow:-1px 1px 2px 2px rgba(0,0,0,0.25);  
-
-    
+  }
+  .disable{
+    background-color:#3b8788;
   }
   .btns {
     width: 100%;

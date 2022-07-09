@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 export const RedirectContext = createContext([]);
 
 export const RedirectProvider = ({ children }) => {
-  const [form, setForm] = useState(false);
+  const [form, setForm] = useState(true);
   const history = useHistory();
 
   const redirectToPage = (page) => {
@@ -14,7 +14,7 @@ export const RedirectProvider = ({ children }) => {
   };
 
   return (
-    <RedirectContext.Provider value={{ redirectToPage, form }}>
+    <RedirectContext.Provider value={{ redirectToPage, form, setForm }}>
       {children}
     </RedirectContext.Provider>
   );
