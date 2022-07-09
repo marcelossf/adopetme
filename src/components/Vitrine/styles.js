@@ -39,6 +39,7 @@ margin-top: 50px;
 
   @media (min-width: 1000px) {
     width: 100%;
+    max-height: 700px;
     ul {
     justify-content: center;
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FootContainer = styled.footer`
   width: 100%;
-  max-width: 1300px;
+  /* max-width: 1300px; */
   background-color: var(--green);
 `;
 

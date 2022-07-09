@@ -15,7 +15,7 @@ function Routes() {
         <WhoWeAre />
       </Route>
       <Route exact path={"/cadastrar"}>
-        <Cadastro />
+        <Login />
       </Route>
       <Route exact path={"/login"}>
         <Login />

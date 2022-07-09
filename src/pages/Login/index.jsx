@@ -7,9 +7,9 @@ import { LoginForm } from "../../components/LoginForm";
 import {RedirectContext} from '../../context/redirect'
 
 function Login() {
-  const [form, setForm] = useState(false);
+  // const [form, setForm] = useState(false);
 
-  const {redirectToPage} = useContext(RedirectContext);
+  const {redirectToPage, form} = useContext(RedirectContext);
 
   const instruction = [
     { img: "", Text: "oioi" },

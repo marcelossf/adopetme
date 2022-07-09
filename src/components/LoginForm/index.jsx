@@ -18,7 +18,7 @@ export const LoginForm = () => {
         </div>
         <Input placeholderInput={"Nome"}  type="text"/>
         <Input placeholderInput={"Senha"} type="password" />
-        <button className="btnslogin--orange">Cadastrar</button>
+        <button className="btnslogin--orange">Entrar</button>
 
         </FormLogin>
         </>
