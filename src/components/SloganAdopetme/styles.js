@@ -56,16 +56,18 @@ export const Slogan = styled.div`
       width: 100%;
 
       .vectorDesktop {
-        width: 81%;
+        width: 71%;
+        margin-left: 2vw;
       }
 
       span {
-        position: absolute;
+        position: absolute; 
 
         box-sizing: border-box;
-        padding: 80px;
+        padding-left: 120px;
+        margin-bottom: 30px;
 
-        width: 88%;
+        width: 68%;
         font-size: 36px;
         line-height: 46px;
       }

@@ -8,7 +8,6 @@ export const RedirectProvider = ({ children }) => {
   const history = useHistory();
 
   const redirectToPage = (page) => {
-    console.log(page)
     page === '/login' && setForm(true);
     page === '/cadastrar' && setForm(false);
     history.push(page);
