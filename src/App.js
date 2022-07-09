@@ -1,4 +1,5 @@
 import { AnimalRegister } from "./components/AnimalRegister";
+import MenuMobile from "./components/MenuMobile";
 import { SearchBar } from "./components/SearchBar";
 import Vitrine from "./components/Vitrine";
 import { AnimalsListProvider } from "./context/animals";
@@ -9,10 +10,7 @@ import Routes from "./Routes";
 function App() {
   return (
     <AnimalsListProvider>
-      <SearchProvider>
-        <SearchBar />
-        {/* <Vitrine /> */}
-      </SearchProvider>
+     <MenuMobile/>
     </AnimalsListProvider>
   );
 }

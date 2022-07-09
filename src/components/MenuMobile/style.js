@@ -10,6 +10,8 @@ export const Section = styled.section`
   position: fixed;
   min-width: 307px;
   z-index: 9999;
+  -webkit-animation: slide-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
   .container-img {
     display: flex;
@@ -17,21 +19,56 @@ export const Section = styled.section`
     align-items: flex-start;
     max-width: 300px;
     justify-content: space-between;
+    cursor: pointer;
   }
 
-  .div-half {
-    background-color: white;
-    height: 2px;
-    width: 340px;
+  .menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .text-menu {
+    font-family: "Fredoka";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+
+    display: flex;
+    align-items: center;
+    text-indent: 25px;
+
     color: white;
-    font-weight: bolder;
-    font-size: 16px;
-    padding-left: 25px;
-    margin-top: 19px;
+    animation: scale-up-hor-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   }
+
+  @-webkit-keyframes slide-right {
+    0% {
+      -webkit-transform: translateX(-300px);
+      transform: translateX(-300px);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+  }
+  @keyframes slide-right {
+    0% {
+      -webkit-transform: translateX(-300px);
+      transform: translateX(-300px);
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }
+  }
+
+  .text-menu:hover {
+    cursor: pointer;
+    border-bottom: 2px solid white;
+  }
+
   .logoBlack {
     max-width: 273px;
     min-width: 195px;

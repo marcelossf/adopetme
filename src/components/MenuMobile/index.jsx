@@ -1,8 +1,12 @@
 import LogoBlack from "../../assets/adoPetPreto.png";
 import Close from "../../assets/fechar.png";
+import { LinksMenuMobile } from "../LinksMenuMobile";
 import { Section } from "./style";
 
 const MenuMobile = ({ setOpen }) => {
+
+  
+
   const closeModal = () => {
     setOpen(false);
   };
@@ -18,9 +22,8 @@ const MenuMobile = ({ setOpen }) => {
           alt="LogoClose"
         ></img>
       </div>
-      <div>
+      <div className="menu-links">
         <p className="text-menu">Início</p>
-        <div className="div-half"></div>
         <p className="text-menu">Login</p>
         <p className="text-menu">Cadastrar</p>
         <p className="text-menu">Quem somos</p>
