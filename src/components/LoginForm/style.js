@@ -11,6 +11,7 @@ export const FormLogin = styled.form`
   flex-direction: column;
   gap: 15px;
   padding: 20px 0px;
+  box-shadow:-1px 1px 2px 2px rgba(0,0,0,0.25);  
 
   .btnslogin {
     width: 100px;
@@ -21,8 +22,15 @@ export const FormLogin = styled.form`
     color : white;
     font-family:Comfortaa;
     font-weight: bold;
+    box-shadow:-1px 1px 2px 2px rgba(0,0,0,0.25);  
+
     
   }
+
+  .disable{
+    background-color:#3b8788;
+  }
+
   .btnslogin:hover{
     background-color: #3B8788;
   }
@@ -36,6 +44,8 @@ export const FormLogin = styled.form`
     font-family:Comfortaa;
     font-weight: bold;
     margin-top:10px;
+    box-shadow:-1px 1px 2px 2px rgba(0,0,0,0.25);  
+
   }
   .btns {
     width: 100%;

@@ -6,6 +6,7 @@ import { AnimalsListProvider } from "./context/animals";
 import { SearchProvider } from "./context/search";
 import { RegisterPet } from "./pages/RegisterPet";
 import Routes from "./Routes";
+import GlobalStyle from "./styles/global";
 
 function App() {
   return (

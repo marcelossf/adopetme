@@ -12,6 +12,8 @@ function Vitrine() {
 
   return (
     <Container>
+
+      <span className="fraseVitrine">Amigo não se compra, <span style={{color:'red'}}>adote</span>!</span>
       <ul>
         {pets
           ?.filter(

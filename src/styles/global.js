@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
         --red: #F22222;
         --petroleumBlue: #4DB1B3;
         --white: #F2F2F2;
+        --black: #000000;
     }  
 
     *{
@@ -29,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
     li,ul {
         list-style: none;
     }
+
     h1, h2 {
         font-weight: bold;
         font-family: 'Fredoka', sans-serif;;
