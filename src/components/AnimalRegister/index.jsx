@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
+  ButtonContainer,
   ColumnContainer,
   ColumnForm,
   Container,
@@ -14,6 +15,8 @@ import {
 import { Button } from "../Button";
 import { Error } from "../Error";
 import { AnimalsListContext } from "../../context/animals";
+import { Input } from "../InputLabel";
+import { SelectForm } from "../SelectForm";
 
 export const AnimalRegister = () => {
   const formSchema = yup.object().shape({
@@ -30,10 +33,10 @@ export const AnimalRegister = () => {
     situation: yup.string().required("Campo Obrigatório"),
   });
 
-  ////////////////////Pegar dados da ONG//////////////////////////
-  const { pets, active, setActive } = useContext(AnimalsListContext);
+  const [active, setActive] = useState(true);
 
-  console.log(pets);
+  ////////////////////Pegar dados da ONG//////////////////////////
+  const { pets } = useContext(AnimalsListContext);
 
   ///////////Fazer o POST pra api/////////////////////////
 
@@ -45,8 +48,9 @@ export const AnimalRegister = () => {
 
   function onSubmitFunction(animalData) {
     const newData = { ...animalData, idOwner: 2, address: "adff" };
+    console.log(newData);
   }
-
+  console.log(errors);
   return (
     <SectionContainer>
       <FolderContainer>
@@ -72,75 +76,99 @@ export const AnimalRegister = () => {
               <form onSubmit={handleSubmit(onSubmitFunction)}>
                 <ColumnContainer>
                   <ColumnForm>
-                    <label htmlFor="">Nome:</label>
-                    {errors && <Error error={errors?.petName?.message} />}
-                    <input
-                      type="text"
-                      placeholder="Nome"
-                      {...register("petName")}
+                    <Input
+                      TextLabelForm={"Nome"}
+                      placeholderInput={"Nome"}
+                      register={register}
+                      name="petName"
                     />
-                    <label htmlFor="">Foto Do Pet:</label>
-                    <input
-                      type="text"
-                      placeholder="url Imagem"
-                      {...register("img")}
+                    {!!errors && <Error>{errors?.petName?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Foto do Pet"}
+                      placeholderInput={"Foto do Pet"}
+                      name="img"
+                      register={register}
                     />
-                    <label htmlFor="">Raça:</label>
-                    <input
-                      type="text"
-                      placeholder="Raça"
-                      {...register("breed")}
+                    {!!errors && <Error>{errors?.img?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Raça"}
+                      placeholderInput={"Raça"}
+                      name="breed"
+                      register={register}
                     />
-                    <label htmlFor="">Espécie:</label>
-                    <select name="" {...register("species")}>
+                    {!!errors && <Error>{errors?.breed?.message}</Error>}
+                    <SelectForm
+                      TextLabelForm={"Espécie"}
+                      placeholderInput={"Espécie"}
+                      name="species"
+                      register={register}
+                    >
                       <option value="Cachorro">Cachorro</option>
                       <option value="Gato">Gato</option>
                       <option value="Roedor">Roedor</option>
-                    </select>
-                    <label htmlFor="">Cor:</label>
-                    <input
-                      type="text"
-                      placeholder="Cor"
-                      {...register("color")}
+                    </SelectForm>
+                    {!!errors && <Error>{errors?.species?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Cor"}
+                      placeholderInput={"Cor"}
+                      name="color"
+                      register={register}
                     />
-                    <label htmlFor="">Genero:</label>
-                    <select name="" {...register("gender")}>
-                      <option value="male">Macho</option>
-                      <option value="female">Femea</option>
-                    </select>
+                    {!!errors && <Error>{errors?.color?.message}</Error>}
+                    <SelectForm
+                      name="gender"
+                      TextLabelForm={"Genero"}
+                      placeholderInput={"Genero"}
+                      register={register}
+                    >
+                      <option value="Macho">Macho</option>
+                      <option value="Femea">Fêmea</option>
+                    </SelectForm>
+                    {!!errors && <Error>{errors?.gender?.message}</Error>}
                   </ColumnForm>
                   <ColumnForm>
-                    <label htmlFor="">Idade:</label>
-                    <input
-                      type="text"
-                      placeholder="Idade"
-                      {...register("age")}
+                    <Input
+                      TextLabelForm={"Idade"}
+                      placeholderInput={"Idade"}
+                      name="age"
+                      register={register}
                     />
-                    <label htmlFor="">Porte:</label>
-                    <input
-                      type="text"
-                      placeholder="Porte"
-                      {...register("porte")}
+                    {!!errors && <Error>{errors?.age?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Porte"}
+                      placeholderInput={"Porte"}
+                      name="porte"
+                      register={register}
                     />
-                    <label htmlFor="">Ong:</label>
-                    <input type="text" placeholder="Ong" {...register("ong")} />
-                    <label htmlFor="">Descrição:</label>
-                    <input
-                      type="text"
-                      placeholder="Descrição"
-                      {...register("description")}
+                    {!!errors && <Error>{errors?.porte?.message}</Error>}
+                    <Input
+                      TextLabelForm={"ONG"}
+                      placeholderInput={"ONG"}
+                      name="ong"
+                      register={register}
                     />
-                    <label htmlFor="">Situação:</label>
-                    <input
-                      type="text"
-                      placeholder="Situação"
-                      {...register("situation")}
+                    {!!errors && <Error>{errors?.ong?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Descrição"}
+                      placeholderInput={"Descrição"}
+                      name="description"
+                      register={register}
                     />
+                    {!!errors && <Error>{errors?.description?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Situação"}
+                      placeholderInput={"Situação"}
+                      name="situation"
+                      register={register}
+                    />
+                    {!!errors && <Error>{errors?.situation?.message}</Error>}
                   </ColumnForm>
                 </ColumnContainer>
-                <Button blackSchema type="submit">
-                  Enviar
-                </Button>
+                <ButtonContainer>
+                  <Button width={"200px"} blackSchema type="submit">
+                    Enviar
+                  </Button>
+                </ButtonContainer>
               </form>
             </Container>
           </FormContainer>
@@ -152,75 +180,99 @@ export const AnimalRegister = () => {
               <form onSubmit={handleSubmit(onSubmitFunction)}>
                 <ColumnContainer>
                   <ColumnForm>
-                    <label htmlFor="">Nome:</label>
-                    {errors && <Error error={errors?.petName?.message} />}
-                    <input
-                      type="text"
-                      placeholder="Nome"
-                      {...register("petName")}
+                    <Input
+                      TextLabelForm={"Nome"}
+                      placeholderInput={"Nome"}
+                      register={register}
+                      name="petName"
                     />
-                    <label htmlFor="">Foto Do Pet:</label>
-                    <input
-                      type="text"
-                      placeholder="url Imagem"
-                      {...register("img")}
+                    {!!errors && <Error>{errors?.petName?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Foto do Pet"}
+                      placeholderInput={"Foto do Pet"}
+                      name="img"
+                      register={register}
                     />
-                    <label htmlFor="">Raça:</label>
-                    <input
-                      type="text"
-                      placeholder="Raça"
-                      {...register("breed")}
+                    {!!errors && <Error>{errors?.img?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Raça"}
+                      placeholderInput={"Raça"}
+                      name="breed"
+                      register={register}
                     />
-                    <label htmlFor="">Espécie:</label>
-                    <select name="" {...register("species")}>
+                    {!!errors && <Error>{errors?.breed?.message}</Error>}
+                    <SelectForm
+                      TextLabelForm={"Espécie"}
+                      placeholderInput={"Espécie"}
+                      name="species"
+                      register={register}
+                    >
                       <option value="Cachorro">Cachorro</option>
                       <option value="Gato">Gato</option>
                       <option value="Roedor">Roedor</option>
-                    </select>
-                    <label htmlFor="">Cor:</label>
-                    <input
-                      type="text"
-                      placeholder="Cor"
-                      {...register("color")}
+                    </SelectForm>
+                    {!!errors && <Error>{errors?.species?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Cor"}
+                      placeholderInput={"Cor"}
+                      name="color"
+                      register={register}
                     />
-                    <label htmlFor="">Genero:</label>
-                    <select name="" {...register("gender")}>
-                      <option value="male">Macho</option>
-                      <option value="female">Femea</option>
-                    </select>
+                    {!!errors && <Error>{errors?.color?.message}</Error>}
+                    <SelectForm
+                      name="gender"
+                      TextLabelForm={"Genero"}
+                      placeholderInput={"Genero"}
+                      register={register}
+                    >
+                      <option value="Macho">Macho</option>
+                      <option value="Femea">Fêmea</option>
+                    </SelectForm>
+                    {!!errors && <Error>{errors?.gender?.message}</Error>}
                   </ColumnForm>
                   <ColumnForm>
-                    <label htmlFor="">Idade:</label>
-                    <input
-                      type="text"
-                      placeholder="Idade"
-                      {...register("age")}
+                    <Input
+                      TextLabelForm={"Idade"}
+                      placeholderInput={"Idade"}
+                      name="age"
+                      register={register}
                     />
-                    <label htmlFor="">Porte:</label>
-                    <input
-                      type="text"
-                      placeholder="Porte"
-                      {...register("porte")}
+                    {!!errors && <Error>{errors?.age?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Porte"}
+                      placeholderInput={"Porte"}
+                      name="porte"
+                      register={register}
                     />
-                    <label htmlFor="">Ong:</label>
-                    <input type="text" placeholder="Ong" {...register("ong")} />
-                    <label htmlFor="">Descrição:</label>
-                    <input
-                      type="text"
-                      placeholder="Descrição"
-                      {...register("description")}
+                    {!!errors && <Error>{errors?.porte?.message}</Error>}
+                    <Input
+                      TextLabelForm={"ONG"}
+                      placeholderInput={"ONG"}
+                      name="ong"
+                      register={register}
                     />
-                    <label htmlFor="">Situação:</label>
-                    <input
-                      type="text"
-                      placeholder="Situação"
-                      {...register("situation")}
+                    {!!errors && <Error>{errors?.ong?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Descrição"}
+                      placeholderInput={"Descrição"}
+                      name="description"
+                      register={register}
                     />
+                    {!!errors && <Error>{errors?.description?.message}</Error>}
+                    <Input
+                      TextLabelForm={"Situação"}
+                      placeholderInput={"Situação"}
+                      name="situation"
+                      register={register}
+                    />
+                    {!!errors && <Error>{errors?.situation?.message}</Error>}
                   </ColumnForm>
                 </ColumnContainer>
-                <Button blackSchema type="submit">
-                  Enviar
-                </Button>
+                <ButtonContainer>
+                  <Button width={"200px"} blackSchema type="submit">
+                    Enviar
+                  </Button>
+                </ButtonContainer>
               </form>
             </Container>
           </FormContainer>

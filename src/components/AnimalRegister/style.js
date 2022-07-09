@@ -4,7 +4,7 @@ export const SectionContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
 `;
 
 export const FolderContainer = styled.div`
@@ -139,3 +139,8 @@ export const ColumnForm = styled.div`
     width: 100%;
   }
 `;
+
+export const ButtonContainer = styled.div`
+ display: flex;
+ justify-content: center;
+`

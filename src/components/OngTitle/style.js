@@ -12,6 +12,7 @@ export const DivStyled = styled.div`
     color: #4db1b3;
     font-weight: 500;
     font-family: "Fredoka";
+    margin-left: 20px;
     margin-bottom: 13px;
     font-size: 40px;
   }
@@ -27,13 +28,13 @@ export const DivStyled = styled.div`
     display: none;
   }
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1024px) {
     flex-direction: row;
 
     .adopet-logo {
       display: block;
-      width: 30%;
-      height: 30%;
+      max-width:50% ;
+      
     }
     .ong-container {
       width: 90%;
