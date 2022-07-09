@@ -95,10 +95,4 @@ export const SearchContaier = styled.div`
     background-color: var(--orange);
     color: white;
   }
-
-  @media (min-width: 1024px) {
-    input {
-      width: 100%;
-    }
-  }
 `;
