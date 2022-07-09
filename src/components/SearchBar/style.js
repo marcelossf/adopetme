@@ -9,6 +9,10 @@ export const Container = styled.section`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
 export const SloganContainer = styled.div`
@@ -53,16 +57,21 @@ export const FilterContainer = styled.div`
     color: white;
     filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
   }
+
+  @media (min-width: 1024px) {
+    width: calc(100% / 3);
+  }
 `;
 
 export const SearchContaier = styled.div`
   width: 100%;
+  max-width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   input {
-    width: 70%;
+    width: 65%;
     height: 58px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px 0px 0px 10px;
@@ -72,7 +81,7 @@ export const SearchContaier = styled.div`
     outline: none;
 
     ::placeholder {
-      color: #CFCFCF;
+      color: #cfcfcf;
       font-size: 20px;
       font-family: Comfortaa;
     }
@@ -85,5 +94,11 @@ export const SearchContaier = styled.div`
     border: none;
     background-color: var(--orange);
     color: white;
+  }
+
+  @media (min-width: 1024px) {
+    input {
+      width: 100%;
+    }
   }
 `;

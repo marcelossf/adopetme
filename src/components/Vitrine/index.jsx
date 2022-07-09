@@ -1,30 +1,29 @@
 import { useContext } from "react";
 // import api from "../../api/api";
 import { AnimalsListContext } from "../../context/animals";
+import { SearchContext } from "../../context/search";
 import Card from "../Card";
 
 import { Container } from "./styles";
 
 function Vitrine() {
   const { pets } = useContext(AnimalsListContext);
-  // const [pets, setPets] = useState([]);
-  // useEffect(() => {
-  //   api
-  //     .get("/pet")
-  //     .then((res) => {
-  //       setPets(res.data);
-  //     })
-  //     .catch((err) => err);
-  // }, []);
+  const { input } = useContext(SearchContext);
 
   return (
     <Container>
       <ul>
-        {pets?.map((pet) => (
-          <li key={pet.id}>
-            <Card pet={pet} />
-          </li>
-        ))}
+        {pets
+          ?.filter(
+            ({ petName, species }) =>
+              petName.toLowerCase().includes(input.toLowerCase()) ||
+              species.toLowerCase().includes(input.toLowerCase())
+          )
+          .map((pet) => (
+            <li key={pet.id}>
+              <Card pet={pet} />
+            </li>
+          ))}
       </ul>
     </Container>
   );
