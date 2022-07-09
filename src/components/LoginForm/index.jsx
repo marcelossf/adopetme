@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
-import { Button } from "../Button";
 import { FormLogin } from "./style";
 import { Input } from "../InputLabel";
 import { RedirectContext } from "../../context/redirect";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
 import {LoginLogoutContext} from '../../context/login-logout';
 
 import api from "../../api/api";
@@ -17,8 +15,6 @@ export const LoginForm = ({ setForm }) => {
   const { redirectToPage, form } = useContext(RedirectContext);
   const {logado, changeLogado} = useContext(LoginLogoutContext);
 
-  const token = localStorage.getItem('token');
-  
   const muda = () => {
     setForm(!form);
   };

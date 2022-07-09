@@ -22,7 +22,7 @@ const Header = () => {
 
   const logout = () => {
     changeLogado();
-    localStorage.removeItem('token');
+    localStorage.clear();
   };
 
   return (
