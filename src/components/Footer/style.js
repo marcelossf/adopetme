@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FootContainer = styled.footer`
-  width: 100%;
+  width: 100vw;
   display: flex;
   background-color: var(--green);
 `;
