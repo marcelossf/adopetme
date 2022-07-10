@@ -2,7 +2,7 @@ import { useContext } from "react";
 import LogoBlack from "../../assets/adoPetPreto.png";
 import Close from "../../assets/fechar.png";
 import { LoginLogoutContext } from "../../context/login-logout";
-import { LinksMenuMobile } from "../LinksMenuMobile";
+
 import { Section } from "./style";
 
 const MenuMobile = ({ setOpen }) => {
