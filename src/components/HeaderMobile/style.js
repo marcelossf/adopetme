@@ -23,7 +23,7 @@ export const Head = styled.header`
     max-height: 167px;
     min-width: 202px;
     min-height: 99px;
-    /* margin-right: 10px; */
+    padding-right: 10px;
   }
 
   .pawsLogo,

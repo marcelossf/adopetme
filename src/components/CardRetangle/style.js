@@ -11,10 +11,7 @@ export const ContainerCard = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    justify-content: center;
     max-width: 1000px;
-    min-width: 320px;
-    width: 80%;
   }
 
   .page {

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FootContainer = styled.footer`
-  width: 100vw;
+  width: 100%;
   display: flex;
   background-color: var(--green);
 `;
@@ -23,7 +23,7 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 100vw;
+    width: 100%;
     img {
       display: flex;
       max-width: 248px;
