@@ -7,8 +7,9 @@ import { Head, StyledButton } from "./style";
 import { RedirectContext } from "../../context/redirect";
 import { LoginLogoutContext } from "../../context/login-logout";
 import PhotoPerfil from "../PhotoPerfil";
+import { NavMenu } from "../NavMenu";
 
-const Header = () => {
+const Header = ({ children }) => {
   const [open, setOpen] = useState(false);
   const { redirectToPage } = useContext(RedirectContext);
   const { logado } = useContext(LoginLogoutContext);
@@ -32,51 +33,9 @@ const Header = () => {
         ></img>
         <div className="circle"></div>
         <img className="pawsLogo" src={PawsLogo} alt="Patinhas Logo"></img>
-        <nav className="container-buttons">
-          <StyledButton
-            onClick={() => {
-              redirectToPage("/");
-            }}
-          >
-            Início
-          </StyledButton>
-          <StyledButton
-            onClick={() => {
-              redirectToPage("/quem-somos");
-            }}
-          >
-            Quem somos
-          </StyledButton>
-          {logado ? (
-            <StyledButton
-              onClick={() => {
-                redirectToPage("/solicitacao");
-              }}
-            >
-              Solicitação
-            </StyledButton>
-          ) : (
-            <StyledButton
-              onClick={() => {
-                redirectToPage("/cadastrar");
-              }}
-            >
-              Cadastrar
-            </StyledButton>
-          )}
 
-          {logado ? (
-            <PhotoPerfil />
-          ) : (
-            <StyledButton
-              onClick={() => {
-                redirectToPage("/login");
-              }}
-            >
-              Login
-            </StyledButton>
-          )}
-        </nav>
+        <NavMenu>{children}</NavMenu>
+
         <img className="imgLogo" src={Logo} alt="logoAdopet"></img>
       </Head>
       {open === true ? <MenuMobile setOpen={setOpen} /> : false}

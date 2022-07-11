@@ -7,6 +7,18 @@ function App() {
       <GlobalStyle />
       <Routes />
     </>
+    // <AnimalsListProvider>
+    //   <SearchProvider>
+    //     <Header>
+    //       <NavMenu>
+    //         <StyledButton>Início</StyledButton>
+    //         <StyledButton>Adotar</StyledButton>
+    //         <StyledButton>Qadfads</StyledButton>
+    //         <StyledButton>Logsadfin</StyledButton>
+    //       </NavMenu>
+    //     </Header>
+    //   </SearchProvider>
+    // </AnimalsListProvider>
   );
 }
 

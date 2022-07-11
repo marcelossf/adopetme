@@ -4,6 +4,7 @@ import { IoMdArrowDropright } from "react-icons/io";
 
 export const MenuDropDown = ({ title, filters, icon }) => {
   const [subNav, setSubNav] = useState(false);
+
   return (
     <>
       <InnerMenu onClick={() => setSubNav(!subNav)}>
@@ -14,9 +15,9 @@ export const MenuDropDown = ({ title, filters, icon }) => {
         {subNav &&
           filters.map((filter, index) => {
             return (
-              <FilterContent key={index}>
+              <FilterContent key={index} onClick={()=>console.log(filter)}>
                 <IoMdArrowDropright size={40}/>
-                <span>{filter}</span>
+                <span >{filter}</span>
               </FilterContent>
             );
           })}

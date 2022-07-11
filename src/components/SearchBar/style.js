@@ -28,9 +28,20 @@ export const SloganContainer = styled.div`
   color: white;
 `;
 
+export const FilterBox = styled.div`
+width: 80%;
+max-width: 400px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+position: relative;
+`
+
 export const FilterContainer = styled.div`
   background-color: var(--orange);
-  width: 80%;
+  width: 100%;
+  /* min-width: 316px; */
   max-width: 400px;
   display: flex;
   justify-content: space-between;
@@ -39,6 +50,7 @@ export const FilterContainer = styled.div`
   box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   cursor: pointer;
+  
 
   span {
     font-family: "Fredoka";
@@ -56,10 +68,6 @@ export const FilterContainer = styled.div`
   svg {
     color: white;
     filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
-  }
-
-  @media (min-width: 1024px) {
-    width: calc(100% / 3);
   }
 `;
 
