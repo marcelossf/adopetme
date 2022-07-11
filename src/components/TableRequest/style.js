@@ -8,11 +8,20 @@ export const RequestTable = styled.table`
 
 	padding: 1em 1.5em;
 	width: 100%;
-	max-width: 1260px;
-	height: 100%;
-	min-height: 300px;
-	max-height: 800px;
+	max-width: 1450px;
 
+	height: 500px;
+
+	display: block;
+	overflow-y: auto;
+
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #f2ae2f;
+		border-radius: 10px;
+	}
 	.table-headers {
 		display: flex;
 		justify-content: space-evenly;

@@ -29,11 +29,15 @@ const UserRequest = () => {
 					<h1>Acompanhe o processo de adoção</h1>
 				</Title>
 			</HeaderContainer>
+
 			<MainContainer>
 				<section className="request-container">
+					<h2 className="request-caption">Processo de adoção</h2>
+
 					<TableRequest />
 				</section>
 			</MainContainer>
+
 			<Footer>
 				<Link to="/">Início</Link>
 				<Link to="">Quero adotar</Link>

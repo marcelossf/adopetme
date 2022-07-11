@@ -1,11 +1,8 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
-	/* background-color: aqua; */
-	/* max-width: 1400px; */
 	width: 100%;
 	margin: 0 auto;
-	/* padding: 0 1em; */
 
 	display: flex;
 	flex-direction: row;
@@ -91,13 +88,11 @@ export const Title = styled.div`
 
 export const MainContainer = styled.main`
 	width: 100%;
-	margin-bottom: 30px;
+	margin-bottom: 90px;
 	padding: 0 1em 0 0;
 
 	.request-container {
-		width: 100%;
-		height: 100%;
-		min-height: 300px;
+		height: 600px;
 	}
 
 	.request-caption {
@@ -123,6 +118,7 @@ export const MainContainer = styled.main`
 		@media (min-width: 768px) {
 			font-size: 18px;
 			line-height: 25px;
+			max-width: 40%;
 		}
 		@media (min-width: 1024px) {
 			font-size: 24px;
