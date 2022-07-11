@@ -73,20 +73,20 @@ export const CadastreForm = ({ setForm, form }) => {
           className="loginInput"
           type="text"
           register={register}
-          name="Type"
+          name="type"
           placeholder="Senha"
         >
           <option value="Adotante">Adotante</option>
           <option value="ONG">ONG</option>
         </SelectForm>
-        {errors.email && <span> {errors.Type?.message}</span>}
+        {errors.email && <span> {errors.type?.message}</span>}
         <Input
           placeholderInput={"Nome"}
           register={register}
-          name="Name"
+          name="name"
           type="text"
         />
-        {errors.email && <span> {errors.Name?.message}</span>}
+        {errors.email && <span> {errors.name?.message}</span>}
         <Input
           placeholderInput={"Email"}
           register={register}

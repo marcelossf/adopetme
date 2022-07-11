@@ -7,6 +7,7 @@ export const DivStyled = styled.div`
   min-height: 163px;
   justify-content: center;
   width: 100%;
+  padding: 0 1rem;
 
   .title-ong {
     color: #4db1b3;
