@@ -102,14 +102,14 @@ export const MainContainer = styled.main`
 	}
 
 	.request-caption {
-		background: #4db1b3;
+		background: #3b8788;
 
 		border-top-right-radius: 15px;
 		width: 100%;
 		max-width: 70%;
 		padding: 1em;
 
-		color: #d9d9d9;
+		color: var(--white);
 		text-shadow: 2px 2px 4px #000000;
 
 		font-weight: 700;
@@ -117,12 +117,22 @@ export const MainContainer = styled.main`
 		font-family: fredoka;
 		line-height: 19px;
 		letter-spacing: 0.06em;
+
 		text-transform: uppercase;
 		text-align: center;
+
+		@media (min-width: 768px) {
+			font-size: 18px;
+			line-height: 25px;
+		}
+		@media (min-width: 1024px) {
+			font-size: 24px;
+			line-height: 31px;
+		}
 	}
 
 	.request-table {
-		background: #4db1b3;
+		background: #3b8788;
 
 		border-top-right-radius: 15px;
 		border-bottom-right-radius: 15px;
@@ -153,10 +163,20 @@ export const MainContainer = styled.main`
 				letter-spacing: 0.06em;
 				line-height: 17px;
 				text-transform: uppercase;
+
+				@media (min-width: 450px) {
+					font-size: 18px;
+					line-height: 21px;
+				}
+				@media (min-width: 1024px) {
+					font-size: 28px;
+					line-height: 31px;
+				}
 			}
 		}
 
 		.table-data {
+			cursor: default;
 			transition: transform 200ms;
 
 			display: flex;
@@ -165,6 +185,7 @@ export const MainContainer = styled.main`
 			align-items: center;
 			gap: 1em;
 			padding: 1em 0;
+			width: 100%;
 
 			td {
 				width: 100%;
@@ -174,11 +195,21 @@ export const MainContainer = styled.main`
 				font-weight: 700;
 				font-size: 14px;
 				line-height: 17px;
+
+				@media (min-width: 450px) {
+					font-size: 16px;
+					line-height: 19px;
+				}
+				@media (min-width: 1024px) {
+					font-size: 24px;
+					line-height: 31px;
+				}
 			}
 		}
 		.first {
 			display: flex;
 			align-items: center;
+			justify-content: center;
 
 			span {
 				content: url(${selector});
@@ -187,6 +218,10 @@ export const MainContainer = styled.main`
 
 				opacity: 0;
 				transition: opacity 200ms;
+
+				@media (min-width: 768px) {
+					padding: 1em;
+				}
 			}
 		}
 
