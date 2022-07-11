@@ -6,7 +6,9 @@ import Logo from "../../assets/logoAdopet.png";
 import MenuDropdown from "../../assets/Menu.png";
 
 import { Footer } from "../../components/Footer";
+import SloganRequest from "../../components/SloganRequest";
 import { TableRequest } from "../../components/TableRequest";
+
 import {
 	HeaderContainer,
 	MainContainer,
@@ -35,6 +37,9 @@ const UserRequest = () => {
 					<h2 className="request-caption">Processo de adoção</h2>
 
 					<TableRequest />
+				</section>
+				<section>
+					<SloganRequest />
 				</section>
 			</MainContainer>
 
