@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import selector from "../../assets/topic-request.png";
 export const HeaderContainer = styled.header`
 	/* background-color: aqua; */
 	/* max-width: 1400px; */
@@ -128,108 +127,6 @@ export const MainContainer = styled.main`
 		@media (min-width: 1024px) {
 			font-size: 24px;
 			line-height: 31px;
-		}
-	}
-
-	.request-table {
-		background: #3b8788;
-
-		border-top-right-radius: 15px;
-		border-bottom-right-radius: 15px;
-
-		padding: 1em 1.5em;
-		width: 100%;
-		max-width: 1260px;
-		height: 100%;
-		min-height: 300px;
-		max-height: 800px;
-
-		.table-headers {
-			display: flex;
-			justify-content: space-evenly;
-			align-items: center;
-			gap: 1em;
-
-			border-bottom: 2px solid #f2ae2f;
-			padding: 1em 0;
-
-			th {
-				color: var(--white);
-
-				font-size: 14px;
-				font-weight: 700;
-				font-family: fredoka;
-
-				letter-spacing: 0.06em;
-				line-height: 17px;
-				text-transform: uppercase;
-
-				@media (min-width: 450px) {
-					font-size: 18px;
-					line-height: 21px;
-				}
-				@media (min-width: 1024px) {
-					font-size: 28px;
-					line-height: 31px;
-				}
-			}
-		}
-
-		.table-data {
-			cursor: default;
-			transition: transform 200ms;
-
-			display: flex;
-			justify-content: space-evenly;
-
-			align-items: center;
-			gap: 1em;
-			padding: 1em 0;
-			width: 100%;
-
-			td {
-				width: 100%;
-				color: #ffffff;
-
-				text-align: center;
-				font-weight: 700;
-				font-size: 14px;
-				line-height: 17px;
-
-				@media (min-width: 450px) {
-					font-size: 16px;
-					line-height: 19px;
-				}
-				@media (min-width: 1024px) {
-					font-size: 24px;
-					line-height: 31px;
-				}
-			}
-		}
-		.first {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			span {
-				content: url(${selector});
-
-				display: inline-block;
-
-				opacity: 0;
-				transition: opacity 200ms;
-
-				@media (min-width: 768px) {
-					padding: 1em;
-				}
-			}
-		}
-
-		.table-data :hove {
-			transform: none;
-		}
-		.table-data:hover > .first > span {
-			opacity: 1;
 		}
 	}
 `;

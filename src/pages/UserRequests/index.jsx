@@ -6,6 +6,7 @@ import Logo from "../../assets/logoAdopet.png";
 import MenuDropdown from "../../assets/Menu.png";
 
 import { Footer } from "../../components/Footer";
+import { TableRequest } from "../../components/TableRequest";
 import {
 	HeaderContainer,
 	MainContainer,
@@ -30,32 +31,7 @@ const UserRequest = () => {
 			</HeaderContainer>
 			<MainContainer>
 				<section className="request-container">
-					<table className="request-table">
-						<caption className="request-caption">
-							Processo de adoção
-						</caption>
-						<tr className="table-headers">
-							<th>Nome pet</th>
-							<th>Ong responsável</th>
-							<th className="status"> status</th>
-						</tr>
-						<tr className="table-data">
-							<td className="first">
-								<span></span>PitbullFofo
-							</td>
-							<td>LovePaws</td>
-							<td className="status aprovado entregue negado revisao pendente">
-								em revisão
-							</td>
-						</tr>
-						<tr className="table-data">
-							<td className="first">
-								<span></span>PitbullFofo
-							</td>
-							<td>LovePaws</td>
-							<td>pendente</td>
-						</tr>
-					</table>
+					<TableRequest />
 				</section>
 			</MainContainer>
 			<Footer>
