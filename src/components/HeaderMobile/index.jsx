@@ -4,8 +4,9 @@ import Logo from "../../assets/logoAdopet.png";
 import MenuMobile from "../MenuMobile";
 import PawsLogo from "../../assets/pawslogo.png";
 import { Head, StyledButton } from "./style";
+import { NavMenu } from "../NavMenu";
 
-const Header = () => {
+const Header = ({ children }) => {
   const [open, setOpen] = useState(false);
   const OpenModal = () => {
     if (open === false) {
@@ -26,12 +27,9 @@ const Header = () => {
         ></img>
         <div className="circle"></div>
         <img className="pawsLogo" src={PawsLogo} alt="Patinhas Logo"></img>
-        <nav className="container-buttons">
-          <StyledButton>Início</StyledButton>
-          <StyledButton>Quem somos</StyledButton>
-          <StyledButton>Cadastrar</StyledButton>
-          <StyledButton>Login</StyledButton>
-        </nav>
+
+        <NavMenu>{children}</NavMenu>
+
         <img className="imgLogo" src={Logo} alt="logoAdopet"></img>
       </Head>
       {open === true ? <MenuMobile setOpen={setOpen} /> : false}
