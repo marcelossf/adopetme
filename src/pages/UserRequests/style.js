@@ -29,7 +29,8 @@ export const NavContainer_mobile = styled.nav`
 `;
 
 export const Title = styled.div`
-	max-width: 1300px;
+	max-width: 1450px;
+
 	width: 100%;
 
 	margin: 0 auto 30px;
@@ -72,7 +73,7 @@ export const Title = styled.div`
 		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 		font-weight: 700;
-		font-size: 36px;
+		font-size: 2rem;
 		letter-spacing: 0.06em;
 		line-height: 40px;
 		text-align: center;
@@ -80,8 +81,13 @@ export const Title = styled.div`
 		width: 220px;
 
 		@media (min-width: 450px) {
-			font-size: 40px;
+			font-size: 2.5em;
 			line-height: 48px;
+		}
+		@media (min-width: 1024px) {
+			font-size: 3.5em;
+			width: 320px;
+			line-height: 60px;
 		}
 	}
 `;
@@ -93,6 +99,15 @@ export const MainContainer = styled.main`
 
 	.request-container {
 		height: 600px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+
+		@media (min-width: 1024px) {
+			margin: 0 auto;
+			width: 70%;
+		}
 	}
 
 	.request-caption {
@@ -123,6 +138,7 @@ export const MainContainer = styled.main`
 		@media (min-width: 1024px) {
 			font-size: 24px;
 			line-height: 31px;
+			border-top-left-radius: 15px;
 		}
 	}
 `;

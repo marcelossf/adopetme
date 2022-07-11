@@ -22,6 +22,12 @@ export const RequestTable = styled.table`
 		background-color: #f2ae2f;
 		border-radius: 10px;
 	}
+
+	@media (min-width: 1024px) {
+		border-radius: 15px;
+		border-top-left-radius: 0px;
+	}
+
 	.table-headers {
 		display: flex;
 		justify-content: space-evenly;

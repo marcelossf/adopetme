@@ -38,9 +38,9 @@ const UserRequest = () => {
 
 					<TableRequest />
 				</section>
-				<section>
+				<div>
 					<SloganRequest />
-				</section>
+				</div>
 			</MainContainer>
 
 			<Footer>

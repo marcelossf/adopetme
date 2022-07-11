@@ -9,14 +9,14 @@ export const TableRequest = () => {
 				<th className="status"> status</th>
 			</tr>
 			<tr className="table-data">
-				{/* ---estutura sem solicitação--- */}
+				{/*!!! ---estutura SEM solicitação---!!! */}
 				<td className="first">
 					<span></span>Você ainda não fez nenhuma solicitação de
 					adoção!
 				</td>
 			</tr>
 
-			{/* ---estutura com solicitação--- */}
+			{/* !!!---estutura COM solicitação---!!! */}
 
 			{/* <tr className="table-data">
 				<td className="first">

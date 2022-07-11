@@ -6,9 +6,8 @@ export const SloganContainer = styled.div`
 	gap: 1em;
 
 	padding: 0 2em;
-	margin: 0 auto 30px;
-	width: 100%;
-	max-width: 1350px;
+	margin: 30px auto;
+	max-width: 1450px;
 
 	text-align: center;
 
