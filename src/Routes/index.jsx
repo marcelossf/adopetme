@@ -3,12 +3,14 @@ import { Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import WhoWeAre from "../pages/WhoWeAre";
 import Login from "../pages/Login";
+import UserDashBoard from "../pages/UserDashBoard";
 
 function Routes() {
   return (
     <Switch>
       <Route exact path="/">
-        <Home />
+        {/* <Home /> */}
+        <UserDashBoard/>
       </Route>
       <Route path={"/quem-somos"}>
         <WhoWeAre />

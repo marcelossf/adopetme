@@ -52,7 +52,7 @@ export const LoginForm = ({ setForm }) => {
         <div className="btns">
           <button
             type="button"
-            className="btnslogin"
+            className="btnslogin disable"
             onClick={() => {
               redirectToPage("/login");
               muda()
