@@ -7,6 +7,7 @@ import MenuDropdown from "../../assets/Menu.png";
 
 import { Footer } from "../../components/Footer";
 import SloganRequest from "../../components/SloganRequest";
+import StepsRequest from "../../components/StepsRequest";
 import { TableRequest } from "../../components/TableRequest";
 
 import {
@@ -41,6 +42,8 @@ const UserRequest = () => {
 				<div>
 					<SloganRequest />
 				</div>
+
+				<StepsRequest />
 			</MainContainer>
 
 			<Footer>
