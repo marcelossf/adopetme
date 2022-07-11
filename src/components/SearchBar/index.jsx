@@ -15,18 +15,20 @@ export const SearchBar = () => {
   const { setInput } = useContext(SearchContext);
   const [active, setActive] = useState(false);
 
+  
+
   return (
     <Container>
       <SloganContainer>
         <h2>Adote um amigo!</h2>
       </SloganContainer>
-      {/* <FilterBox> */}
+      <FilterBox>
         <FilterContainer onClick={() => setActive(!active)}>
           <span>Aplicar Filtro</span>
           <IoMdArrowDropdown size={50} />
         </FilterContainer>
         {active && <FilterDropDown />}
-      {/* </FilterBox> */}
+      </FilterBox>
       <SearchContaier>
         <input
           onChange={(event) => setInput(event.target.value)}

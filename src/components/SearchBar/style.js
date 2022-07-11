@@ -29,12 +29,13 @@ export const SloganContainer = styled.div`
 `;
 
 export const FilterBox = styled.div`
-width: 100%;
+width: 80%;
 max-width: 400px;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+position: relative;
 `
 
 export const FilterContainer = styled.div`
@@ -70,7 +71,7 @@ export const FilterContainer = styled.div`
   }
 
   @media (min-width: 1024px) {
-    width: calc(100% / 3);
+    /* width: calc(100% / 3); */
   }
 `;
 
