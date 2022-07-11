@@ -1,13 +1,29 @@
 import PickDog from "../../assets/pit.png";
 import Close from "../../assets/fechar.png";
 import { Container } from "./style";
+import { useState } from "react";
 
 const ModalSolicitation = () => {
+  const [closeModal, setCloseModal] = useState(true);
+
+  const close = () => {
+    if (closeModal === true) {
+      setCloseModal(false);
+    } else {
+      setCloseModal(true);
+    }
+  };
+
   return (
     <Container>
       <div className="container-adopet">
         <p className="text-solicitation">Solicitação de Adoção</p>
-        <img className="button-close" src={Close} alt="botão fechar"></img>
+        <img
+          onClick={close}
+          className="button-close"
+          src={Close}
+          alt="botão fechar"
+        ></img>
       </div>
       <div className="container-img">
         <img src={PickDog} alt="Foto-Animal"></img>
