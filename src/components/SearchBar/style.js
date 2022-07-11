@@ -28,9 +28,19 @@ export const SloganContainer = styled.div`
   color: white;
 `;
 
+export const FilterBox = styled.div`
+width: 100%;
+max-width: 400px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+`
+
 export const FilterContainer = styled.div`
   background-color: var(--orange);
-  width: 80%;
+  width: 100%;
+  /* min-width: 316px; */
   max-width: 400px;
   display: flex;
   justify-content: space-between;
@@ -39,6 +49,7 @@ export const FilterContainer = styled.div`
   box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   cursor: pointer;
+  
 
   span {
     font-family: "Fredoka";

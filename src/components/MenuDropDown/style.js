@@ -45,6 +45,17 @@ export const FilterContent = styled.div`
   align-items: center;
   padding: 0.5rem 1rem;
 
+  &:hover {
+    filter: brightness(1.3);
+    background-color: var(--orange);
+
+    span, svg {
+      color: white;
+      filter: drop-shadow(0px 7px 3px rgba(0, 0, 0, 0.3));
+    }
+    
+  }
+
   svg {
     color: var(--orange);
     filter: drop-shadow(0px 7px 3px rgba(0, 0, 0, 0.3));
@@ -61,5 +72,7 @@ export const FilterContent = styled.div`
     letter-spacing: 0.06em;
     text-indent: 46px;
     color: var(--orange);
+
+    
   }
 `;

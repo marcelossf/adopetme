@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import {
   Container,
+  FilterBox,
   FilterContainer,
   SearchContaier,
   SloganContainer,
@@ -19,11 +20,13 @@ export const SearchBar = () => {
       <SloganContainer>
         <h2>Adote um amigo!</h2>
       </SloganContainer>
-      <FilterContainer onClick={() => setActive(!active)}>
-        <span>Aplicar Filtro</span>
-        <IoMdArrowDropdown size={50} />
-      </FilterContainer>
+      {/* <FilterBox> */}
+        <FilterContainer onClick={() => setActive(!active)}>
+          <span>Aplicar Filtro</span>
+          <IoMdArrowDropdown size={50} />
+        </FilterContainer>
         {active && <FilterDropDown />}
+      {/* </FilterBox> */}
       <SearchContaier>
         <input
           onChange={(event) => setInput(event.target.value)}
