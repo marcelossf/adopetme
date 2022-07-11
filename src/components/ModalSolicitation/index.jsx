@@ -1,16 +1,11 @@
 import PickDog from "../../assets/pit.png";
 import Close from "../../assets/fechar.png";
 import { Container } from "./style";
-import { useState } from "react";
 
-const ModalSolicitation = () => {
-  const [closeModal, setCloseModal] = useState(true);
-
+const ModalSolicitation = ({ setOpen, open }) => {
   const close = () => {
-    if (closeModal === true) {
-      setCloseModal(false);
-    } else {
-      setCloseModal(true);
+    if (open === true) {
+      setOpen(false);
     }
   };
 
