@@ -6,6 +6,7 @@ import PawsLogo from "../../assets/pawslogo.png";
 import { Head, StyledButton } from "./style";
 import { RedirectContext } from "../../context/redirect";
 import {LoginLogoutContext} from '../../context/login-logout';
+import PhotoPerfil from "../PhotoPerfil";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -51,21 +52,24 @@ const Header = () => {
           >
             Quem somos
           </StyledButton>
-          <StyledButton
+          {logado ?( <StyledButton
+            onClick={() => {
+              redirectToPage("/solicitacao");
+            }}
+          >
+            Solicitação
+          </StyledButton>)
+          :
+          ( <StyledButton
             onClick={() => {
               redirectToPage("/cadastrar");
             }}
           >
             Cadastrar
-          </StyledButton>
+          </StyledButton>)}
+         
           {logado ? (
-            <StyledButton
-              onClick={() => {
-                logout();
-              }}
-            >
-              Logout
-            </StyledButton>
+            <PhotoPerfil/>
           ) : (
             <StyledButton
               onClick={() => {
