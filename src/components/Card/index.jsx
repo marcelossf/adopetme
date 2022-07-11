@@ -1,7 +1,17 @@
+import { useContext } from "react";
+import { LoginLogoutContext } from "../../context/login-logout";
+import { RedirectContext } from "../../context/redirect";
 import { Button } from "../Button";
 import { Container, DivInfos, FigureStyled } from "./styles";
 
 function Card({ pet }) {
+
+  const {logado} = useContext(LoginLogoutContext);
+  const {redirectToPage} = useContext(RedirectContext);
+
+  const handleRedirect = () => {
+    !logado && redirectToPage('/login')
+  }
 
   return (
     <Container>
@@ -17,7 +27,7 @@ function Card({ pet }) {
         <span></span>
       </DivInfos>
 
-      <Button >Solicitar Adoção</Button>
+      <Button onClick={handleRedirect}>Solicitar Adoção</Button>
     </Container>
   );
 }
