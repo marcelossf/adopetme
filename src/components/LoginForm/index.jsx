@@ -36,6 +36,7 @@ export const LoginForm = ({ setForm }) => {
 
       .then((response) => {
         localStorage.setItem("token", JSON.stringify(response.data.accessToken));
+        localStorage.setItem("user", JSON.stringify(response.data.user))
         changeLogado();
         redirectToPage('/')
       })

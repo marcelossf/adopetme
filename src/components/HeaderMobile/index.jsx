@@ -5,13 +5,13 @@ import MenuMobile from "../MenuMobile";
 import PawsLogo from "../../assets/pawslogo.png";
 import { Head, StyledButton } from "./style";
 import { RedirectContext } from "../../context/redirect";
-import {LoginLogoutContext} from '../../context/login-logout';
+import { LoginLogoutContext } from "../../context/login-logout";
 import PhotoPerfil from "../PhotoPerfil";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const { redirectToPage } = useContext(RedirectContext);
-  const {logado, changeLogado} = useContext(LoginLogoutContext);
+  const { logado } = useContext(LoginLogoutContext);
 
   const OpenModal = () => {
     if (open === false) {
@@ -19,11 +19,6 @@ const Header = () => {
     } else {
       setOpen(false);
     }
-  };
-
-  const logout = () => {
-    changeLogado();
-    localStorage.removeItem('token');
   };
 
   return (
@@ -52,24 +47,26 @@ const Header = () => {
           >
             Quem somos
           </StyledButton>
-          {logado ?( <StyledButton
-            onClick={() => {
-              redirectToPage("/solicitacao");
-            }}
-          >
-            Solicitação
-          </StyledButton>)
-          :
-          ( <StyledButton
-            onClick={() => {
-              redirectToPage("/cadastrar");
-            }}
-          >
-            Cadastrar
-          </StyledButton>)}
-         
           {logado ? (
-            <PhotoPerfil/>
+            <StyledButton
+              onClick={() => {
+                redirectToPage("/solicitacao");
+              }}
+            >
+              Solicitação
+            </StyledButton>
+          ) : (
+            <StyledButton
+              onClick={() => {
+                redirectToPage("/cadastrar");
+              }}
+            >
+              Cadastrar
+            </StyledButton>
+          )}
+
+          {logado ? (
+            <PhotoPerfil />
           ) : (
             <StyledButton
               onClick={() => {

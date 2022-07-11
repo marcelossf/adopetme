@@ -9,8 +9,7 @@ function Routes() {
   return (
     <Switch>
       <Route exact path="/">
-        {/* <Home /> */}
-        <UserDashBoard/>
+        <Home />
       </Route>
       <Route path={"/quem-somos"}>
         <WhoWeAre />
@@ -20,6 +19,9 @@ function Routes() {
       </Route>
       <Route exact path={"/login"}>
         <Login />
+      </Route>
+      <Route exaxt path={"/user"}>
+        <UserDashBoard />
       </Route>
     </Switch>
   );

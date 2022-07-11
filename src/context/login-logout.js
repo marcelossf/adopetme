@@ -5,10 +5,12 @@ export const LoginLogoutContext = createContext();
 export const LoginLogoutProvider = ({ children }) => {
   const [logado, setLogado] = useState(false);
   const changeLogado = () => {
-    setLogado(!logado)
-  }
+    setLogado(!logado);
+  };
 
   return (
-    <LoginLogoutContext.Provider value={{ logado, changeLogado }}>{children}</LoginLogoutContext.Provider>
+    <LoginLogoutContext.Provider value={{ changeLogado, logado }}>
+      {children}
+    </LoginLogoutContext.Provider>
   );
 };
