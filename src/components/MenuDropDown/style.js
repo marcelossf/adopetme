@@ -44,10 +44,11 @@ export const FilterContent = styled.div`
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
+  transition: ease-in-out 200ms;
 
   &:hover {
-    filter: brightness(1.3);
     background-color: var(--orange);
+    box-shadow: 1px 1px 1px black;
 
     span, svg {
       color: white;
