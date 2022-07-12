@@ -12,8 +12,7 @@ function Home() {
   const { redirectToPage } = useContext(RedirectContext);
   const token = JSON.parse(localStorage.getItem("token")) || "";
   const user = JSON.parse(localStorage.getItem("user")) || "";
-  console.log(logado);
-  console.log(token)
+  
 
   if (token) {
     if (user.type === "ong") {

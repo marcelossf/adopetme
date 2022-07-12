@@ -22,7 +22,7 @@ function Card({ pet }) {
 
       <DivInfos>
         <span>Raça: {pet.breed}</span>
-        <span>Idade: {pet.age.replace(pet.age[0], pet.age[0].toUpperCase())}</span>
+        <span>Idade: {pet.age}</span>
         <span>ONG: {pet.ONG}</span>
         <span></span>
       </DivInfos>
