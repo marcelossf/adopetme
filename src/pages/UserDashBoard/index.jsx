@@ -13,10 +13,14 @@ import { Link } from "react-router-dom";
 const UserDashBoard = () => {
   const { redirectToPage } = useContext(RedirectContext);
   const [open, setOpen] = useState(false);
-
+  const token = JSON.parse(localStorage.getItem('token'))
   const OpenModal = () => {
     setOpen(!open);
   };
+
+  if(!token){
+    redirectToPage('/')
+  }
 
   return (
     <>
