@@ -2,18 +2,33 @@ import styled from "styled-components";
 
 
 export const ContainerVitrine = styled.div`
-
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 5rem;
+margin: 2rem 0;
   ul {
     width: 100%;
 
     display: flex;
+    
     flex-direction: row;
 
 
     gap: 20px;
 
     overflow-x: auto;
+    
 
+  }
+
+  .fraseVitrine{
+    
+    color: var(--black);
+    font-family: 'Fredoka';
+    font-size: 48px;
+    text-align: center;
+    font-weight: 500;
   }
 
   @media (max-width: 999px) {

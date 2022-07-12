@@ -16,13 +16,10 @@ const Header = ({ children, selected }) => {
   const [open, setOpen] = useState(false);
   const { redirectToPage } = useContext(RedirectContext);
   const { logado } = useContext(LoginLogoutContext);
+  const token = JSON.parse(localStorage.getItem("token")) || "";
 
   const OpenModal = () => {
-    if (open === false) {
-      setOpen(true);
-    } else {
-      setOpen(false);
-    }
+    setOpen(!open);
   };
 
   return (
@@ -40,19 +37,21 @@ const Header = ({ children, selected }) => {
         <img className="imgLogo" src={Logo} alt="logoAdopet"></img>
       </Head>
       {open === true ? (
-        logado ? (
-          <MenuMobile setOpen={setOpen}>
-            <p onClick={redirectToPage("/")}>início</p>
-            <p onClick={redirectToPage("/ong-solicitation")}>Solicitações</p>
-            <p onClick={redirectToPage("/registerPet")}>Cadastrar Pet</p>
-            <p onClick={redirectToPage("/")}>Logout</p>
+        token ? (
+          <MenuMobile OpenModal={OpenModal}>
+            <p onClick={() => redirectToPage("/")}>início</p>
+            <p onClick={() => redirectToPage("/ong-solicitation")}>
+              Solicitações
+            </p>
+            <p onClick={() => redirectToPage("/registerPet")}>Cadastrar Pet</p>
+            <p onClick={() => redirectToPage("/")}>Logout</p>
           </MenuMobile>
         ) : (
-          <MenuMobile>
-            <p onClick={redirectToPage("/")}>início</p>
-            <p onClick={redirectToPage("/login")}>Login</p>
-            <p onClick={redirectToPage("/cadastrar")}>Cadastrar</p>
-            <p onClick={redirectToPage("/quem-somos")}>Quem somos</p>
+          <MenuMobile  OpenModal={OpenModal}>
+            <p onClick={() => redirectToPage("/")}>início</p>
+            <p onClick={() => redirectToPage("/login")}>Login</p>
+            <p onClick={() => redirectToPage("/cadastrar")}>Cadastrar</p>
+            <p onClick={() => redirectToPage("/quem-somos")}>Quem somos</p>
           </MenuMobile>
         )
       ) : (
