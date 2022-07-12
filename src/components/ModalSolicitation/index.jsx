@@ -1,13 +1,14 @@
 import PickDog from "../../assets/pit.png";
 import Close from "../../assets/fechar.png";
 import { Container } from "./style";
+
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import * as yup from "yup";
 import { SolicitationContext } from "../../context/solicitation";
 
-const ModalSolicitation = () => {
+const ModalSolicitation = ({ setOpen, open }) => {
   const formRes = yup.object().shape({
     pergunta1: yup.string().required("todos os campos são obrigatórios"),
     pergunta2: yup.string().required("todos os campos são obrigatórios"),
@@ -27,6 +28,7 @@ const ModalSolicitation = () => {
     setSolicitationForm(data);
     setUserData(localStorage.getItem("user"));
     setPetData();
+
   };
 
   const { setSolicitationForm, setUserData, setPetData } =
