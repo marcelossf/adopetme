@@ -1,12 +1,14 @@
 import { DivStyled } from "./style";
 import AdoPet from "../../assets/logoAdopet.png";
 
-const OngTile = ({nameUserOng}) => {
+const OngTile = () => {
+  const user = JSON.parse(localStorage.getItem('user'))
+  const {name} = user
   return (
     <>
       <DivStyled>
         <div className="ong-container">
-          <h1 className="title-ong">Bem vindo, {nameUserOng}.</h1>
+          <h1 className="title-ong">Bem vindo, {name}.</h1>
           <p className="paragraph-ong">
             Aqui você encontra apoio para abrigar seus bichinhos
           </p>

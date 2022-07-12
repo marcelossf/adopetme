@@ -9,7 +9,7 @@ export const LoginLogoutProvider = ({ children }) => {
   };
 
   return (
-    <LoginLogoutContext.Provider value={{ changeLogado, logado }}>
+    <LoginLogoutContext.Provider value={{ changeLogado,setLogado, logado }}>
       {children}
     </LoginLogoutContext.Provider>
   );

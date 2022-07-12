@@ -1,11 +1,14 @@
+import Providers from "./Providers";
 import Routes from "./Routes";
 import GlobalStyle from "./styles/global";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Routes />
+      <Providers>
+        <GlobalStyle />
+        <Routes />
+      </Providers>
     </>
     // <AnimalsListProvider>
     //   <SearchProvider>

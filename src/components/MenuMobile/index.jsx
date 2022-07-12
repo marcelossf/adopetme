@@ -1,17 +1,28 @@
 import { useContext } from "react";
+import { set } from "react-hook-form";
 import LogoBlack from "../../assets/adoPetPreto.png";
 import Close from "../../assets/fechar.png";
 import { LoginLogoutContext } from "../../context/login-logout";
+import { PetOngContext } from "../../context/ong";
+import { RedirectContext } from "../../context/redirect";
+
 
 import { Section } from "./style";
 
 const MenuMobile = ({ setOpen }) => {
-  const { logado } = useContext(LoginLogoutContext);
-
+  const { setLogado } = useContext(LoginLogoutContext);
+  const { activeOng } = useContext(PetOngContext);
+  const { redirectToPage } = useContext(RedirectContext);
+  const token = JSON.parse(localStorage.getItem('token')) || ''
   const closeModal = () => {
     setOpen(false);
   };
 
+  const logout = () => {
+    setLogado(false);
+    localStorage.clear();
+    redirectToPage('/')
+  };
   return (
     <Section>
       <div className="container-img">
@@ -24,13 +35,18 @@ const MenuMobile = ({ setOpen }) => {
         ></img>
       </div>
       <div className="menu-links">
-        {logado ? (
+        {token && activeOng ? (
           <>
-          <p className="text-menu">Início</p>
-          <p className="text-menu">Quero Adotar</p>
-          <p className="text-menu">Solicitações</p>
-          <p className="text-menu">Logout</p>
-        </>
+            <p className="text-menu">Início</p>
+            <p className="text-menu">Solicitações</p>
+            <p
+              onClick={() => redirectToPage("/registerPet")}
+              className="text-menu"
+            >
+              Cadastrar Pet
+            </p>
+            <p onClick={logout} className="text-menu">Logout</p>
+          </>
         ) : (
           <>
             <p className="text-menu">Início</p>

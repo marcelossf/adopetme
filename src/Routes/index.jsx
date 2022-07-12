@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import WhoWeAre from "../pages/WhoWeAre";
 import Login from "../pages/Login";
 import UserDashBoard from "../pages/UserDashBoard";
+import OngDashBoard from "../pages/OngDashBoard";
+import { RegisterPet } from "../pages/RegisterPet";
 
 function Routes() {
   return (
@@ -14,14 +16,20 @@ function Routes() {
       <Route path={"/quem-somos"}>
         <WhoWeAre />
       </Route>
-      <Route exact path={"/cadastrar"}>
+      <Route path={"/cadastrar"}>
         <Login />
       </Route>
-      <Route exact path={"/login"}>
+      <Route path={"/login"}>
         <Login />
       </Route>
-      <Route exaxt path={"/user"}>
+      <Route path={"/user"}>
         <UserDashBoard />
+      </Route>
+      <Route path={"/ong"}>
+        <OngDashBoard />
+      </Route>
+      <Route path={"/registerPet"}>
+        <RegisterPet />
       </Route>
     </Switch>
   );

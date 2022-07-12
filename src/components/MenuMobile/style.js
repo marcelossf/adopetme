@@ -12,6 +12,7 @@ export const Section = styled.section`
   z-index: 9999;
   -webkit-animation: slide-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  
 
   .container-img {
     display: flex;
