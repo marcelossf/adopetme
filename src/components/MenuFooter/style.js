@@ -9,5 +9,9 @@ export const MenuContainer = styled.ul`
   line-height: 18px;
   color: white;
   text-align: right;
+
+  li {
+    cursor: pointer;
+  }
   
 `;

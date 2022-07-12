@@ -1,20 +1,40 @@
 import styled from "styled-components";
 
+
 export const ContainerVitrine = styled.div`
+
   ul {
+    width: 100%;
+
     display: flex;
     flex-direction: row;
 
+
     gap: 20px;
+
+    overflow-x: auto;
+
+  }
+
+  @media (max-width: 999px) {
+    ul {
+      margin-left: 3vw;
+    }
   }
 
   @media (min-width: 1000px) {
     width: 100%;
+    max-height: 700px;
     ul {
-        flex-wrap: wrap;
+      justify-content: center;
+
+      margin: auto;
+
+      flex-wrap: wrap;
     }
   }
 `;
+
 
 export const ContainerOng = styled.div`
   width: 90%;
@@ -47,3 +67,19 @@ export const DivSolicitacoes = styled.div`
 
   border-radius: 0 15px 15px 15px;
 `
+
+export const ButtonsLeftRight = styled.div`
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 3vw;
+  button {
+    background-color: #FFFFFF;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
