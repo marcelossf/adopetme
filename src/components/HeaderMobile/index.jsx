@@ -1,16 +1,21 @@
 import { useContext, useState } from "react";
-import Menu from "../../assets/Menu.png";
-import Logo from "../../assets/logoAdopet.png";
-import MenuMobile from "../MenuMobile";
-import PawsLogo from "../../assets/pawslogo.png";
-import { Head, StyledButton } from "./style";
-import { RedirectContext } from "../../context/redirect";
-import {LoginLogoutContext} from '../../context/login-logout';
 
-const Header = () => {
+import Logo from "../../assets/logoAdopet.png";
+import Menu from "../../assets/Menu.png";
+import PawsLogo from "../../assets/pawslogo.png";
+
+import MenuMobile from "../MenuMobile";
+import { NavMenu } from "../NavMenu";
+
+import { Head } from "./style";
+
+import { LoginLogoutContext } from "../../context/login-logout";
+import { RedirectContext } from "../../context/redirect";
+
+const Header = ({ children, selected }) => {
   const [open, setOpen] = useState(false);
   const { redirectToPage } = useContext(RedirectContext);
-  const {logado, changeLogado} = useContext(LoginLogoutContext);
+  const { logado } = useContext(LoginLogoutContext);
 
   const OpenModal = () => {
     if (open === false) {
@@ -18,11 +23,6 @@ const Header = () => {
     } else {
       setOpen(false);
     }
-  };
-
-  const logout = () => {
-    changeLogado();
-    localStorage.removeItem('token');
   };
 
   return (
@@ -36,49 +36,28 @@ const Header = () => {
         ></img>
         <div className="circle"></div>
         <img className="pawsLogo" src={PawsLogo} alt="Patinhas Logo"></img>
-        <nav className="container-buttons">
-          <StyledButton
-            onClick={() => {
-              redirectToPage("/");
-            }}
-          >
-            Início
-          </StyledButton>
-          <StyledButton
-            onClick={() => {
-              redirectToPage("/quem-somos");
-            }}
-          >
-            Quem somos
-          </StyledButton>
-          <StyledButton
-            onClick={() => {
-              redirectToPage("/cadastrar");
-            }}
-          >
-            Cadastrar
-          </StyledButton>
-          {logado ? (
-            <StyledButton
-              onClick={() => {
-                logout();
-              }}
-            >
-              Logout
-            </StyledButton>
-          ) : (
-            <StyledButton
-              onClick={() => {
-                redirectToPage("/login");
-              }}
-            >
-              Login
-            </StyledButton>
-          )}
-        </nav>
+        <NavMenu>{children}</NavMenu>
         <img className="imgLogo" src={Logo} alt="logoAdopet"></img>
       </Head>
-      {open === true ? <MenuMobile setOpen={setOpen} /> : false}
+      {open === true ? (
+        logado ? (
+          <MenuMobile setOpen={setOpen}>
+            <p onClick={redirectToPage("/")}>início</p>
+            <p onClick={redirectToPage("/ong-solicitation")}>Solicitações</p>
+            <p onClick={redirectToPage("/registerPet")}>Cadastrar Pet</p>
+            <p onClick={redirectToPage("/")}>Logout</p>
+          </MenuMobile>
+        ) : (
+          <MenuMobile>
+            <p onClick={redirectToPage("/")}>início</p>
+            <p onClick={redirectToPage("/login")}>Login</p>
+            <p onClick={redirectToPage("/cadastrar")}>Cadastrar</p>
+            <p onClick={redirectToPage("/quem-somos")}>Quem somos</p>
+          </MenuMobile>
+        )
+      ) : (
+        false
+      )}
     </>
   );
 };

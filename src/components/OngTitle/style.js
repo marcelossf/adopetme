@@ -7,6 +7,7 @@ export const DivStyled = styled.div`
   min-height: 163px;
   justify-content: center;
   width: 100%;
+  padding: 0 1rem;
 
   .title-ong {
     color: #4db1b3;
@@ -33,8 +34,7 @@ export const DivStyled = styled.div`
 
     .adopet-logo {
       display: block;
-      max-width:50% ;
-      
+      max-width: 30%;
     }
     .ong-container {
       width: 90%;

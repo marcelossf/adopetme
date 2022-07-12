@@ -7,25 +7,26 @@ export const FilterDropDown = () => {
   const FiltersData = [
     {
       title: "Todos",
-      filters: ["Machos", "Fêmeas", "Filhotes"],
+      filters: ["Macho", "Fêmea"],
       icon: <IoMdArrowDropdown size={30} />,
     },
     {
-      title: "Gatos",
-      filters: ["Machos", "Fêmeas", "Filhotes"],
+      title: "Gato",
+      filters: ["Macho", "Fêmea"],
       icon: <IoMdArrowDropdown size={30} />,
     },
     {
-      title: "Cachorros",
-      filters: ["Machos", "Fêmeas", "Filhotes"],
+      title: "Cachorro",
+      filters: ["Macho", "Fêmea"],
       icon: <IoMdArrowDropdown size={30} />,
     },
     {
-      title: "Roedores",
-      filters: ["Machos", "Fêmeas", "Filhotes"],
+      title: "Roedor",
+      filters: ["Macho", "Fêmea"],
       icon: <IoMdArrowDropdown size={30} />,
     },
   ];
+
   return (
     <DropDownContainer>
       {FiltersData.map(({ title, filters, icon }, index) => {

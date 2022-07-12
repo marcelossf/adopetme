@@ -11,13 +11,14 @@ import StepsRequest from "../../components/StepsRequest";
 import { TableRequest } from "../../components/TableRequest";
 
 import {
-	HeaderContainer,
-	MainContainer,
-	NavContainer_mobile,
-	Title,
+  HeaderContainer,
+  MainContainer,
+  NAVCONTAINER_MOBILE,
+  Title,
 } from "./style";
 
 const UserRequest = () => {
+<<<<<<< feat-solicitações
 	return (
 		<>
 			<HeaderContainer>
@@ -53,6 +54,41 @@ const UserRequest = () => {
 			</Footer>
 		</>
 	);
+=======
+  return (
+    <>
+      <HeaderContainer>
+        <NAVCONTAINER_MOBILE className="menu-container">
+          <button className="Menu-button">
+            <img src={MenuDropdown} alt="Menu lateral" />
+          </button>
+        </NAVCONTAINER_MOBILE>
+
+        <Title>
+          <img src={Logo} alt="Logo" className="Logo" />
+          <h1>Acompanhe o processo de adoção</h1>
+        </Title>
+      </HeaderContainer>
+
+      <MainContainer>
+        <section className="request-container">
+          <h2 className="request-caption">Processo de adoção</h2>
+
+          <TableRequest />
+        </section>
+        <div>
+          <SloganRequest />
+        </div>
+      </MainContainer>
+
+      <Footer>
+        <Link to="/">Início</Link>
+        <Link to="">Quero adotar</Link>
+        <Link to="/">Solicitações</Link>
+      </Footer>
+    </>
+  );
+>>>>>>> develop
 };
 
 export default UserRequest;

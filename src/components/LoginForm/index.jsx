@@ -1,20 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { FormLogin } from "./style";
 import { Input } from "../InputLabel";
 import { RedirectContext } from "../../context/redirect";
 import { useForm } from "react-hook-form";
-import {LoginLogoutContext} from '../../context/login-logout';
+import { LoginLogoutContext } from "../../context/login-logout";
 
 import api from "../../api/api";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as yup from "yup";
+import { PetOngContext } from "../../context/ong";
+import { toastError, toastSucess } from "../../utils/toast";
 
 export const LoginForm = ({ setForm }) => {
   const { redirectToPage, form } = useContext(RedirectContext);
-  const {logado, changeLogado} = useContext(LoginLogoutContext);
-  
+  const { logado, changeLogado } = useContext(LoginLogoutContext);
+  const {setActiveOng} = useContext(PetOngContext)
+
   const muda = () => {
     setForm(!form);
   };
@@ -32,18 +35,30 @@ export const LoginForm = ({ setForm }) => {
 
   function onLogin(dados) {
     api
-      .post("https://json-server-adopetme.herokuapp.com/login", dados)
+      .post("/login", dados)
 
       .then((response) => {
-        localStorage.setItem("token", JSON.stringify(response.data.accessToken));
+        localStorage.setItem(
+          "token",
+          JSON.stringify(response.data.accessToken)
+        );
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+        const user = response.data.user;
         changeLogado();
-        redirectToPage('/')
+        toastSucess('Login Realizado com Sucesso')
+        if (user.type === "ong") {
+          setActiveOng(true)
+          redirectToPage("/ong");
+        } else {
+          redirectToPage('/user')
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((_) => toastError('Senha/Email incorretos'));
   }
 
-  if(logado) {
-    redirectToPage('/')
+  
+  if (logado) {
+    redirectToPage("/");
   }
 
   return (
@@ -52,10 +67,10 @@ export const LoginForm = ({ setForm }) => {
         <div className="btns">
           <button
             type="button"
-            className="btnslogin"
+            className="btnslogin disable"
             onClick={() => {
+              muda();
               redirectToPage("/login");
-              muda()
             }}
           >
             Login

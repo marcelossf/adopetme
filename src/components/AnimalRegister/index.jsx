@@ -17,8 +17,20 @@ import { Error } from "../Error";
 import { AnimalsListContext } from "../../context/animals";
 import { Input } from "../InputLabel";
 import { SelectForm } from "../SelectForm";
+import api from "../../api/api";
+import { toastError, toastSucess } from "../../utils/toast";
+import { RedirectContext } from "../../context/redirect";
+import { useHistory } from "react-router-dom";
 
 export const AnimalRegister = () => {
+  const [active, setActive] = useState(true);
+  const { pets } = useContext(AnimalsListContext);
+  const token = JSON.parse(localStorage.getItem("token"));
+  const user = JSON.parse(localStorage.getItem("user"));
+  const userID = user.id;
+  const { redirectToPage } = useContext(RedirectContext);
+  const history = useHistory();
+
   const formSchema = yup.object().shape({
     petName: yup.string().required("Nome Obrigatório"),
     img: yup.string().required("URL Da imagem obrigatória"),
@@ -33,12 +45,11 @@ export const AnimalRegister = () => {
     situation: yup.string().required("Campo Obrigatório"),
   });
 
-  const [active, setActive] = useState(true);
-
   ////////////////////Pegar dados da ONG//////////////////////////
-  const { pets } = useContext(AnimalsListContext);
 
   ///////////Fazer o POST pra api/////////////////////////
+
+  //cerejinha.ong@gmail.com
 
   const {
     register,
@@ -47,10 +58,23 @@ export const AnimalRegister = () => {
   } = useForm({ resolver: yupResolver(formSchema) });
 
   function onSubmitFunction(animalData) {
-    const newData = { ...animalData, idOwner: 2, address: "adff" };
-    console.log(newData);
+    const newData = { ...animalData, userId: userID };
+    api
+      .post("/pet", newData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        toastSucess("Animal Cadastrado");
+        return redirectToPage("/ong");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-  console.log(errors);
+
   return (
     <SectionContainer>
       <FolderContainer>
@@ -128,8 +152,8 @@ export const AnimalRegister = () => {
                   </ColumnForm>
                   <ColumnForm>
                     <Input
-                      TextLabelForm={"Idade"}
-                      placeholderInput={"Idade"}
+                      TextLabelForm={"Idade (em anos)"}
+                      placeholderInput={"Idade (em anos)"}
                       name="age"
                       register={register}
                     />
@@ -232,8 +256,8 @@ export const AnimalRegister = () => {
                   </ColumnForm>
                   <ColumnForm>
                     <Input
-                      TextLabelForm={"Idade"}
-                      placeholderInput={"Idade"}
+                      TextLabelForm={"Idade (em anos)"}
+                      placeholderInput={"Idade (em anos)"}
                       name="age"
                       register={register}
                     />

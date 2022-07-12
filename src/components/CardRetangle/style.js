@@ -11,15 +11,12 @@ export const ContainerCard = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    justify-content: center;
     max-width: 1000px;
-    min-width: 320px;
-    width: 80%;
   }
 
   .page {
     min-height: 39px;
-    max-width: 40%;
+    max-width: 30%;
     background-color: #3b8788;
     border-radius: 17px 17px 0 0;
 
@@ -42,14 +39,16 @@ export const ContainerCard = styled.section`
     border-radius: 0 28px 28px 28px;
     display: flex;
     max-width: 1000px;
+    padding-right: 35px;
+    padding-bottom: 19px;
   }
 
   .trace-line {
-    width: 88%;
     height: 2px;
     background-color: white;
     position: absolute;
     margin-left: 4px;
+    min-width: 361px;
   }
 
   .trace-up {
@@ -67,6 +66,10 @@ export const ContainerCard = styled.section`
     color: white;
     padding: 10px;
     display: block;
+  }
+
+  .card-p:hover {
+    text-decoration: underline;
   }
 
   .nul {
@@ -87,6 +90,10 @@ export const ContainerCard = styled.section`
   }
 
   @media (min-width: 1025px) {
+    .trace-line {
+      width: 750px;
+    }
+
     .solicitacao {
       font-size: 20px;
     }
@@ -119,6 +126,7 @@ export const ContainerCard = styled.section`
       justify-content: space-evenly;
       width: 100%;
       flex-direction: column;
+      padding-left: 24px;
     }
 
     span {
