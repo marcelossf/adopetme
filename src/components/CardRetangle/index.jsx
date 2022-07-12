@@ -1,7 +1,12 @@
 import { ContainerCard } from "./style";
 import Pitbull from "../../assets/pit.png";
+import { useContext } from "react";
+import { SolicitationContext } from "../../context/solicitation";
 
 const CardRetangle = () => {
+  const { solicitationForm, userData, petData } =
+    useContext(SolicitationContext);
+
   return (
     <>
       <ContainerCard>
@@ -13,7 +18,11 @@ const CardRetangle = () => {
             <div>
               <p className="card-p">Solicitações</p>
               <div className="trace-line"></div>
-              <p className="card-p">User 123</p>
+              {userData ? (
+                <p className="card-p">{userData.name}</p>
+              ) : (
+                <p className="card-p">User 123</p>
+              )}
               <p className="card-p">User 123</p>
               <p className="card-p">User 123</p>
               <p className="card-p">User 123</p>
@@ -21,8 +30,16 @@ const CardRetangle = () => {
             <div className="trace-up"></div>
             <div className="div">
               <p className="nul">null</p>
-              <p className="card-p-block">Nome: User 123</p>
-              <p className="card-p-block">pergunta 1 : resposta</p>
+              {userData ? (
+                <p className="card-p">{userData.name}</p>
+              ) : (
+                <p className="card-p-block">User 123</p>
+              )}
+              {userData ? (
+                <p className="card-p-block">{solicitationForm.pergunta1}</p>
+              ) : (
+                <p className="card-p-block">pergunta 1 : resposta</p>
+              )}
               <p className="card-p-block">pergunta 2 : resposta</p>
               <p className="card-p-block">pergunta 3 : resposta</p>
               <p className="card-p-block">pergunta 4 : resposta</p>

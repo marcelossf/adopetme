@@ -34,8 +34,7 @@ export const DivStyled = styled.div`
 
     .adopet-logo {
       display: block;
-      max-width:50% ;
-      
+      max-width: 30%;
     }
     .ong-container {
       width: 90%;

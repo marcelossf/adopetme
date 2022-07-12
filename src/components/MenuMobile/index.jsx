@@ -6,14 +6,13 @@ import { LoginLogoutContext } from "../../context/login-logout";
 import { PetOngContext } from "../../context/ong";
 import { RedirectContext } from "../../context/redirect";
 
-
 import { Section } from "./style";
 
 const MenuMobile = ({ setOpen }) => {
   const { setLogado } = useContext(LoginLogoutContext);
   const { activeOng } = useContext(PetOngContext);
   const { redirectToPage } = useContext(RedirectContext);
-  const token = JSON.parse(localStorage.getItem('token')) || ''
+  const token = JSON.parse(localStorage.getItem("token")) || "";
   const closeModal = () => {
     setOpen(false);
   };
@@ -21,7 +20,7 @@ const MenuMobile = ({ setOpen }) => {
   const logout = () => {
     setLogado(false);
     localStorage.clear();
-    redirectToPage('/')
+    redirectToPage("/");
   };
   return (
     <Section>
@@ -45,14 +44,30 @@ const MenuMobile = ({ setOpen }) => {
             >
               Cadastrar Pet
             </p>
-            <p onClick={logout} className="text-menu">Logout</p>
+            <p onClick={logout} className="text-menu">
+              Logout
+            </p>
           </>
         ) : (
           <>
-            <p className="text-menu">Início</p>
-            <p className="text-menu">Login</p>
-            <p className="text-menu">Cadastrar</p>
-            <p className="text-menu">Quem somos</p>
+            <p onClick={() => redirectToPage("/")} className="text-menu">
+              Início
+            </p>
+            <p onClick={() => redirectToPage("/login")} className="text-menu">
+              Login
+            </p>
+            <p
+              onClick={() => redirectToPage("/cadastrar")}
+              className="text-menu"
+            >
+              Cadastrar
+            </p>
+            <p
+              onClick={() => redirectToPage("/quem-somos")}
+              className="text-menu"
+            >
+              Quem somos
+            </p>
           </>
         )}
       </div>
