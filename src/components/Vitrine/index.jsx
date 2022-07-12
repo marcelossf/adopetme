@@ -12,7 +12,7 @@ function Vitrine() {
   const { ongPets, activeOng } = useContext(PetOngContext);
    const token = JSON.parse(localStorage.getItem('token')) || ''
   
-   console.log(ongPets)
+
 
   return (
     <Container>
