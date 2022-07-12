@@ -8,6 +8,8 @@ import { RedirectContext, redirectToPage } from "../../context/redirect";
 import { useContext, useState } from "react";
 import { NavMenu } from "../../components/NavMenu";
 import MenuMobile from "../../components/MenuMobile";
+import { Link } from "react-router-dom";
+
 const UserDashBoard = () => {
   const { redirectToPage } = useContext(RedirectContext);
   const [open, setOpen] = useState(false);
@@ -36,9 +38,9 @@ const UserDashBoard = () => {
       <Vitrine />
       <Footer>
         <MenuFooter>
-          <li>Início</li>
-          <li>Solicitações</li>
-          <li>Cadastrar Pet</li>
+          <Link to='/user'>Início</Link>
+          <Link to='/solicitacao'>Solicitações</Link>
+          <Link to='quem-somos'>Quem Somos</Link>
         </MenuFooter>
       </Footer>
     </>
