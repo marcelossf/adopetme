@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { Button } from "../../components/Button";
 import { Carousel } from "../../components/Carousel";
@@ -66,7 +66,13 @@ function Home() {
 			<SloganAdopetme />
 			<Carousel />
 			<Vitrine />
-			<Footer />
+
+			<Footer>
+				<Link to="/">Início</Link>
+				<Link to="/quem-somos">Quem Somos</Link>
+				<Link to="/cadastrar">Cadastrar</Link>
+				<Link to="/login">Login</Link>
+			</Footer>
 		</>
 	);
 }
