@@ -74,7 +74,11 @@ function Vitrine() {
                     petName.toLowerCase().includes(input.toLowerCase()) ||
                     species.toLowerCase().includes(input.toLowerCase())
                 )
-                .map((pet) => <li key={pet.id}>{/* <Card pet={pet} /> */}</li>)
+                .map((pet) => (
+                  <li key={pet.id}>
+                    <Card pet={pet} />
+                  </li>
+                ))
             ) : (
               <h1>Você não adicionou nenhum pet Ainda :( </h1>
             )}
@@ -107,10 +111,10 @@ function Vitrine() {
       )}
       <ButtonsLeftRight>
         <button onClick={() => subHandlePage()}>
-          <AiOutlineArrowLeft size={30}/>
+          <AiOutlineArrowLeft size={30} />
         </button>
         <button onClick={() => addHandlePage()}>
-          <AiOutlineArrowRight size={30}/>
+          <AiOutlineArrowRight size={30} />
         </button>
       </ButtonsLeftRight>
     </Container>
