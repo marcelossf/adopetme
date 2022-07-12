@@ -13,52 +13,60 @@ import { LoginLogoutContext } from "../../context/login-logout";
 import { RedirectContext } from "../../context/redirect";
 
 const Header = ({ children, selected }) => {
-  const [open, setOpen] = useState(false);
-  const { redirectToPage } = useContext(RedirectContext);
-  const { logado } = useContext(LoginLogoutContext);
-  const token = JSON.parse(localStorage.getItem("token")) || "";
+	const [open, setOpen] = useState(false);
+	const { redirectToPage } = useContext(RedirectContext);
+	const { logado } = useContext(LoginLogoutContext);
+	const token = JSON.parse(localStorage.getItem("token")) || "";
 
-  const OpenModal = () => {
-    setOpen(!open);
-  };
+	const OpenModal = () => {
+		setOpen(!open);
+	};
 
-  return (
-    <>
-      <Head>
-        <img
-          onClick={OpenModal}
-          className="imgMenu"
-          src={Menu}
-          alt="Menu"
-        ></img>
-        <div className="circle"></div>
-        <img className="pawsLogo" src={PawsLogo} alt="Patinhas Logo"></img>
-        <NavMenu>{children}</NavMenu>
-        <img className="imgLogo" src={Logo} alt="logoAdopet"></img>
-      </Head>
-      {open === true ? (
-        token ? (
-          <MenuMobile OpenModal={OpenModal}>
-            <p onClick={() => redirectToPage("/")}>início</p>
-            <p onClick={() => redirectToPage("/ong-solicitation")}>
-              Solicitações
-            </p>
-            <p onClick={() => redirectToPage("/registerPet")}>Cadastrar Pet</p>
-            <p onClick={() => redirectToPage("/")}>Logout</p>
-          </MenuMobile>
-        ) : (
-          <MenuMobile  OpenModal={OpenModal}>
-            <p onClick={() => redirectToPage("/")}>início</p>
-            <p onClick={() => redirectToPage("/login")}>Login</p>
-            <p onClick={() => redirectToPage("/cadastrar")}>Cadastrar</p>
-            <p onClick={() => redirectToPage("/quem-somos")}>Quem somos</p>
-          </MenuMobile>
-        )
-      ) : (
-        false
-      )}
-    </>
-  );
+	return (
+		<>
+			<Head>
+				<button className="menuMobile-button">
+					<img onClick={OpenModal} src={Menu} alt="Menu" />
+				</button>
+				<div className="logo-nav">
+					<img
+						className="pawsLogo"
+						src={PawsLogo}
+						alt="Patinhas Logo"></img>
+					<div className="logo-circle"></div>
+				</div>
+				<NavMenu>{children}</NavMenu>
+				<img className="imgLogo" src={Logo} alt="logoAdopet" />
+			</Head>
+			{open === true ? (
+				token ? (
+					<MenuMobile OpenModal={OpenModal}>
+						<a onClick={() => redirectToPage("/")}>início</a>
+						<a onClick={() => redirectToPage("/ong-solicitation")}>
+							Solicitações
+						</a>
+						<a onClick={() => redirectToPage("/registerPet")}>
+							Cadastrar Pet
+						</a>
+						<a onClick={() => redirectToPage("/")}>Logout</a>
+					</MenuMobile>
+				) : (
+					<MenuMobile OpenModal={OpenModal}>
+						<a onClick={() => redirectToPage("/")}>início</a>
+						<a onClick={() => redirectToPage("/login")}>Login</a>
+						<a onClick={() => redirectToPage("/cadastrar")}>
+							Cadastrar
+						</a>
+						<a onClick={() => redirectToPage("/quem-somos")}>
+							Quem somos
+						</a>
+					</MenuMobile>
+				)
+			) : (
+				false
+			)}
+		</>
+	);
 };
 
 export default Header;

@@ -15,61 +15,64 @@ import { RedirectContext } from "../../context/redirect";
 import { MarginNavBar } from "../../styles/marginNavBar";
 
 function Home() {
-  const { logado, changeLogado } = useContext(LoginLogoutContext);
-  const { redirectToPage } = useContext(RedirectContext);
-  const token = JSON.parse(localStorage.getItem("token")) || "";
-  const user = JSON.parse(localStorage.getItem("user")) || "";
+	const { logado, changeLogado } = useContext(LoginLogoutContext);
+	const { redirectToPage } = useContext(RedirectContext);
+	const token = JSON.parse(localStorage.getItem("token")) || "";
+	const user = JSON.parse(localStorage.getItem("user")) || "";
 
-  const [selectedMobile, setSelectedMobile] = useState("inicio");
+	const [selectedMobile, setSelectedMobile] = useState("inicio");
 
-  if (token) {
-    if (user.type === "ong") {
-      redirectToPage("/ong");
-    } else {
-      redirectToPage("/user");
-    }
-  }
+	if (token) {
+		if (user.type === "ong") {
+			redirectToPage("/ong");
+		} else {
+			redirectToPage("/user");
+		}
+	}
 
-  const history = useHistory();
+	const history = useHistory();
 
-  const handleRoute = (route) => {
-    route && history.push(`/${route}`);
-  };
+	const handleRoute = (route) => {
+		route && history.push(`/${route}`);
+	};
 
-  return (
-    <>
-      <Header selected={selectedMobile}>
-        <Button
-          className="button-selected"
-          width={"230px"}
-          onClick={() => handleRoute()}
-        >
-          Início
-        </Button>
-        <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
-          Quem somos
-        </Button>
-        <Button width={"230px"} onClick={() => handleRoute("cadastrar")}>
-          Cadastrar
-        </Button>
-        <Button width={"230px"} onClick={() => handleRoute("login")}>
-          Login
-        </Button>
-      </Header>
-      <MarginNavBar></MarginNavBar>
+	return (
+		<>
+			<Header selected={selectedMobile}>
+				<Button
+					className="button-selected"
+					width={"230px"}
+					onClick={() => handleRoute()}>
+					Início
+				</Button>
+				<Button
+					width={"230px"}
+					onClick={() => handleRoute("quem-somos")}>
+					Quem somos
+				</Button>
+				<Button
+					width={"230px"}
+					onClick={() => handleRoute("cadastrar")}>
+					Cadastrar
+				</Button>
+				<Button width={"230px"} onClick={() => handleRoute("login")}>
+					Login
+				</Button>
+			</Header>
+			<MarginNavBar></MarginNavBar>
 
-      <SloganAdopetme />
-      <Carousel />
-      <Vitrine />
+			<SloganAdopetme />
+			<Carousel />
+			<Vitrine />
 
-      <Footer>
-        <Link to="/">Início</Link>
-        <Link to="/quem-somos">Quem Somos!</Link>
-        <Link to="/cadastrar">Cadastrar</Link>
-        <Link to="/login">Login</Link>
-      </Footer>
-    </>
-  );
+			<Footer>
+				<Link to="/">Início</Link>
+				<Link to="/quem-somos">Quem Somos!</Link>
+				<Link to="/cadastrar">Cadastrar</Link>
+				<Link to="/login">Login</Link>
+			</Footer>
+		</>
+	);
 }
 
 export default Home;
