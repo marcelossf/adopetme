@@ -12,7 +12,6 @@ export const Section = styled.section`
   z-index: 9999;
   -webkit-animation: slide-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  
 
   .container-img {
     display: flex;
@@ -23,10 +22,21 @@ export const Section = styled.section`
     cursor: pointer;
   }
 
+  .place {
+    display: none;
+  }
+
   .menu-links {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    :hover {
+      .place {
+        background-color: white;
+        width: 100%;
+        height: 5px;
+      }
+    }
   }
 
   .text-menu {
@@ -80,4 +90,23 @@ export const Section = styled.section`
     min-width: 29px;
     margin-top: 19px;
   }
+`;
+
+export const Paragraph = styled.p`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+
+  display: flex;
+
+  text-indent: 25px;
+
+  color: white;
+  animation: scale-up-hor-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  cursor: pointer;
 `;

@@ -36,7 +36,25 @@ const Header = ({ children }) => {
         <NavMenu>{children}</NavMenu>
         <img className="imgLogo" src={Logo} alt="logoAdopet"></img>
       </Head>
-      {open === true ? <MenuMobile setOpen={setOpen} /> : false}
+      {open === true ? (
+        logado ? (
+          <MenuMobile setOpen={setOpen}>
+            <p onClick={redirectToPage("/")}>início</p>
+            <p onClick={redirectToPage("/ong-solicitation")}>Solicitações</p>
+            <p onClick={redirectToPage("/registerPet")}>Cadastrar Pet</p>
+            <p onClick={redirectToPage("/")}>Logout</p>
+          </MenuMobile>
+        ) : (
+          <MenuMobile>
+            <p onClick={redirectToPage("/")}>início</p>
+            <p onClick={redirectToPage("/login")}>Login</p>
+            <p onClick={redirectToPage("/cadastrar")}>Cadastrar</p>
+            <p onClick={redirectToPage("/quem-somos")}>Quem somos</p>
+          </MenuMobile>
+        )
+      ) : (
+        false
+      )}
     </>
   );
 };

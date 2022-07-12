@@ -1,6 +1,5 @@
-import OngSolicitation from "./pages/OngSolicitation";
 import Providers from "./Providers";
-// import Routes from "./Routes";
+import Routes from "./Routes";
 import GlobalStyle from "./styles/global";
 
 function App() {
@@ -8,8 +7,7 @@ function App() {
     <>
       <Providers>
         <GlobalStyle />
-        {/* <Routes /> */}
-        <OngSolicitation />
+        <Routes />
       </Providers>
     </>
     // <AnimalsListProvider>
