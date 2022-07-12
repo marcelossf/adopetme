@@ -11,6 +11,7 @@ import api from "../../api/api";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as yup from "yup";
+import { toastError, toastSucess } from "../../utils/toast";
 
 export const CadastreForm = ({ setForm, form }) => {
   const { redirectToPage } = useContext(RedirectContext);
@@ -46,9 +47,10 @@ export const CadastreForm = ({ setForm, form }) => {
       .post("/register", dados)
       .then(() => {
         setForm(!form);
+        toastSucess("Cadastro realizado com sucesso")
         redirectToPage("/login");
       })
-      .catch((error) => console.log(error));
+      .catch((_) => toastError("Campos Incorretos"));
   }
 
   return (

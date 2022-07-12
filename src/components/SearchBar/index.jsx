@@ -14,9 +14,7 @@ import { FilterDropDown } from "../FilterDropDown";
 export const SearchBar = () => {
   const { setInput } = useContext(SearchContext);
   const [active, setActive] = useState(false);
-
   
-
   return (
     <Container>
       <SloganContainer>

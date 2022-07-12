@@ -11,33 +11,14 @@ export const Section = styled.section`
 	left: 0;
 	z-index: 9999;
 
-	max-width: 310px;
 	width: 100%;
 	max-height: 350px;
 	height: 100%;
 	padding-right: 2em;
 
-	border-radius: 0px 25px 25px 0px;
-
-	-webkit-animation: slide-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-		both;
-	animation: slide-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-
-	.container-img {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-
-		width: 100%;
-
-		cursor: pointer;
-	}
-
-	.menu-links {
-		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-	}
+	
 
 	.link-menu {
 		padding: 2px;
@@ -100,4 +81,23 @@ export const Section = styled.section`
 		min-width: 29px;
 		margin-top: 19px;
 	}
+`;
+
+export const Paragraph = styled.p`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  font-family: "Fredoka";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+
+  display: flex;
+
+  text-indent: 25px;
+
+  color: white;
+  animation: scale-up-hor-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  cursor: pointer;
 `;

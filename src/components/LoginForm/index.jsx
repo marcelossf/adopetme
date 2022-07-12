@@ -11,6 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as yup from "yup";
 import { PetOngContext } from "../../context/ong";
+import { toastError, toastSucess } from "../../utils/toast";
 
 export const LoginForm = ({ setForm }) => {
   const { redirectToPage, form } = useContext(RedirectContext);
@@ -44,6 +45,7 @@ export const LoginForm = ({ setForm }) => {
         localStorage.setItem("user", JSON.stringify(response.data.user));
         const user = response.data.user;
         changeLogado();
+        toastSucess('Login Realizado com Sucesso')
         if (user.type === "ong") {
           setActiveOng(true)
           redirectToPage("/ong");
@@ -51,7 +53,7 @@ export const LoginForm = ({ setForm }) => {
           redirectToPage('/user')
         }
       })
-      .catch((error) => console.log(error));
+      .catch((_) => toastError('Senha/Email incorretos'));
   }
 
   

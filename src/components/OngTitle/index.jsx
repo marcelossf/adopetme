@@ -2,8 +2,8 @@ import { DivStyled } from "./style";
 import AdoPet from "../../assets/logoAdopet.png";
 
 const OngTile = () => {
-  const user = JSON.parse(localStorage.getItem('user'))
-  const {name} = user
+  const user = JSON.parse(localStorage.getItem("user")) || "";
+  const { name } = user;
   return (
     <>
       <DivStyled>

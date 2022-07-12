@@ -1,18 +1,44 @@
-import { useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { AnimalsListContext } from "../../context/animals";
 import { LoginLogoutContext } from "../../context/login-logout";
 import { PetOngContext } from "../../context/ong";
 import { SearchContext } from "../../context/search";
 import Card from "../Card";
-import { Container } from "./styles";
+import { ButtonsLeftRight, Container } from "./styles";
+
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 function Vitrine() {
   const { pets } = useContext(AnimalsListContext);
   const { input } = useContext(SearchContext);
   const { ongPets, activeOng } = useContext(PetOngContext);
-   const token = JSON.parse(localStorage.getItem('token')) || ''
-  
-   console.log(ongPets)
+  const petsPerPage = 6;
+  const pages = Math.ceil(pets?.length / petsPerPage);
+  const [petsPage, setPetsPage] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  useEffect(() => {
+    setPetsPage([]);
+    const newPetsPage = [];
+    for (var i = 0; i < pets.length; i = i + petsPerPage) {
+      newPetsPage.push(pets.slice(i, i + petsPerPage));
+    }
+    setPetsPage(newPetsPage);
+  }, [pets]);
+
+  function subHandlePage() {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+
+  function addHandlePage() {
+    if (currentPage < pages - 1) {
+      setCurrentPage(currentPage + 1);
+    }
+  }
+
+  const token = JSON.parse(localStorage.getItem("token")) || "";
 
   return (
     <Container>
@@ -22,7 +48,7 @@ function Vitrine() {
             Amigo não se compra, <span style={{ color: "red" }}>adote</span>!
           </span>
           <ul>
-            {pets
+            {petsPage[currentPage]
               ?.filter(
                 ({ petName, species }) =>
                   petName.toLowerCase().includes(input.toLowerCase()) ||
@@ -30,7 +56,7 @@ function Vitrine() {
               )
               .map((pet) => (
                 <li key={pet.id}>
-                  {/* <Card pet={pet} /> */}
+                  <Card pet={pet} />
                 </li>
               ))}
           </ul>
@@ -50,7 +76,7 @@ function Vitrine() {
                 )
                 .map((pet) => (
                   <li key={pet.id}>
-                    {/* <Card pet={pet} /> */}
+                    <Card pet={pet} />
                   </li>
                 ))
             ) : (
@@ -83,6 +109,14 @@ function Vitrine() {
           </ul> */}
         </>
       )}
+      <ButtonsLeftRight>
+        <button onClick={() => subHandlePage()}>
+          <AiOutlineArrowLeft size={30} />
+        </button>
+        <button onClick={() => addHandlePage()}>
+          <AiOutlineArrowRight size={30} />
+        </button>
+      </ButtonsLeftRight>
     </Container>
   );
 }
