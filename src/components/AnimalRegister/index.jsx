@@ -18,6 +18,7 @@ import { AnimalsListContext } from "../../context/animals";
 import { Input } from "../InputLabel";
 import { SelectForm } from "../SelectForm";
 import api from "../../api/api";
+import { toastError, toastSucess } from "../../utils/toast";
 
 export const AnimalRegister = () => {
   const [active, setActive] = useState(true);
@@ -60,8 +61,11 @@ export const AnimalRegister = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
+      .then((_) => {
+        toastSucess('Animal Cadastrado')
+        return HTMLFormElement.reset()
+      })
+      .catch((_) => toastError("Campos Invalidos"));
   }
 
   return (

@@ -1,11 +1,13 @@
 import Providers from "./Providers";
 import Routes from "./Routes";
 import GlobalStyle from "./styles/global";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <>
       <Providers>
+        <ToastContainer />
         <GlobalStyle />
         <Routes />
       </Providers>
