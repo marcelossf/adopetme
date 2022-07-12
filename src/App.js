@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <>
+
       <Providers>
         <ToastContainer />
         <GlobalStyle />

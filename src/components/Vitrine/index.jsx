@@ -4,7 +4,7 @@ import { LoginLogoutContext } from "../../context/login-logout";
 import { PetOngContext } from "../../context/ong";
 import { SearchContext } from "../../context/search";
 import Card from "../Card";
-import { ButtonsLeftRight, Container } from "./styles";
+import { ButtonsLeftRight, Container, ContainerVitrine, ContainerOng, AbaSolicitacoes, DivSolicitacoes } from "./styles";
 
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
@@ -16,6 +16,9 @@ function Vitrine() {
   const pages = Math.ceil(pets?.length / petsPerPage);
   const [petsPage, setPetsPage] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+  
+  const type = 'ong'
+  const [pets, setPets] = useState([]);
 
   useEffect(() => {
     setPetsPage([]);
@@ -40,8 +43,18 @@ function Vitrine() {
 
   const token = JSON.parse(localStorage.getItem("token")) || "";
 
+  if(type === 'ong') {
+    return (
+      <ContainerOng>
+        <AbaSolicitacoes>Solicitações</AbaSolicitacoes>
+        <DivSolicitacoes>asdsada</DivSolicitacoes>
+      </ContainerOng>
+    )
+  }
+
   return (
-    <Container>
+
+    <ContainerVitrine>
       {!token ? (
         <>
           <span className="fraseVitrine">
@@ -117,7 +130,8 @@ function Vitrine() {
           <AiOutlineArrowRight size={30} />
         </button>
       </ButtonsLeftRight>
-    </Container>
+    </ContainerVitrine>
+
   );
 }
 

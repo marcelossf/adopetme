@@ -4,8 +4,15 @@ import { RedirectContext } from "../../context/redirect";
 import { Button } from "../Button";
 import ModalSolicitation from "../ModalSolicitation";
 import { Container, DivInfos, FigureStyled } from "./styles";
+import {Button} from '../Button';
+import {useContext} from 'react';
+import {PetContext} from '../../providers/Pet'
 
 function Card({ pet }) {
+
+
+ 
+
   const { logado } = useContext(LoginLogoutContext);
   const { redirectToPage } = useContext(RedirectContext);
   const [open, setOpen] = useState(false);
@@ -17,7 +24,7 @@ function Card({ pet }) {
       setOpen(true);
     }
   };
-
+  
   return (
     <Container>
       {open === true ? (
@@ -35,6 +42,7 @@ function Card({ pet }) {
       <DivInfos>
         <span>Raça: {pet.breed}</span>
 
+
         {/* <span>Idade: {pet?.age.replace(pet?.age[0], pet?.age[0].toUpperCase())}</span> */}
         <span>ONG: {pet.ong}</span>
 
@@ -42,6 +50,7 @@ function Card({ pet }) {
       </DivInfos>
 
       <Button onClick={handleRedirect}>Solicitar Adoção</Button>
+
     </Container>
   );
 }
