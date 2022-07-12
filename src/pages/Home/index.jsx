@@ -5,6 +5,8 @@ import { Button } from "../../components/Button";
 import { Carousel } from "../../components/Carousel";
 import { Footer } from "../../components/Footer";
 import Header from "../../components/HeaderMobile";
+
+import SloganAdopetme from "../../components/SloganAdopetme";
 import Vitrine from "../../components/Vitrine";
 
 import { LoginLogoutContext } from "../../context/login-logout";
@@ -61,7 +63,7 @@ function Home() {
 			</Header>
 			<MarginNavBar></MarginNavBar>
 
-			{/* <SloganAdopetme /> */}
+			<SloganAdopetme />
 			<Carousel />
 			<Vitrine />
 			<Footer />
