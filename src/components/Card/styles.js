@@ -2,11 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   box-sizing: border-box;
-  padding-left: 10px;
-  padding-right: 10px;
-
+  
   width: 330px;
-  height: 560px;
+  height: 530px;
   background-color: #d9d9d9;
   border-radius: 30px;
 
@@ -15,11 +13,17 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  @media (min-width: 1000px) {
-    width: 400px;
-    padding-left: 10px;
-    padding-right: 10px;
+
+  box-shadow:10px 10px 5px 2px rgba( 0 , 0, 0, 0.25);
+
+  Button{
+    margin-bottom: 20px;
   }
+  @media (min-width: 1024px) {
+    width: 400px;
+    padding: 0px 10px;
+  }
+  
 `;
 
 export const FigureStyled = styled.figure`
@@ -29,10 +33,11 @@ export const FigureStyled = styled.figure`
   justify-content: center;
   align-items: center;
   gap: 15px;
-
   img {
-    width: 271px;
-    height: 182.51px;
+    width: 270px;
+    height: 180px;
+    margin-top:10px
+
   }
 
   span {
@@ -41,11 +46,11 @@ export const FigureStyled = styled.figure`
     font-size: 20px;
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1024px) {
     margin-top: -5px;
     img {
-      width: 333.98px;
-      height: 185.45px;
+      width: 335px;
+      height: 185px;
 
       border-radius: 15px 15px 0px 0px;
     }
@@ -56,8 +61,8 @@ export const DivInfos = styled.div`
   box-sizing: border-box;
   gap: 15px;
 
-  width: 267px;
-  height: 138.63px;
+  width: 270px;
+  height: 140px;
 
   display: flex;
   flex-direction: column;

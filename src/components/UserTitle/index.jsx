@@ -1,12 +1,14 @@
 import { DivStyled, DivContainerMax } from "./style";
 import AdoPet from "../../assets/logoAdopet.png";
 
-const UserTitle = ({nameUser}) => {
+const UserTitle = () => {
+  const user = JSON.parse(localStorage.getItem('user'))
+  const {name} = user
   return (
     <DivContainerMax>
       <DivStyled>
         <div className="ong-container">
-          <h1 className="title-ong">Bem vindo, {nameUser}.</h1>
+          <h1 className="title-ong">Bem vindo, {name}.</h1>
           <p className="paragraph-ong">
            
             Nosso site está cheio de adoráveis Pets ansiosos por uma familia.

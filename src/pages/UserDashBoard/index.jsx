@@ -6,22 +6,34 @@ import { MenuDropDown } from "../../components/MenuDropDown";
 import { MenuFooter } from "../../components/MenuFooter";
 import { Footer } from "../../components/Footer";
 import { RegisterPet } from "../RegisterPet";
-
+import { RedirectContext } from "../../context/redirect";
+import { useContext } from "react";
+import { NavMenu } from "../../components/NavMenu";
+import PhotoPerfil from "../../components/PhotoPerfil";
+  
 const UserDashBoard = () => {
+  const { redirectToPage} = useContext(RedirectContext);
   return (
     <>
-      <Header />
+    
+      <Header>
+
+      </Header>
       
       <UserTitle />
+
       <SearchBar />
     
       <Vitrine />
+
       <Footer>
+
         <MenuFooter> 
-            <li>Início</li>
-            <li>Solicitações</li>
-            <li>Cadastrar Pet</li>
+            <li onClick={()=>redirectToPage("/")}>Inicío</li>
+            <li onClick={()=>redirectToPage("/user-solicitation")}>Solicitações</li>
+            <li onClick={()=>redirectToPage("/quem-somos")}>Quem somos</li>
         </MenuFooter>
+
       </Footer>
     </>
   );

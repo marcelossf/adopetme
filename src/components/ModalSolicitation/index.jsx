@@ -1,20 +1,26 @@
 import PickDog from "../../assets/pit.png";
 import Close from "../../assets/fechar.png";
-import { Container } from "./style";
+import { Container, Containerpai} from "./style";
 import { useState } from "react";
 
-const ModalSolicitation = () => {
-  const [closeModal, setCloseModal] = useState(true);
+
+const ModalSolicitation = ({state,  setState , image}) => {
 
   const close = () => {
-    if (closeModal === true) {
-      setCloseModal(false);
+    if (state) {
+      setState(false);
     } else {
-      setCloseModal(true);
+      setState(true);
     }
   };
 
+  const onSolicition = () =>{
+    // colocar o toast
+    setState(false)
+
+  }
   return (
+  <Containerpai>
     <Container>
       <div className="container-adopet">
         <p className="text-solicitation">Solicitação de Adoção</p>
@@ -26,18 +32,19 @@ const ModalSolicitation = () => {
         ></img>
       </div>
       <div className="container-img">
-        <img src={PickDog} alt="Foto-Animal"></img>
+        <img src={image} className="dog-image" alt="Foto-Animal"></img>
         <p className="pet-name">PitBull fofo</p>
       </div>
       <form>
-        <input placeholder="Pergunta 1"></input>
-        <input placeholder="Pergunta 2"></input>
-        <input placeholder="Pergunta 3"></input>
-        <input placeholder="Pergunta 4"></input>
-        <input placeholder="Pergunta 5"></input>
-        <button>enviar</button>
+        <input placeholder="Tem tempo para passear com o animal?"></input>
+        <input placeholder="Possui um ambiente limpo para o animal ficar?"></input>
+        <input placeholder="Possui condições de dar auxilio médico?"></input>
+        <input placeholder="Sua casa tem grades nas janelas?"></input>
+        <input placeholder="Possui outros animais?"></input>
+        <button type="button" onClick={()=>onSolicition()}> Enviar</button>
       </form>
     </Container>
+  </Containerpai>
   );
 };
 

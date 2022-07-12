@@ -12,7 +12,8 @@ function Vitrine() {
   const { ongPets, activeOng } = useContext(PetOngContext);
    const token = JSON.parse(localStorage.getItem('token')) || ''
   
-   console.log(ongPets)
+   console.log(pets)
+   console.log(activeOng)
 
   return (
     <Container>
@@ -30,7 +31,7 @@ function Vitrine() {
               )
               .map((pet) => (
                 <li key={pet.id}>
-                  {/* <Card pet={pet} /> */}
+                  <Card pet={pet} />
                 </li>
               ))}
           </ul>
@@ -60,27 +61,12 @@ function Vitrine() {
         </>
       ) : (
         <>
-          {/* trocar a ongPets pelo context do usarioPets */}
-          {/* <span className="fraseVitrine">
-            Seus <span style={{ color: "var(--orange)" }}>Pets!</span>
+          <span className="fraseVitrine">
+            Encontre seu <span style={{ color: "var(--orange)" }}>Pet!</span>
           </span>
           <ul>
-            {ongPets.length > 0 ? (
-              ongPets
-                ?.filter(
-                  ({ petName, species }) =>
-                    petName.toLowerCase().includes(input.toLowerCase()) ||
-                    species.toLowerCase().includes(input.toLowerCase())
-                )
-                .map((pet) => (
-                  <li key={pet.id}>
-                    <Card pet={pet} />
-                  </li>
-                ))
-            ) : (
-              <h1>Você não adicionou nenhum pet Ainda :(</h1>
-            )}
-          </ul> */}
+            {pets.map((pet) => (<li key={pet.id}><Card pet={pet} /></li>))}
+          </ul>
         </>
       )}
     </Container>

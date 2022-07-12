@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-margin-top: 50px;
-  width: 100%;
+margin-top: 20px;
 
+  width: 100%;
   box-sizing: border-box;
   padding: 20px;
   gap: 50px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -23,23 +22,25 @@ margin-top: 50px;
 
   ul {
     width: 100%;
+    max-width: 2000px;
 
     display: flex;
     flex-direction: row;
     
     overflow-x: auto;
-    gap: 10px;
+    gap: 60px;
+
+    padding-bottom:30px;
   }
 
-  @media (max-width: 999px) {
+  @media (max-width: 1024px) {
     ul {
       margin-left: 3vw;
     }
   }
 
-  @media (min-width: 1000px) {
+  @media (min-width: 1024px) {
     width: 100%;
-    max-height: 700px;
     ul {
     justify-content: center;
 

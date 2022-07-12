@@ -33,7 +33,7 @@ const Header = ({ children }) => {
         ></img>
         <div className="circle"></div>
         <img className="pawsLogo" src={PawsLogo} alt="Patinhas Logo"></img>
-        <NavMenu>{children}</NavMenu>
+        {children}
         <img className="imgLogo" src={Logo} alt="logoAdopet"></img>
       </Head>
       {open === true ? <MenuMobile setOpen={setOpen} /> : false}

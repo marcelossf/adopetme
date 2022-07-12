@@ -5,7 +5,7 @@ export const PetOngContext = createContext([]);
 
 export const PetOngProvider = ({ children }) => {
   const [ongPets, setOngPets] = useState([]);
-  const [activeOng, setActiveOng] = useState(true)
+  const [activeOng, setActiveOng] = useState(false)
 
 
   return (
