@@ -23,8 +23,7 @@ const GlobalStyle = createGlobalStyle`
 
     button {
         cursor: pointer;
-        &:hover {
-        }
+
     }
 
     li,ul {

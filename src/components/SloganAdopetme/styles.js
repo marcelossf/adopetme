@@ -1,76 +1,88 @@
 import styled from "styled-components";
+import VectorDesktop from "../../assets/vectorDesktop.png";
+import VectorMobile from "../../assets/vectorMobile.png";
 
 export const Container = styled.div`
-  margin-top: 10px;
-  height: 500px;
-  width: 100%;
-  @media (max-width: 999px) {
-    .logoAdopetme {
-      visibility: hidden;
-    }
-  }
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 30px auto;
+	width: 100%;
 
-  @media (min-width: 1000px) {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    .logoAdopetme {
-      width: 50%;
-    }
-  }
+	@media (min-width: 1024px) {
+		padding: 2em;
+	}
+	.logoAdopetme {
+		display: none;
+		@media (min-width: 1024px) {
+			display: block;
+			width: 50%;
+		}
+	}
 `;
 
-export const Slogan = styled.div`
-  font-family: "Fredoka";
-  font-weight: 500;
-  color: #ffffff;
+export const Slogan = styled.figure`
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
 
-  figure {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
+	padding: 3em 2em;
+	max-width: 100%;
+	width: 100%;
 
-    .vectorDesktop {
-      width: 95%;
-    }
+	height: 100%;
+	min-height: 255px;
 
-    span {
-      position: absolute;
+	background-image: url(${VectorMobile});
+	background-size: contain;
+	background-repeat: no-repeat;
+	@media (max-width: 375px) {
+		padding: 3em 2em;
+	}
+	@media (min-width: 450px) {
+		padding: 4em 4em;
+		min-height: 450px;
+	}
+	@media (min-width: 530px) {
+		padding: 5em 4em;
+	}
+	@media (min-width: 768px) {
+		background-image: url(${VectorDesktop});
+		justify-content: flex-start;
+	}
 
-      box-sizing: border-box;
-      padding: 35px;
+	p {
+		width: 350px;
 
-      width: 100%;
-      font-size: 21px;
-      line-height: 36px;
-    }
-  }
+		height: fit-content;
 
-  @media (min-width: 1024px) {
-    width: 80%;
+		font-family: "Fredoka";
+		font-weight: 500;
+		text-align: end;
 
-    figure {
-      display: flex;
-      align-items: center;
-      width: 100%;
+		color: #ffffff;
 
-      .vectorDesktop {
-        width: 71%;
-        margin-left: 2vw;
-      }
+		font-size: 1.5rem;
+		@media (max-width: 375px) {
+			font-size: 1.3rem;
+			width: 300px;
+		}
+		@media (min-width: 450px) {
+			font-size: 1.8rem;
+		}
+		@media (min-width: 530px) {
+			font-size: 2rem;
+		}
+		@media (min-width: 768px) {
+			width: 430px;
+			margin-left: 3%;
 
-      span {
-        position: absolute; 
+			text-align: start;
 
-        box-sizing: border-box;
-        padding-left: 120px;
-        margin-bottom: 30px;
-
-        width: 68%;
-        font-size: 36px;
-        line-height: 46px;
-      }
-    }
-  }
+			font-size: 2.5rem;
+		}
+		@media (min-width: 768px) {
+			margin-top: 3%;
+		}
+	}
 `;

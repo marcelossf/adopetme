@@ -11,6 +11,7 @@ import api from "../../api/api";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import * as yup from "yup";
+import { toastError, toastSucess } from "../../utils/toast";
 
 export const CadastreForm = ({ setForm, form }) => {
   const { redirectToPage } = useContext(RedirectContext);
@@ -20,8 +21,8 @@ export const CadastreForm = ({ setForm, form }) => {
   };
 
   const formSchema = yup.object().shape({
-    Type: yup.string().required("Campo obrigatório"),
-    Name: yup.string().required("Campo obrigatório"),
+    type: yup.string().required("Campo obrigatório"),
+    name: yup.string().required("Campo obrigatório"),
     email: yup.string().required("Campo obrigatório").email("Email Inválido."),
     password: yup
       .string()
@@ -41,14 +42,15 @@ export const CadastreForm = ({ setForm, form }) => {
   } = useForm({ resolver: yupResolver(formSchema) });
 
   function onLogin(dados) {
-
+    console.log(dados)
     api
       .post("/register", dados)
       .then(() => {
         setForm(!form);
+        toastSucess("Cadastro realizado com sucesso")
         redirectToPage("/login");
       })
-      .catch((error) => console.log(error));
+      .catch((_) => toastError("Campos Incorretos"));
   }
 
   return (
@@ -76,8 +78,8 @@ export const CadastreForm = ({ setForm, form }) => {
           name="type"
           placeholder="Senha"
         >
-          <option value="Adotante">Adotante</option>
-          <option value="ONG">ONG</option>
+          <option value="adotante">Adotante</option>
+          <option value="ong">ONG</option>
         </SelectForm>
         {errors.email && <span> {errors.type?.message}</span>}
         <Input
