@@ -69,7 +69,7 @@ function Home() {
 
 			<Footer>
 				<Link to="/">Início</Link>
-				<Link to="/quem-somos">Quem Somos</Link>
+				<Link to="/quem-somos">Quem Somos!</Link>
 				<Link to="/cadastrar">Cadastrar</Link>
 				<Link to="/login">Login</Link>
 			</Footer>
