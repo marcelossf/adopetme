@@ -30,7 +30,7 @@ function Vitrine() {
               )
               .map((pet) => (
                 <li key={pet.id}>
-                  {/* <Card pet={pet} /> */}
+                  <Card pet={pet} />
                 </li>
               ))}
           </ul>
@@ -50,12 +50,13 @@ function Vitrine() {
                 )
                 .map((pet) => (
                   <li key={pet.id}>
-                    {/* <Card pet={pet} /> */}
+                    <Card pet={pet} />
                   </li>
                 ))
             ) : (
               <h1>Você não adicionou nenhum pet Ainda :( </h1>
             )}
+
           </ul>
         </>
       ) : (

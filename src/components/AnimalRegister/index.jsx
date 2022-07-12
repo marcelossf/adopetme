@@ -19,6 +19,8 @@ import { Input } from "../InputLabel";
 import { SelectForm } from "../SelectForm";
 import api from "../../api/api";
 import { toastError, toastSucess } from "../../utils/toast";
+import { RedirectContext } from "../../context/redirect";
+import { useHistory } from "react-router-dom";
 
 export const AnimalRegister = () => {
   const [active, setActive] = useState(true);
@@ -26,6 +28,8 @@ export const AnimalRegister = () => {
   const token = JSON.parse(localStorage.getItem("token"));
   const user = JSON.parse(localStorage.getItem("user"));
   const userID = user.id;
+  const { redirectToPage } = useContext(RedirectContext);
+  const history = useHistory();
 
   const formSchema = yup.object().shape({
     petName: yup.string().required("Nome Obrigatório"),
@@ -61,11 +65,14 @@ export const AnimalRegister = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((_) => {
-        toastSucess('Animal Cadastrado')
-        return HTMLFormElement.reset()
+      .then((response) => {
+        console.log(response);
+        toastSucess("Animal Cadastrado");
+        return redirectToPage("/ong");
       })
-      .catch((_) => toastError("Campos Invalidos"));
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
@@ -145,8 +152,8 @@ export const AnimalRegister = () => {
                   </ColumnForm>
                   <ColumnForm>
                     <Input
-                      TextLabelForm={"Idade"}
-                      placeholderInput={"Idade"}
+                      TextLabelForm={"Idade (em anos)"}
+                      placeholderInput={"Idade (em anos)"}
                       name="age"
                       register={register}
                     />
@@ -249,8 +256,8 @@ export const AnimalRegister = () => {
                   </ColumnForm>
                   <ColumnForm>
                     <Input
-                      TextLabelForm={"Idade"}
-                      placeholderInput={"Idade"}
+                      TextLabelForm={"Idade (em anos)"}
+                      placeholderInput={"Idade (em anos)"}
                       name="age"
                       register={register}
                     />
