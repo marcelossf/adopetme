@@ -11,7 +11,7 @@ export const Container = styled.div`
   min-height: 472px;
   max-width: 305px;
   width: 100%;
-  position: fixed;
+  position: absolute;
 
   .container-adopet {
     display: flex;
