@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { Button } from "../../components/Button";
 import { Carousel } from "../../components/Carousel";
 import { Footer } from "../../components/Footer";
 import Header from "../../components/HeaderMobile";
+
+import SloganAdopetme from "../../components/SloganAdopetme";
 import Vitrine from "../../components/Vitrine";
 
 import { LoginLogoutContext } from "../../context/login-logout";
@@ -55,12 +57,47 @@ function Home() {
       </Header>
       <MarginNavBar></MarginNavBar>
 
-      {/* <SloganAdopetme /> */}
-      <Carousel />
-      <Vitrine />
-      <Footer />
-    </>
-  );
+
+	const handleRoute = (route) => {
+		route && history.push(`/${route}`);
+	};
+	return (
+		<>
+			<Header selected={selectedMobile}>
+				<Button
+					className="button-selected"
+					width={"230px"}
+					onClick={() => handleRoute()}>
+					Início
+				</Button>
+				<Button
+					width={"230px"}
+					onClick={() => handleRoute("quem-somos")}>
+					Quem somos
+				</Button>
+				<Button
+					width={"230px"}
+					onClick={() => handleRoute("cadastrar")}>
+					Cadastrar
+				</Button>
+				<Button width={"230px"} onClick={() => handleRoute("login")}>
+					Login
+				</Button>
+			</Header>
+			<MarginNavBar></MarginNavBar>
+
+			<SloganAdopetme />
+			<Carousel />
+			<Vitrine />
+
+			<Footer>
+				<Link to="/">Início</Link>
+				<Link to="/quem-somos">Quem Somos!</Link>
+				<Link to="/cadastrar">Cadastrar</Link>
+				<Link to="/login">Login</Link>
+			</Footer>
+		</>
+	);
 }
 
 export default Home;
