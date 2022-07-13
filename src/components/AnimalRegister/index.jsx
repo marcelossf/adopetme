@@ -20,16 +20,19 @@ import { SelectForm } from "../SelectForm";
 import api from "../../api/api";
 import { toastError, toastSucess } from "../../utils/toast";
 import { RedirectContext } from "../../context/redirect";
-import { useHistory } from "react-router-dom";
+import { PetOngContext } from "../../context/ong";
+import { EditAnimal } from "../AnimalEdit";
 
 export const AnimalRegister = () => {
-  const [active, setActive] = useState(true);
+  const { redirectToPage } = useContext(RedirectContext);
   const { pets } = useContext(AnimalsListContext);
+  const { OngPets } = useContext(PetOngContext);
+
+  const [active, setActive] = useState(true);
+
   const token = JSON.parse(localStorage.getItem("token"));
   const user = JSON.parse(localStorage.getItem("user"));
   const userID = user.id;
-  const { redirectToPage } = useContext(RedirectContext);
-  const history = useHistory();
 
   const formSchema = yup.object().shape({
     petName: yup.string().required("Nome Obrigatório"),
@@ -46,10 +49,6 @@ export const AnimalRegister = () => {
   });
 
   ////////////////////Pegar dados da ONG//////////////////////////
-
-  ///////////Fazer o POST pra api/////////////////////////
-
-  //cerejinha.ong@gmail.com
 
   const {
     register,
@@ -170,6 +169,8 @@ export const AnimalRegister = () => {
                       placeholderInput={"ONG"}
                       name="ong"
                       register={register}
+                      value={user.name}
+                      // disabled
                     />
                     {!!errors && <Error>{errors?.ong?.message}</Error>}
                     <Input
@@ -197,109 +198,7 @@ export const AnimalRegister = () => {
             </Container>
           </FormContainer>
         ) : (
-          <FormContainer>
-            <Container>
-              <h2>Editar Animal</h2>
-              <div className="separator"> </div>
-              <form onSubmit={handleSubmit(onSubmitFunction)}>
-                <ColumnContainer>
-                  <ColumnForm>
-                    <Input
-                      TextLabelForm={"Nome"}
-                      placeholderInput={"Nome"}
-                      register={register}
-                      name="petName"
-                    />
-                    {!!errors && <Error>{errors?.petName?.message}</Error>}
-                    <Input
-                      TextLabelForm={"Foto do Pet"}
-                      placeholderInput={"Foto do Pet"}
-                      name="img"
-                      register={register}
-                    />
-                    {!!errors && <Error>{errors?.img?.message}</Error>}
-                    <Input
-                      TextLabelForm={"Raça"}
-                      placeholderInput={"Raça"}
-                      name="breed"
-                      register={register}
-                    />
-                    {!!errors && <Error>{errors?.breed?.message}</Error>}
-                    <SelectForm
-                      TextLabelForm={"Espécie"}
-                      placeholderInput={"Espécie"}
-                      name="species"
-                      register={register}
-                    >
-                      <option value="Cachorro">Cachorro</option>
-                      <option value="Gato">Gato</option>
-                      <option value="Roedor">Roedor</option>
-                    </SelectForm>
-                    {!!errors && <Error>{errors?.species?.message}</Error>}
-                    <Input
-                      TextLabelForm={"Cor"}
-                      placeholderInput={"Cor"}
-                      name="color"
-                      register={register}
-                    />
-                    {!!errors && <Error>{errors?.color?.message}</Error>}
-                    <SelectForm
-                      name="gender"
-                      TextLabelForm={"Genero"}
-                      placeholderInput={"Genero"}
-                      register={register}
-                    >
-                      <option value="Macho">Macho</option>
-                      <option value="Femea">Fêmea</option>
-                    </SelectForm>
-                    {!!errors && <Error>{errors?.gender?.message}</Error>}
-                  </ColumnForm>
-                  <ColumnForm>
-                    <Input
-                      TextLabelForm={"Idade (em anos)"}
-                      placeholderInput={"Idade (em anos)"}
-                      name="age"
-                      register={register}
-                    />
-                    {!!errors && <Error>{errors?.age?.message}</Error>}
-                    <Input
-                      TextLabelForm={"Porte"}
-                      placeholderInput={"Porte"}
-                      name="porte"
-                      register={register}
-                    />
-                    {!!errors && <Error>{errors?.porte?.message}</Error>}
-                    <Input
-                      TextLabelForm={"ONG"}
-                      placeholderInput={"ONG"}
-                      name="ong"
-                      register={register}
-                    />
-                    {!!errors && <Error>{errors?.ong?.message}</Error>}
-                    <Input
-                      TextLabelForm={"Descrição"}
-                      placeholderInput={"Descrição"}
-                      name="description"
-                      register={register}
-                    />
-                    {!!errors && <Error>{errors?.description?.message}</Error>}
-                    <Input
-                      TextLabelForm={"Situação"}
-                      placeholderInput={"Situação"}
-                      name="situation"
-                      register={register}
-                    />
-                    {!!errors && <Error>{errors?.situation?.message}</Error>}
-                  </ColumnForm>
-                </ColumnContainer>
-                <ButtonContainer>
-                  <Button width={"200px"} blackSchema type="submit">
-                    Enviar
-                  </Button>
-                </ButtonContainer>
-              </form>
-            </Container>
-          </FormContainer>
+          <EditAnimal />
         )}
       </FolderContainer>
     </SectionContainer>
