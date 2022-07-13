@@ -1,19 +1,14 @@
 import React, { useContext } from "react";
-
 import { Input } from "../InputLabel";
-
 import api from "../../api/api";
 import { SelectForm } from "../SelectForm";
-
 import { RedirectContext } from "../../context/redirect";
-
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-
 import { toastError, toastSucess } from "../../utils/toast";
-
 import { BtnFormEnter, ButtonForm, FormCadastre, TitleForm } from "./style";
+
 export const CadastreForm = () => {
 	const { redirectToPage, setForm } = useContext(RedirectContext);
 
