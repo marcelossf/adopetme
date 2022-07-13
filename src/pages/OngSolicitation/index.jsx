@@ -6,9 +6,16 @@ import OngTile from "../../components/OngTitle";
 import { Container } from "./style";
 import { RedirectContext } from "../../context/redirect";
 import { useContext } from "react";
+import { SolicitationContext } from "../../context/solicitation";
+import { AiTwotoneFileMarkdown } from "react-icons/ai";
 
 const OngSolicitation = () => {
   const { redirectToPage } = useContext(RedirectContext);
+  const token = JSON.parse(localStorage.getItem('token'))
+
+  if(!token) {
+    redirectToPage('/')
+  }
 
   return (
     <Container>

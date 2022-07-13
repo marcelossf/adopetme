@@ -48,7 +48,7 @@ const UserDashBoard = () => {
 
         <MenuFooter>
           <Link to='/user'>Início</Link>
-          <Link to='/solicitacao'>Solicitações</Link>
+          <Link to='/user-solicitation'>Solicitações</Link>
           <Link to='quem-somos'>Quem Somos</Link>
 
         </MenuFooter>
