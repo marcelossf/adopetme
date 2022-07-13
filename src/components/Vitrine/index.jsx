@@ -13,7 +13,7 @@ import { Button } from "../Button";
 function Vitrine() {
   const { pets } = useContext(AnimalsListContext);
   const { input, filtredPets } = useContext(SearchContext);
-  const { ongPets, activeOng } = useContext(PetOngContext);
+ ;
 
   const petsPerPage = 6;
   const pages = Math.ceil(pets?.length / petsPerPage);
@@ -45,8 +45,7 @@ function Vitrine() {
     }
   }
 
-  const token = JSON.parse(localStorage.getItem("token")) || "";
-
+  
   return (
     <ContainerVitrine>
       {filtredPets.length === 0 ? (

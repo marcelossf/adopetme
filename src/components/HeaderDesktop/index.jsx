@@ -11,8 +11,6 @@ import { RedirectContext } from "../../context/redirect";
 
 const HeaderDekstop = ({ children, selected }) => {
 	const [open, setOpen] = useState(false);
-	const { redirectToPage } = useContext(RedirectContext);
-	const { logado } = useContext(LoginLogoutContext);
 	const token = JSON.parse(localStorage.getItem("token")) || "";
 
 	const OpenModal = () => {

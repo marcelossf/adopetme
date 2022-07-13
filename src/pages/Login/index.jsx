@@ -15,7 +15,6 @@ import calendar1 from "../../assets/calendar1.png";
 import seeYouSoon from "../../assets/seeYouSoon.png";
 
 function Login() {
-  const [formulario, setFormulario] = useState(true);
   const { redirectToPage, form } = useContext(RedirectContext);
   const [userOng, setUserOng] = useState(false);
   const [disablebtn1, setDisablebtn1] = useState(false);

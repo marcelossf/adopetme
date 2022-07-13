@@ -1,29 +1,25 @@
 import { useContext } from "react";
 import { useEffect } from "react";
 import api from "../../api/api";
-import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
-import Header from "../../components/HeaderMobile";
 import { MenuFooter } from "../../components/MenuFooter";
-import { NavMenu } from "../../components/NavMenu";
 import OngTile from "../../components/OngTitle";
 import Vitrine from "../../components/Vitrine";
-import { LoginLogoutContext } from "../../context/login-logout";
 import { PetOngContext } from "../../context/ong";
-import { RedirectContext } from "../../context/redirect";
 import { Container } from "./style";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { UserContext } from "../../context/user";
 
 const OngDashBoard = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const { user } = useContext(UserContext);
   const token = JSON.parse(localStorage.getItem("token"));
   const userID = user.id;
   const { setOngPets } = useContext(PetOngContext);
-  const { redirectToPage } = useContext(RedirectContext);
+  const history = useHistory();
 
   useEffect(() => {
     if (!token) {
-      redirectToPage("/login");
+      history.push("/login");
     }
   }, [token]);
 

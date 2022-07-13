@@ -15,85 +15,83 @@ import { RedirectContext } from "../../context/redirect";
 import { LinksMenu } from "../../components/MenuMobile/style.js";
 
 import { MarginNavBar } from "../../styles/marginNavBar";
+import { UserContext } from "../../context/user";
+import { useEffect } from "react";
 
 function Home() {
-	const { logado, changeLogado } = useContext(LoginLogoutContext);
-	const { redirectToPage } = useContext(RedirectContext);
-	const token = JSON.parse(localStorage.getItem("token")) || "";
-	const user = JSON.parse(localStorage.getItem("user")) || "";
+  const { redirectToPage } = useContext(RedirectContext);
+  const { user } = useContext(UserContext);
+	const token = localStorage.getItem('token')
+  const [selected, setSelected] = useState(true);
 
-	const [selected, setSelected] = useState(true);
+  useEffect(() => {
+    if (user) {
+      if (user.type === "ong") {
+        redirectToPage("/ong");
+      } else {
+        redirectToPage("/user");
+      }
+    }
+  }, [user]);
 
-	if (token) {
-		if (user.type === "ong") {
-			redirectToPage("/ong");
-		} else {
-			redirectToPage("/user");
-		}
-	}
+  const history = useHistory();
 
-	const history = useHistory();
+  const handleRoute = (route) => {
+    route && history.push(`/${route}`);
+  };
 
-	const handleRoute = (route) => {
-		route && history.push(`/${route}`);
-	};
+  return (
+    <>
+      <HeaderDekstop>
+        <Button
+          className="button-selected"
+          width={"230px"}
+          onClick={() => handleRoute()}
+        >
+          Início
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
+          Quem somos
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("cadastrar")}>
+          Cadastrar
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("login")}>
+          Login
+        </Button>
+      </HeaderDekstop>
 
-	return (
-		<>
-			<HeaderDekstop>
-				<Button
-					className="button-selected"
-					width={"230px"}
-					onClick={() => handleRoute()}>
-					Início
-				</Button>
-				<Button
-					width={"230px"}
-					onClick={() => handleRoute("quem-somos")}>
-					Quem somos
-				</Button>
-				<Button
-					width={"230px"}
-					onClick={() => handleRoute("cadastrar")}>
-					Cadastrar
-				</Button>
-				<Button width={"230px"} onClick={() => handleRoute("login")}>
-					Login
-				</Button>
-			</HeaderDekstop>
+      <HeaderMobile selected={selected}>
+        <LinksMenu
+          selected={selected}
+          onClick={() => handleRoute()}
+          className="link--selected "
+        >
+          Início
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("quem-somos")}>
+          Quem somos
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("cadastrar")}>
+          Cadastrar
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("login")}>Login</LinksMenu>
+      </HeaderMobile>
 
-			<HeaderMobile selected={selected}>
-				<LinksMenu
-					selected={selected}
-					onClick={() => handleRoute()}
-					className="link--selected ">
-					Início
-				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("quem-somos")}>
-					Quem somos
-				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("cadastrar")}>
-					Cadastrar
-				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("login")}>
-					Login
-				</LinksMenu>
-			</HeaderMobile>
+      <MarginNavBar></MarginNavBar>
 
-			<MarginNavBar></MarginNavBar>
+      <SloganAdopetme />
+      <Carousel />
+      <Vitrine />
 
-			<SloganAdopetme />
-			<Carousel />
-			<Vitrine />
-
-			<Footer>
-				<Link to="/">Início</Link>
-				<Link to="/quem-somos">Quem Somos</Link>
-				<Link to="/cadastrar">Cadastrar</Link>
-				<Link to="/login">Login</Link>
-			</Footer>
-		</>
-	);
+      <Footer>
+        <Link to="/">Início</Link>
+        <Link to="/quem-somos">Quem Somos</Link>
+        <Link to="/cadastrar">Cadastrar</Link>
+        <Link to="/login">Login</Link>
+      </Footer>
+    </>
+  );
 }
 
 export default Home;

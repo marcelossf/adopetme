@@ -22,6 +22,8 @@ import { toastError, toastSucess } from "../../utils/toast";
 import { RedirectContext } from "../../context/redirect";
 import { PetOngContext } from "../../context/ong";
 import { EditAnimal } from "../AnimalEdit";
+import { UserContext } from "../../context/user";
+import { useHistory } from "react-router-dom";
 
 export const AnimalRegister = () => {
   const { redirectToPage } = useContext(RedirectContext);
@@ -31,8 +33,10 @@ export const AnimalRegister = () => {
   const [active, setActive] = useState(true);
 
   const token = JSON.parse(localStorage.getItem("token"));
-  const user = JSON.parse(localStorage.getItem("user"));
+  const {user} = useContext(UserContext)
   const userID = user.id;
+
+  const history = useHistory()
 
   const formSchema = yup.object().shape({
     petName: yup.string().required("Nome Obrigatório"),
@@ -64,10 +68,9 @@ export const AnimalRegister = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => {
-        console.log(response);
+      .then((_) => {
         toastSucess("Animal Cadastrado");
-        return redirectToPage("/ong");
+        history.push("/ong");
       })
       .catch((err) => {
         console.log(err);

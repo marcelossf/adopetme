@@ -5,15 +5,14 @@ import api from "../../api/api";
 import { Footer } from "../../components/Footer";
 import UserTitle from "../../components/UserTitle";
 import { RedirectContext } from "../../context/redirect";
+import { UserContext } from "../../context/user";
 import { toastError, toastSucess } from "../../utils/toast";
 
 export const Testemonials = () => {
   const [post, setPost] = useState("");
-
-  const { redirectToPage } = useContext(RedirectContext);
-
   const token = JSON.parse(localStorage.getItem("token")) || "";
-  const user = JSON.parse(localStorage.getItem("user"));
+  const { user } = useContext(UserContext);
+  
   const handlePost = (data) => {
     // api
     //   .post(

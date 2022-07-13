@@ -11,15 +11,16 @@ import { PetOngContext } from "../../context/ong";
 import { toastSucess } from "../../utils/toast";
 import api from "../../api/api";
 import { Button } from "../Button";
+import { UserContext } from "../../context/user";
 
 export const EditAnimal = () => {
   const { redirectToPage } = useContext(RedirectContext);
   const { OngPets } = useContext(PetOngContext);
-
+  
   const [active, setActive] = useState(true);
 
   const token = JSON.parse(localStorage.getItem("token"));
-  const user = JSON.parse(localStorage.getItem("user"));
+  const {user} = useContext(UserContext)
   const userID = user.id;
 
   const formSchema = yup.object().shape({

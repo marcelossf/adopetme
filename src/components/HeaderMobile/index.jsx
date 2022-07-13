@@ -1,23 +1,12 @@
-import { useContext, useState } from "react";
-
+import { useState } from "react";
 import LogoAdopetme from "../../assets/logoAdopet.png";
 import Menu from "../../assets/Menu.png";
-
 import MenuMobile from "../MenuMobile";
-
-import { LoginLogoutContext } from "../../context/login-logout";
-import { RedirectContext } from "../../context/redirect";
-
 import { NavMobile } from "./style";
 
 const HeaderMobile = ({ children, selected }) => {
 	const [open, setOpen] = useState(false);
-
-	const { redirectToPage } = useContext(RedirectContext);
-	const { logado } = useContext(LoginLogoutContext);
-
-	const token = JSON.parse(localStorage.getItem("token")) || "";
-
+	
 	const OpenModal = () => {
 		setOpen(!open);
 	};

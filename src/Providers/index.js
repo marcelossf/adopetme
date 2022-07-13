@@ -1,23 +1,23 @@
 import React from "react";
 import { AnimalsListProvider } from "../context/animals";
-import { LoginLogoutProvider } from "../context/login-logout";
 import { PetOngProvider } from "../context/ong";
 import { RedirectProvider } from "../context/redirect";
 import { SearchProvider } from "../context/search";
 import { SolicitationProvider } from "../context/solicitation";
+import { UserProvider } from "../context/user";
 
 function Providers({ children }) {
   return (
     <>
       <AnimalsListProvider>
         <PetOngProvider>
-          <SearchProvider>
-            <SolicitationProvider>
-              <RedirectProvider>
-                <LoginLogoutProvider>{children}</LoginLogoutProvider>
-              </RedirectProvider>
-            </SolicitationProvider>
-          </SearchProvider>
+          <UserProvider>
+            <SearchProvider>
+              <SolicitationProvider>
+                <RedirectProvider>{children}</RedirectProvider>
+              </SolicitationProvider>
+            </SearchProvider>
+          </UserProvider>
         </PetOngProvider>
       </AnimalsListProvider>
     </>

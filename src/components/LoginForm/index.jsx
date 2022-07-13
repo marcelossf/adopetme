@@ -3,22 +3,13 @@ import { FormLogin } from "./style";
 import { Input } from "../InputLabel";
 import { RedirectContext } from "../../context/redirect";
 import { useForm } from "react-hook-form";
-import { LoginLogoutContext } from "../../context/login-logout";
-import api from "../../api/api";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { PetOngContext } from "../../context/ong";
-import { toastError, toastSucess } from "../../utils/toast";
 import { UserContext } from "../../context/user";
 
 export const LoginForm = () => {
-  const { redirectToPage, form, setForm } = useContext(RedirectContext);
-  const { logado, changeLogado } = useContext(LoginLogoutContext);
-  const { setActiveOng } = useContext(PetOngContext);
-  const { setActiveUser } = useContext(UserContext);
-
-  const token = JSON.parse(localStorage.getItem("token"));
-
+  const { redirectToPage, setForm } = useContext(RedirectContext);
+  const { user, onLogin } = useContext(UserContext);
   const formSchema = yup.object().shape({
     email: yup.string().required("Campo obrigatório"),
     password: yup.string().required("Campo obrigatório"),
@@ -30,34 +21,11 @@ export const LoginForm = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
 
-  function onLogin(dados) {
-    api
-      .post("/login", dados)
-
-      .then((response) => {
-        localStorage.setItem(
-          "token",
-          JSON.stringify(response.data.accessToken)
-        );
-        localStorage.setItem("user", JSON.stringify(response.data.user));
-        const user = response.data.user;
-        changeLogado();
-        toastSucess("Login Realizado com Sucesso");
-        if (user.type === "ong") {
-          setActiveOng(true);
-          return redirectToPage("/ong");
-        } else {
-          setActiveUser(true);
-          return redirectToPage("/user");
-        }
-      })
-      .catch((_) => toastError("Senha/Email incorretos"))
-      .finally((response) => console.log(response));
-  }
-
-  if (token) {
-    redirectToPage("/");
-  }
+  useEffect(() => {
+    if (user) {
+      redirectToPage("/");
+    }
+  }, []);
 
   return (
     <>

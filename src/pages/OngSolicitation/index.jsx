@@ -5,17 +5,18 @@ import { MenuFooter } from "../../components/MenuFooter";
 import OngTile from "../../components/OngTitle";
 import { Container } from "./style";
 import { RedirectContext } from "../../context/redirect";
-import { useContext } from "react";
-import { SolicitationContext } from "../../context/solicitation";
-import { AiTwotoneFileMarkdown } from "react-icons/ai";
+import { useContext, useEffect } from "react";
+
 
 const OngSolicitation = () => {
   const { redirectToPage } = useContext(RedirectContext);
-  const token = JSON.parse(localStorage.getItem('token'))
+  const token = JSON.parse(localStorage.getItem("token"));
 
-  if(!token) {
-    redirectToPage('/')
-  }
+  useEffect(() => {
+    if (!token) {
+      redirectToPage("/");
+    }
+  }, []);
 
   return (
     <Container>
