@@ -1,103 +1,107 @@
-import React, { useState } from "react";
-import { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import { Link, useHistory } from "react-router-dom";
+
 import Logo from "../../assets/logoAdopet.png";
 
 import MenuDropdown from "../../assets/Menu.png";
+
 import { Button } from "../../components/Button";
 
 import { Footer } from "../../components/Footer";
 import HeaderDekstop from "../../components/HeaderDesktop";
 import HeaderMobile from "../../components/HeaderMobile";
 import { LinksMenu } from "../../components/MenuMobile/style";
+import PhotoPerfil from "../../components/PhotoPerfil";
 import SloganRequest from "../../components/SloganRequest";
 import StepsRequest from "../../components/StepsRequest";
 import { TableRequest } from "../../components/TableRequest";
+
+import { UserContext } from "../../context/user";
+import { MarginNavBar } from "../../styles/marginNavBar";
+
+import { MainContainer } from "./style";
+
 import { SolicitationContext } from "../../context/solicitation";
 
 import { HeaderContainer, MainContainer, Title } from "./style";
 import PhotoPerfil from "../../components/PhotoPerfil";
-import { UserContext } from "../../context/user";
-
-import { MarginNavBar } from "../../styles/marginNavBar";
 
 const UserRequest = () => {
-  const [selected] = useState(true);
-  const history = useHistory();
-  const { logout } = useContext(UserContext);
+	const { logout } = useContext(UserContext);
 
-  const handleRoute = (route) => {
-    route && history.push(`/${route}`);
-  };
+	const [selected, setSelected] = useState(true);
+	const history = useHistory();
 
-  return (
-    <>
-      <HeaderDekstop>
-        <Button
-          className="button-selected"
-          width={"230px"}
-          onClick={() => handleRoute()}
-        >
-          Início
-        </Button>
-        <Button
-          width={"230px"}
-          onClick={() => handleRoute("user-solicitation")}
-        >
-          Solicitações
-        </Button>
-        <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
-          Quem somos
-        </Button>
-        <PhotoPerfil />
-      </HeaderDekstop>
+	const handleRoute = (route) => {
+		route && history.push(`/${route}`);
+	};
 
-      <HeaderMobile selected={selected}>
-        <LinksMenu
-          selected={selected}
-          onClick={() => handleRoute()}
-          className="link--selected "
-        >
-          Início
-        </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("quem-somos")}>
-          Quem somos
-        </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("user-solicitation")}>
-          Solicitações
-        </LinksMenu>
-        <LinksMenu onClick={() => logout()}>Logout</LinksMenu>
-      </HeaderMobile>
-      <MarginNavBar></MarginNavBar>
-      <HeaderContainer>
-        <Title>
-          <img src={Logo} alt="Logo" className="Logo" />
-          <h1>Acompanhe o processo de adoção</h1>
-        </Title>
-      </HeaderContainer>
+	return (
+		<>
+			<HeaderDekstop>
+				<Button width={"230px"} onClick={() => handleRoute("user")}>
+					Início
+				</Button>
+				<Button
+					width={"230px"}
+					className="button-selected"
+					onClick={() => handleRoute("user-solicitation")}>
+					Solicitações
+				</Button>
+				<Button
+					width={"230px"}
+					onClick={() => handleRoute("quem-somos")}>
+					Quem somos
+				</Button>
+				<PhotoPerfil />
+			</HeaderDekstop>
 
-      <MainContainer>
-        <section className="request-container">
-          <h2 className="request-caption">Processo de adoção</h2>
+			<HeaderMobile>
+				<LinksMenu onClick={() => handleRoute("user")}>
+					Início
+				</LinksMenu>
+				<LinksMenu
+					selected={selected}
+					className="link--selected"
+					onClick={() => handleRoute("user-solicitation")}>
+					Solicitações
+				</LinksMenu>
+				<LinksMenu onClick={() => handleRoute("quem-somos")}>
+					Quem somos
+				</LinksMenu>
+				<LinksMenu
+					onClick={() => {
+						logout();
+					}}>
+					Logout
+				</LinksMenu>
+			</HeaderMobile>
 
-          <TableRequest />
-        </section>
-        <div>
-          <SloganRequest />
-          <StepsRequest />
-        </div>
+			<MarginNavBar></MarginNavBar>
 
-        <StepsRequest />
-      </MainContainer>
+			<MainContainer>
+				<section className="request-container">
+					<h2 className="request-caption">Processo de adoção</h2>
 
-      <Footer>
-        <Link to="/">Início</Link>
-        <Link to="/quem-somos">Quem somos</Link>
-        <Link to="/user-solicitation">Solicitações</Link>
-      </Footer>
-    </>
-  );
+					<TableRequest />
+				</section>
+				<div>
+					<SloganRequest />
+					<StepsRequest />
+				</div>
+
+				<StepsRequest />
+			</MainContainer>
+
+			<Footer>
+				<Link to="/">Início</Link>
+				<Link to="">Quero adotar</Link>
+				<Link to="/">Solicitações</Link>
+			</Footer>
+		</>
+	);
+
 };
 
 export default UserRequest;

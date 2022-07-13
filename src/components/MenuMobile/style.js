@@ -1,86 +1,89 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  background-color: #f2ae2f;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	background-color: #f2ae2f;
 
-  position: fixed;
-  z-index: 9999;
-  top: 5px;
-  left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
-  padding: 1em 1em 2em;
-  width: max-content;
-  min-width: fit-content;
-  height: 40%;
+	position: fixed;
+	z-index: 9999;
+	top: 5px;
+	left: 0;
 
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+	padding: 1em 1em 2em;
+	width: max-content;
+	min-width: fit-content;
+	min-height: fit-content;
 
-  animation: slide-right 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
 
-  @-webkit-keyframes slide-right {
-    0% {
-      -webkit-transform: translateX(-300px);
-      transform: translateX(-300px);
-    }
-    100% {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-    }
-  }
-  @keyframes slide-right {
-    0% {
-      -webkit-transform: translateX(-300px);
-      transform: translateX(-300px);
-    }
-    100% {
-      -webkit-transform: translateX(0);
-      transform: translateX(0);
-    }
-  }
+	animation: slide-right 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
 
-  .container-img {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+	@-webkit-keyframes slide-right {
+		0% {
+			-webkit-transform: translateX(-300px);
+			transform: translateX(-300px);
+		}
+		100% {
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+		}
+	}
+	@keyframes slide-right {
+		0% {
+			-webkit-transform: translateX(-300px);
+			transform: translateX(-300px);
+		}
+		100% {
+			-webkit-transform: translateX(0);
+			transform: translateX(0);
+		}
+	}
 
-  .logoClose-button {
-    background: none;
-    border: 0 none;
-    width: 100%;
-  }
+	.container-img {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
 
-  @media (min-width: 1024px) {
-    display: none;
-  }
+	.logoClose-button {
+		background: none;
+		border: 0 none;
+		width: 100%;
+	}
 
-  .links-container {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 22px;
+	@media (min-width: 1024px) {
+		display: none;
+	}
 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1em;
+	.links-container {
+		font-weight: 500;
+		font-size: 18px;
+		line-height: 22px;
 
-    color: white;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1em;
 
-    border-bottom: 2px solid transparent;
-    transition: ease-in-out 200ms;
+		color: white;
 
-    width: 100%;
-  }
+		border-bottom: 2px solid transparent;
+		transition: ease-in-out 200ms;
 
-  .link--selected {
-    border-bottom: 2px solid white;
-    width: 100%;
-  }
+		width: 100%;
+	}
+
+	.link--selected {
+		border-bottom: 2px solid white;
+		width: 100%;
+	}
+
+  
 `;
 
 export const LinksMenu = styled.a`
