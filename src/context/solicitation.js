@@ -4,9 +4,9 @@ import { createContext } from "react";
 export const SolicitationContext = createContext([]);
 
 export const SolicitationProvider = ({ children }) => {
-  const [solicitationForm, setSolicitationForm] = useState({});
-  const [userData, setUserData] = useState({});
-  const [petData, setPetData] = useState({});
+  const [solicitationForm, setSolicitationForm] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [petData, setPetData] = useState([]);
 
   return (
     <SolicitationContext.Provider

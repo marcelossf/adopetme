@@ -300,6 +300,7 @@ export const AnimalRegister = () => {
             </Container>
           </FormContainer>
         )}
+      <button onClick={()=> redirectToPage('/ong')}>Voltar</button>
       </FolderContainer>
     </SectionContainer>
   );
