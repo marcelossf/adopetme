@@ -2,11 +2,16 @@ import React, { useContext, useState } from "react";
 import { Error } from "../Error";
 import { Input } from "../InputLabel";
 import { SelectForm } from "../SelectForm";
-import { ButtonContainer, ColumnContainer, ColumnForm, Container, FormContainer } from "./style";
+import {
+  ButtonContainer,
+  ColumnContainer,
+  ColumnForm,
+  Container,
+  FormContainer,
+} from "./style";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { RedirectContext } from "../../context/redirect";
 import { PetOngContext } from "../../context/ong";
 import { toastSucess } from "../../utils/toast";
 import api from "../../api/api";
@@ -14,14 +19,12 @@ import { Button } from "../Button";
 import { UserContext } from "../../context/user";
 
 export const EditAnimal = () => {
-  const { redirectToPage } = useContext(RedirectContext);
   const { OngPets } = useContext(PetOngContext);
-  
-  const [active, setActive] = useState(true);
-
   const token = JSON.parse(localStorage.getItem("token"));
-  const {user} = useContext(UserContext)
+  const { user } = useContext(UserContext);
   const userID = user.id;
+
+  // console.log(OngPets);
 
   const formSchema = yup.object().shape({
     petName: yup.string().required("Nome Obrigatório"),

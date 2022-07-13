@@ -10,15 +10,15 @@ function Providers({ children }) {
   return (
     <>
       <AnimalsListProvider>
-        <PetOngProvider>
-          <UserProvider>
+        <UserProvider>
+          <PetOngProvider>
             <SearchProvider>
               <SolicitationProvider>
                 <RedirectProvider>{children}</RedirectProvider>
               </SolicitationProvider>
             </SearchProvider>
-          </UserProvider>
-        </PetOngProvider>
+          </PetOngProvider>
+        </UserProvider>
       </AnimalsListProvider>
     </>
   );

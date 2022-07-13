@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 const OngTile = () => {
  
-
+  const { name } = user;
   const { user } = useContext(UserContext);
 
   
