@@ -14,7 +14,7 @@ import { UserContext } from "../../context/user";
 
 import { toastError, toastSucess } from "../../utils/toast";
 
-import { ButtonForm, TitleForm } from "../CadastreForm/style";
+import { BtnFormEnter, ButtonForm, TitleForm } from "../CadastreForm/style";
 import { FormLogin } from "./style";
 
 export const LoginForm = () => {
@@ -86,9 +86,7 @@ export const LoginForm = () => {
 					type="password"
 				/>
 				{errors.email && <span> {errors.email?.message}</span>}
-				<button type="submiit" className="btnslogin--orange">
-					Logar
-				</button>
+				<BtnFormEnter type="submiit">Login</BtnFormEnter>
 				<div className="btn-container">
 					<ButtonForm
 						type="button"

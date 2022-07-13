@@ -11,10 +11,17 @@ import seeYouSoon from "../../assets/seeYouSoon.png";
 import trueFriend2 from "../../assets/trueFriend2.png";
 
 import { CadastreForm } from "../../components/CadastreForm";
+import { ButtonForm } from "../../components/CadastreForm/style";
 import { LoginForm } from "../../components/LoginForm";
 import { RedirectContext } from "../../context/redirect";
 
-import { DivInstructionImg, DivLeft, DivRigth, DivsContainer } from "./styles";
+import {
+	DivInstructionImg,
+	DivLeft,
+	DivRigth,
+	DivsContainer,
+	HeaderLeft,
+} from "./styles";
 
 function Login() {
 	const [formulario, setFormulario] = useState(true);
@@ -60,18 +67,39 @@ function Login() {
 	return (
 		<DivsContainer>
 			<DivRigth>
-				<img src={logoAdopet} className="imgLogo" alt="logo" />
-
+				<div className="imgLogo">
+					<img src={logoAdopet} alt="logo" />
+				</div>
 				{form ? <LoginForm /> : <CadastreForm />}
 			</DivRigth>
 			<div className="linha"></div>
 			<DivLeft>
 				{userOng ? (
-					<h1 className="textspan">
-						Como encontrar um adotante pros seus Pets:
-					</h1>
+					<HeaderLeft>
+						<ButtonForm
+							type="button"
+							className="Home"
+							onClick={() => {
+								redirectToPage("/");
+							}}>
+							voltar
+						</ButtonForm>
+						<h1 className="textspan">
+							Como encontrar um adotante:
+						</h1>
+					</HeaderLeft>
 				) : (
-					<h1 className="textspan ">Como adotar um Pet:</h1>
+					<HeaderLeft>
+						<ButtonForm
+							type="button"
+							className="Home"
+							onClick={() => {
+								redirectToPage("/");
+							}}>
+							voltar
+						</ButtonForm>
+						<h1 className="textspan ">Como adotar um Pet:</h1>
+					</HeaderLeft>
 				)}
 
 				<div className="btns">
@@ -127,15 +155,6 @@ function Login() {
 						))}
 					</DivInstructionImg>
 				)}
-
-				<button
-					type="button"
-					className="btnslogin"
-					onClick={() => {
-						redirectToPage("/");
-					}}>
-					Voltar
-				</button>
 			</DivLeft>
 		</DivsContainer>
 	);

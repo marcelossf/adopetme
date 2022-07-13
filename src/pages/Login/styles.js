@@ -1,5 +1,36 @@
 import styled from "styled-components";
 
+export const HeaderLeft = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 1em;
+	margin-bottom: 2em;
+
+	.Home {
+		background-color: var(--orange);
+		color: black;
+		font-weight: 700;
+		height: 30px;
+		padding: 0 1em;
+
+		&:hover {
+			filter: brightness(80%);
+		}
+	}
+
+	.textspan {
+		width: 100%;
+		color: var(--orange);
+
+		font-size: 1.8rem;
+		font-weight: 700;
+		line-height: 30px;
+		letter-spacing: 0.06em;
+		text-align: center;
+	}
+`;
 export const DivRigth = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -7,11 +38,14 @@ export const DivRigth = styled.div`
 	align-items: center;
 
 	.imgLogo {
-		max-height: 250px;
-		height: auto;
-		width: auto;
-		@media (min-width: 1024px) {
-			width: 60%;
+		margin: 0 auto;
+		max-width: 300px;
+		width: 100%;
+
+		img {
+			margin: 0 auto;
+			width: 100%;
+			object-fit: contain;
 		}
 	}
 	@media (min-width: 1024px) {
@@ -28,11 +62,12 @@ export const DivsContainer = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+
 	.linha {
 		display: none;
 	}
 
-	@media (min-width: 1025px) {
+	@media (min-width: 1024px) {
 		flex-direction: row-reverse;
 		height: 100vh;
 		align-items: center;
@@ -40,30 +75,10 @@ export const DivsContainer = styled.div`
 	}
 	.linha {
 		display: flex;
-
-		width: 3px;
-		height: 80%;
+		border: 2px solid var(--orange);
 		background-color: var(--orange);
+		height: 80%;
 		border-radius: 10px;
-	}
-`;
-
-export const DivLeft = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	padding: 2em 0px;
-	gap: 1em;
-
-	@media (min-width: 1025px) {
-		width: 70%;
-		height: 100%;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
 	}
 
 	.btnslogin {
@@ -76,13 +91,33 @@ export const DivLeft = styled.div`
 		font-family: Comfortaa;
 		font-weight: bold;
 		box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.25);
+		transition: ease-in-out 200ms;
+
+		&:hover {
+			filter: brightness(80%);
+		}
+	}
+`;
+
+export const DivLeft = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2em 0px;
+	gap: 1em;
+
+	@media (min-width: 1024px) {
+		width: 70%;
+		/* height: 100%; */
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.disable {
-		background-color: #3b8788;
-	}
-
-	.btnslogin:hover {
 		background-color: #3b8788;
 	}
 
@@ -92,25 +127,6 @@ export const DivLeft = styled.div`
 		align-items: center;
 		justify-content: center;
 		gap: 30px;
-	}
-
-	.textspan {
-		max-width: 80%;
-		width: 100%;
-		margin: 0 auto;
-
-		color: var(--petroleumBlue);
-		text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-		font-size: 2rem;
-		font-weight: 700;
-		line-height: 46px;
-		letter-spacing: 0.06em;
-		text-align: center;
-
-		@media (min-width: 1025px) {
-			height: 100px;
-		}
 	}
 `;
 export const DivInstructionImg = styled.div`
@@ -145,7 +161,7 @@ export const DivInstructionImg = styled.div`
 
 		text-align: start;
 	}
-	@media (min-width: 1025px) {
+	@media (min-width: 1024px) {
 		max-width: 750px;
 		overflow-x: hidden;
 		display: flex;

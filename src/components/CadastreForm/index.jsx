@@ -13,7 +13,7 @@ import * as yup from "yup";
 
 import { toastError, toastSucess } from "../../utils/toast";
 
-import { ButtonForm, FormCadastre, TitleForm } from "./style";
+import { BtnFormEnter, ButtonForm, FormCadastre, TitleForm } from "./style";
 export const CadastreForm = () => {
 	const { redirectToPage, setForm } = useContext(RedirectContext);
 
@@ -104,17 +104,14 @@ export const CadastreForm = () => {
 					/>
 				</label>
 				{errors.email && <span> {errors.cpfcnpj?.message}</span>}
-				<button type="submit" className="btnslogin--orange">
-					Criar conta
-				</button>
+				<BtnFormEnter type="submit">Criar conta</BtnFormEnter>
 				<div className="btn-container">
 					<ButtonForm
 						type="button"
 						onClick={() => {
 							setForm(true);
 							redirectToPage("/login");
-						}}
-						className="btnslogin">
+						}}>
 						Já possui uma conta? <span>Faça login </span>
 					</ButtonForm>
 				</div>

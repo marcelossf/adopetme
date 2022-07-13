@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const FormCadastre = styled.form`
 	width: 330px;
-	padding: 0 0 1.2em 0;
+	padding-bottom: 1.2em;
 
 	border-radius: 15px;
 	border: solid 5px var(--orange);
@@ -20,20 +20,6 @@ export const FormCadastre = styled.form`
 		color: var(--white);
 	}
 
-	.btnslogin--orange {
-		width: 51%;
-		height: 30px;
-
-		padding: 0.5em 2em;
-		background-color: var(--orange);
-		border-radius: 5px;
-		border: 0 none;
-		color: black;
-		font-family: Comfortaa;
-		font-weight: bold;
-		margin-top: 10px;
-		box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.25);
-	}
 	.disable {
 		background-color: #3b8788;
 	}
@@ -63,6 +49,20 @@ export const FormCadastre = styled.form`
 		}
 	}
 `;
+export const BtnFormEnter = styled.button`
+	width: 55%;
+	/* height: 30px; */
+
+	padding: 0.8em 2em;
+	background-color: var(--orange);
+	border-radius: 5px;
+	border: 0 none;
+	color: black;
+	font-family: Comfortaa;
+	font-weight: bold;
+	margin: 1em;
+	box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.25);
+`;
 
 export const ButtonForm = styled.button`
 	padding: 1em;
@@ -76,8 +76,9 @@ export const ButtonForm = styled.button`
 	box-shadow: -1px 1px 2px 2px rgba(0, 0, 0, 0.25);
 
 	transition: ease-in-out 200ms;
+
 	&:hover {
-		background-color: #3b8788;
+		filter: brightness(80%);
 	}
 	span {
 		font-weight: bold;
