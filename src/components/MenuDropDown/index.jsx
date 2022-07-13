@@ -7,7 +7,7 @@ import { AnimalsListContext } from "../../context/animals";
 export const MenuDropDown = ({ title, filters, icon }) => {
   const [subNav, setSubNav] = useState(false);
   const { setFiltredPets } = useContext(SearchContext);
-  const { pets } = useContext(AnimalsListContext);
+  const { pets, setPets } = useContext(AnimalsListContext);
   const [typeFilter, setTypeFilter] = useState("");
 
   function handleFilter(title) {
@@ -18,19 +18,23 @@ export const MenuDropDown = ({ title, filters, icon }) => {
   function handleSubFilter(title) {
     if (typeFilter === "Todos") {
       const filtersPets = pets.filter((pet) => pet.gender === title);
-      setFiltredPets(filtersPets);
+      console.log(filtersPets)
+      setPets(filtersPets);
     } else if (typeFilter === "Gato") {
       const type = pets.filter((pet) => pet.species === typeFilter);
       const filtersPets = type.filter((pet) => pet.gender === title);
-      setFiltredPets(filtersPets);
+      console.log(filtersPets)
+      setPets(filtersPets);
     } else if (typeFilter === "Cachorro") {
       const type = pets.filter((pet) => pet.species === typeFilter);
       const filtersPets = type.filter((pet) => pet.gender === title);
-      setFiltredPets(filtersPets);
+      console.log(filtersPets)
+      setPets(filtersPets);
     } else if (typeFilter === "Roedor") {
       const type = pets.filter((pet) => pet.species === typeFilter);
       const filtersPets = type.filter((pet) => pet.gender === title);
-      setFiltredPets(filtersPets);
+      console.log(filtersPets)
+      setPets(filtersPets);
     }
   }
 

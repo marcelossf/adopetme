@@ -20,7 +20,7 @@ function Vitrine() {
 
   const type = "ong";
   // const [pets, setPets] = useState([]);
-
+  console.log(filtredPets)
   useEffect(() => {
     setPetsPage([]);
     const newPetsPage = [];
@@ -127,14 +127,14 @@ function Vitrine() {
           </ul> */}
         </>
       )}
-      <ButtonsLeftRight>
+      {/* <ButtonsLeftRight>
         <button onClick={() => subHandlePage()}>
           <AiOutlineArrowLeft size={30} />
         </button>
         <button onClick={() => addHandlePage()}>
           <AiOutlineArrowRight size={30} />
         </button>
-      </ButtonsLeftRight>
+      </ButtonsLeftRight> */}
     </ContainerVitrine>
   );
 }
