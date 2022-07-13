@@ -8,6 +8,11 @@ import OngDashBoard from "../pages/OngDashBoard";
 import { RegisterPet } from "../pages/RegisterPet";
 import OngSolicitation from "../pages/OngSolicitation";
 
+import { Testemonials } from "../pages/Testemonials";
+
+import UserRequest from "../pages/UserRequests";
+
+
 function Routes() {
   return (
     <Switch>
@@ -26,6 +31,9 @@ function Routes() {
       <Route path={"/user"}>
         <UserDashBoard />
       </Route>
+      <Route path={"/user-solicitation"}>
+        <UserRequest />
+      </Route>
       <Route path={"/ong"}>
         <OngDashBoard />
       </Route>
@@ -34,6 +42,9 @@ function Routes() {
       </Route>
       <Route path={"/ong-solicitation"}>
         <OngSolicitation />
+      </Route>
+      <Route path={"/testemonials"}>
+        <Testemonials />
       </Route>
     </Switch>
   );

@@ -4,6 +4,7 @@ import { LoginLogoutProvider } from "../context/login-logout";
 import { PetOngProvider } from "../context/ong";
 import { RedirectProvider } from "../context/redirect";
 import { SearchProvider } from "../context/search";
+import { SolicitationProvider } from "../context/solicitation";
 
 function Providers({ children }) {
   return (
@@ -11,9 +12,11 @@ function Providers({ children }) {
       <AnimalsListProvider>
         <PetOngProvider>
           <SearchProvider>
-            <RedirectProvider>
-              <LoginLogoutProvider>{children}</LoginLogoutProvider>
-            </RedirectProvider>
+            <SolicitationProvider>
+              <RedirectProvider>
+                <LoginLogoutProvider>{children}</LoginLogoutProvider>
+              </RedirectProvider>
+            </SolicitationProvider>
           </SearchProvider>
         </PetOngProvider>
       </AnimalsListProvider>
