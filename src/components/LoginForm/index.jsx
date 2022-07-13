@@ -1,24 +1,18 @@
-
-import React, { useContext, useEffect } from "react";
-import { FormLogin } from "./style";
-import { Input } from "../InputLabel";
-import { RedirectContext } from "../../context/redirect";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import React, { useContext, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
-
-import api from "../../api/api";
+import { RedirectContext } from "../../context/redirect";
+import { Input } from "../InputLabel";
+import { FormLogin } from "./style";
 
 import { LoginLogoutContext } from "../../context/login-logout";
 import { PetOngContext } from "../../context/ong";
 import { UserContext } from "../../context/user";
 
-import { toastError, toastSucess } from "../../utils/toast";
-
 import { BtnFormEnter, ButtonForm, TitleForm } from "../CadastreForm/style";
 
 export const LoginForm = () => {
-
 	const { redirectToPage, form, setForm } = useContext(RedirectContext);
 	
 	
@@ -33,14 +27,14 @@ export const LoginForm = () => {
 		formState: { errors },
 	} = useForm({ resolver: yupResolver(formSchema) });
 
-  const { user, onLogin } = useContext(UserContext);
+	const { user, onLogin } = useContext(UserContext);
 
-useEffect(() => {
-    if (user) {
-      redirectToPage("/");
-    }
-  }, []);
-  
+	useEffect(() => {
+		if (user) {
+			redirectToPage("/");
+		}
+	}, []);
+
 	return (
 		<>
 			<FormLogin onSubmit={handleSubmit(onLogin)}>
