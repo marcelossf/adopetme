@@ -34,7 +34,7 @@ const ModalSolicitation = ({ pet, setOpen, open }) => {
   };
 
   return (
-    <ContainerPai>
+    <ContainerPai onClick={() => setOpen(false)}>
       <Container>
         <div className="container-adopet">
           <p className="text-solicitation">Solicitação de Adoção</p>
