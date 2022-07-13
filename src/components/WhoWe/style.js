@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+export const ParagraphWrapper = styled.div`
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -37,7 +37,8 @@ export const Main = styled.main`
 		}
 	}
 	.div-half {
-	display: none;
+		display: none;
+
 		@media(min-width:1000px){
 			display: block;
 			position: relative;
@@ -49,20 +50,14 @@ export const Main = styled.main`
 			background-color: #f2ae2f;
 		}
 	}
-
 }
-
 		.redPaw {
-			/* width: 148px; */
-			/* height: 139px; */
 			position: absolute;
 			right: 0;
 			bottom:0;
-		}
-	}
-	@media (max-width: 1025px) {
-		.redPaw {
-			display: none;
+			@media (max-width: 1000px) {
+					display: none;
+			}
 		}
 	}
 `;
@@ -72,36 +67,44 @@ export const List = styled.ul`
 	flex-direction: row;
 	align-items: center;
 	overflow: scroll;
-	margin-top: -13px;
-	max-height: 345px;
-	height: 331px;
-	min-width: 271px;
+	gap: 3em;
 
-	.imgFace {
-		max-width: 124px;
-		min-width: 103px;
+	height: 350px;
+	width: 100%;
+
+	margin: 4em auto;
+	@media (min-width: 1000px) {
+		overflow: hidden;
+		justify-content: center;
 	}
 
 	.list-who {
 		display: flex;
 		flex-direction: column;
-		align-content: center;
 		align-items: center;
-		margin-right: 16px;
-		margin-top: 12px;
+		gap: 1em;
+	}
+
+	.imgFace {
+		max-width: 124px;
+		min-width: 103px;
+	}
+	p.name {
+		font-size: 1.3rem;
 	}
 	.container-informations {
 		display: flex;
 		flex-direction: column;
-		background-color: #d9d9d9;
-		border-radius: 30px;
-		max-width: 153px;
-		border-radius: 30px;
-		max-height: 142px;
+		align-items: flex-start;
 		justify-content: center;
+		gap: 1em;
+
+		padding: 2em;
+
+		background-color: #d9d9d9;
+
+		border-radius: 30px;
 		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-		min-width: 141px;
-		min-height: 121px;
 	}
 	.logoLink,
 	.logoGit {
@@ -113,31 +116,17 @@ export const List = styled.ul`
 
 	.box-link,
 	.box-git {
+		width: 100%;
 		display: flex;
+		gap: 0.5em;
 		align-items: center;
-		justify-content: space-evenly;
+		justify-content: space-between;
 	}
 
 	.phrase-link,
 	.phrase-git,
 	.name {
-		font-size: 15px;
 		font-weight: 700;
-		color: black;
-		text-decoration: none;
-	}
-
-	@media (min-width: 1025px) {
-		justify-content: center;
-		overflow: hidden;
-
-		.list-who {
-			margin-right: 74px;
-		}
-	}
-
-	@media (min-width: 800px) {
-		justify-content: center;
 	}
 `;
 
@@ -146,9 +135,9 @@ export const DivText = styled.div`
 	justify-content: center;
 
 	.title-ul {
-		font-size: 35px;
-		font-family: "Fredoka One";
-		color: #f22222;
+		font-size: 2.3rem;
+		font-family: "fredoka";
+		color: var(--red);
 	}
 
 	@media (max-width: 1025px) {

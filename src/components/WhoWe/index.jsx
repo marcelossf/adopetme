@@ -7,7 +7,7 @@ import LogoGit from "../../assets/git.png";
 import LogoLinkedin from "../../assets/linkedin.png";
 import redPaw from "../../assets/paws.png";
 
-import { DivText, List, Main } from "./style";
+import { DivText, List, ParagraphWrapper } from "./style";
 
 export const QuemSomos = () => {
 	const images = [
@@ -58,8 +58,8 @@ export const QuemSomos = () => {
 	];
 
 	return (
-		<>
-			<Main>
+		<main>
+			<ParagraphWrapper>
 				<div className="paragraph-container">
 					<p className="paragraph">
 						O nosso propósito nasceu a partir da procura de conectar
@@ -75,9 +75,9 @@ export const QuemSomos = () => {
 					</p>
 				</div>
 				<img className="redPaw" src={redPaw} alt="Patinha vermelha" />>
-			</Main>
+			</ParagraphWrapper>
 			<DivText>
-				<p className="title-ul">Conheça nossa equipe!</p>
+				<h2 className="title-ul">Conheça nossa equipe!</h2>
 			</DivText>
 			<List>
 				{images.map((pick, index) => (
@@ -129,6 +129,6 @@ export const QuemSomos = () => {
 					</li>
 				))}
 			</List>
-		</>
+		</main>
 	);
 };
