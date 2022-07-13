@@ -21,9 +21,12 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Comfortaa';
     }
 
+    body::-webkit-scrollbar {
+        width: 0;
+    }
+    
     button {
         cursor: pointer;
-
     }
 
     li,ul {
@@ -35,6 +38,9 @@ const GlobalStyle = createGlobalStyle`
     h1, h2 {
         font-weight: bold;
         font-family: 'Fredoka', sans-serif;;
+    }
+    img{
+        max-width: 100%;
     }
 `;
 

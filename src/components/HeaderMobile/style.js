@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-export const Head = styled.header`
+export const NavMobile = styled.header`
 	background: #f2f2f2;
 	box-shadow: -3px 7px 9px 2px rgb(0 0 0 / 25%);
 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: 2em;
 
 	width: 100%;
 
@@ -23,16 +24,25 @@ export const Head = styled.header`
 		background: none;
 
 		@media (min-width: 450px) {
-			top: 10%;
+			top: 5%;
 		}
 	}
 
 	.imgLogo {
+		margin: 0 auto;
 		width: 100%;
-		max-width: 398px;
+		max-width: 400px;
 		height: auto;
 		min-height: 99px;
 	}
+
+	@media (min-width: 1024px) {
+		display: none;
+	}
+`;
+
+export const NavDesktop = styled.div`
+	display: none;
 
 	.pawsLogo,
 	.logo-circle {
@@ -40,19 +50,19 @@ export const Head = styled.header`
 	}
 
 	@media (min-width: 1024px) {
-		background-color: #f2ae2f;
-		box-shadow: -3px 7px 9px 2px rgb(0 0 0 / 25%);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
+		width: 100%;
 		padding: 1em;
 		top: 0;
 
+		background-color: #f2ae2f;
+		box-shadow: -3px 7px 9px 2px rgb(0 0 0 / 25%);
+
 		position: fixed;
 		z-index: 9999;
-
-		.imgLogo,
-		.menuMobile-button {
-			display: none;
-		}
 
 		.logo-nav {
 			width: 130px;
