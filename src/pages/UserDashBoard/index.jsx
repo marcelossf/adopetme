@@ -4,6 +4,10 @@ import { SearchBar } from "../../components/SearchBar";
 import UserTitle from "../../components/UserTitle";
 import { MenuFooter } from "../../components/MenuFooter";
 import { Footer } from "../../components/Footer";
+
+import { RegisterPet } from "../RegisterPet";
+import { Link } from 'react-router-dom'
+
 import { RedirectContext, redirectToPage } from "../../context/redirect";
 import { useContext, useState } from "react";
 import { NavMenu } from "../../components/NavMenu";
@@ -41,10 +45,12 @@ const UserDashBoard = () => {
       <SearchBar />
       <Vitrine />
       <Footer>
+
         <MenuFooter>
           <Link to='/user'>Início</Link>
           <Link to='/solicitacao'>Solicitações</Link>
           <Link to='quem-somos'>Quem Somos</Link>
+
         </MenuFooter>
       </Footer>
     </>
