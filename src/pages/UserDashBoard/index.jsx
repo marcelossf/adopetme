@@ -4,7 +4,6 @@ import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 import HeaderDekstop from "../../components/HeaderDesktop";
 import HeaderMobile from "../../components/HeaderMobile";
-import { MenuFooter } from "../../components/MenuFooter";
 import { LinksMenu } from "../../components/MenuMobile/style";
 import PhotoPerfil from "../../components/PhotoPerfil";
 import { SearchBar } from "../../components/SearchBar";
@@ -12,7 +11,6 @@ import UserTitle from "../../components/UserTitle";
 import Vitrine from "../../components/Vitrine";
 import { UserContext } from "../../context/user";
 import { MarginNavBar } from "../../styles/marginNavBar";
-
 
 const UserDashBoard = () => {
 	const [selected, setSelected] = useState(true);
@@ -22,6 +20,7 @@ const UserDashBoard = () => {
 	const handleRoute = (route) => {
 		route && history.push(`/${route}`);
 	};
+
 	return (
 		<>
 			<HeaderDekstop>
@@ -70,11 +69,9 @@ const UserDashBoard = () => {
 			<SearchBar />
 			<Vitrine />
 			<Footer>
-				<MenuFooter>
-					<Link to="/user">Início</Link>
-					<Link to="/user-solicitation">Solicitações</Link>
-					<Link to="quem-somos">Quem Somos</Link>
-				</MenuFooter>
+				<Link to="/">Início</Link>
+				<Link to="/user-solicitation">Solicitações</Link>
+				<Link to="/quem-somos">Quem somos</Link>
 			</Footer>
 		</>
 	);
