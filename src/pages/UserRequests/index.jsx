@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import Logo from "../../assets/logoAdopet.png";
 import MenuDropdown from "../../assets/Menu.png";
+import { Button } from "../../components/Button";
 
 import { Footer } from "../../components/Footer";
+import HeaderDekstop from "../../components/HeaderDesktop";
+import HeaderMobile from "../../components/HeaderMobile";
+import { LinksMenu } from "../../components/MenuMobile/style";
 import SloganRequest from "../../components/SloganRequest";
 import StepsRequest from "../../components/StepsRequest";
 import { TableRequest } from "../../components/TableRequest";
 import { SolicitationContext } from "../../context/solicitation";
+import { MarginNavBar } from "../../styles/marginNavBar";
 
 import {
 	HeaderContainer,
@@ -19,21 +24,50 @@ import {
 	Title,
 } from "./style";
 const UserRequest = () => {
+	const [selected, setSelected] = useState(true);
+  const history = useHistory();
+	const handleRoute = (route) => {
+    route && history.push(`/${route}`);
+  };
 
 	return (
 		<>
-			<HeaderContainer>
-				<NAVCONTAINER_MOBILE className="menu-container">
-					<button className="Menu-button">
-						<img src={MenuDropdown} alt="Menu lateral" />
-					</button>
-				</NAVCONTAINER_MOBILE>
+			 <HeaderDekstop>
+        <Button
+          className="button-selected"
+          width={"230px"}
+          onClick={() => handleRoute()}
+        >
+          Início
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
+          Quem somos
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("cadastrar")}>
+          Cadastrar
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("login")}>
+          Login
+        </Button>
+      </HeaderDekstop>
+      <HeaderMobile selected={selected}>
+        <LinksMenu
+          selected={selected}
+          onClick={() => handleRoute()}
+          className="link--selected "
+        >
+          Início
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("quem-somos")}>
+          Quem somos
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("cadastrar")}>
+          Cadastrar
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("login")}>Login</LinksMenu>
+      </HeaderMobile>
 
-				<Title>
-					<img src={Logo} alt="Logo" className="Logo" />
-					<h1>Acompanhe o processo de adoção</h1>
-				</Title>
-			</HeaderContainer>
+      <MarginNavBar></MarginNavBar>
 
 			<MainContainer>
 				<section className="request-container">
