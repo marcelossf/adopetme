@@ -1,4 +1,5 @@
 import React from "react";
+import { useContext } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -9,6 +10,7 @@ import { Footer } from "../../components/Footer";
 import SloganRequest from "../../components/SloganRequest";
 import StepsRequest from "../../components/StepsRequest";
 import { TableRequest } from "../../components/TableRequest";
+import { SolicitationContext } from "../../context/solicitation";
 
 import {
 	HeaderContainer,
@@ -16,8 +18,8 @@ import {
 	NAVCONTAINER_MOBILE,
 	Title,
 } from "./style";
-
 const UserRequest = () => {
+
 	return (
 		<>
 			<HeaderContainer>
@@ -41,18 +43,11 @@ const UserRequest = () => {
 				</section>
 				<div>
 					<SloganRequest />
+           <StepsRequest />
 				</div>
 
-				<StepsRequest />
-			</MainContainer>
 
-			<Footer>
-				<Link to="/">Início</Link>
-				<Link to="">Quero adotar</Link>
-				<Link to="/">Solicitações</Link>
-			</Footer>
-		</>
-	);
+
 };
 
 export default UserRequest;
