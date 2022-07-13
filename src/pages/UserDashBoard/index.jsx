@@ -12,10 +12,12 @@ import HeaderMobile from "../../components/HeaderMobile";
 import { LinksMenu } from "../../components/MenuMobile/style";
 import { MarginNavBar } from "../../styles/marginNavBar";
 import PhotoPerfil from "../../components/PhotoPerfil";
+import { UserContext } from "../../context/user";
 
-const UserDashBoard = () => { 
-  const [selected, setSelected] = useState(true);
+const UserDashBoard = () => {
+  const [selected] = useState(true);
   const history = useHistory();
+  const { logout } = useContext(UserContext);
 
   // useEffect(() => {
   //   const token = localStorage.getItem("token");
@@ -37,7 +39,10 @@ const UserDashBoard = () => {
         >
           Início
         </Button>
-        <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
+        <Button
+          width={"230px"}
+          onClick={() => handleRoute("user-solicitation")}
+        >
           Solicitações
         </Button>
         <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
@@ -57,10 +62,10 @@ const UserDashBoard = () => {
         <LinksMenu onClick={() => handleRoute("quem-somos")}>
           Quem somos
         </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("cadastrar")}>
-          Cadastrar
+        <LinksMenu onClick={() => handleRoute("user-solicitation")}>
+          Solicitações
         </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("login")}>Login</LinksMenu>
+        <LinksMenu onClick={() => logout()}>Logout</LinksMenu>
       </HeaderMobile>
 
       <MarginNavBar></MarginNavBar>
