@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const DivImg = styled.div`
  display:none;
+ position: relative;
 
 @media (min-width: 1024px){
   cursor: pointer;
@@ -18,13 +19,18 @@ export const DivImg = styled.div`
 ;
 
 export const ModalPerfil = styled.div`
-
    width:130px;
    height:100px;
+
+   position: absolute;
+   top: 100px;
+   right: 0;
 
    border-radius:15px ;
    background-color: var(--green);
   
+    /* position: fixed; */
+
     display: flex;
     flex-direction:column;
     align-items:center;

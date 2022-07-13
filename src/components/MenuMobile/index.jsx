@@ -1,26 +1,9 @@
-import { useContext } from "react";
-
 import LogoBlack from "../../assets/adoPetPreto.png";
 import Close from "../../assets/fechar.png";
-
-import { LoginLogoutContext } from "../../context/login-logout";
-import { PetOngContext } from "../../context/ong";
-import { RedirectContext } from "../../context/redirect";
-
 import { Section } from "./style";
 
 const MenuMobile = ({ OpenModal, selected, children }) => {
-	const { setLogado } = useContext(LoginLogoutContext);
-	const { activeOng } = useContext(PetOngContext);
-	const { redirectToPage } = useContext(RedirectContext);
 
-	const token = JSON.parse(localStorage.getItem("token")) || "";
-
-	const logout = () => {
-		setLogado(false);
-		localStorage.clear();
-		redirectToPage("/");
-	};
 
 	return (
 		<Section>

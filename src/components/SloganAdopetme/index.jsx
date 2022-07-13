@@ -13,7 +13,7 @@ function SloganAdopetme() {
 					adotantes.
 				</p>
 			</Slogan>
-			<img src={LogoAdopetme} className="logoAdopetme" />
+			<img src={LogoAdopetme} className="logoAdopetme" alt="Logo adoPETme" />
 		</Container>
 	);
 }

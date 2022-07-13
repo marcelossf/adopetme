@@ -3,37 +3,28 @@ import { SearchBar } from "../../components/SearchBar";
 import UserTitle from "../../components/UserTitle";
 import { MenuFooter } from "../../components/MenuFooter";
 import { Footer } from "../../components/Footer";
-
 import { Link, useHistory } from "react-router-dom";
-
 import { RedirectContext } from "../../context/redirect";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import HeaderDekstop from "../../components/HeaderDesktop";
 import { Button } from "../../components/Button";
 import HeaderMobile from "../../components/HeaderMobile";
 import { LinksMenu } from "../../components/MenuMobile/style";
 import { MarginNavBar } from "../../styles/marginNavBar";
+import PhotoPerfil from "../../components/PhotoPerfil";
+import { UserContext } from "../../context/user";
 
 const UserDashBoard = () => {
-  const { redirectToPage, form, setForm } = useContext(RedirectContext);
-  const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(true);
-  const token = JSON.parse(localStorage.getItem("token"));
-  const OpenModal = () => {
-    setOpen(!open);
-  };
-
+  const [selected] = useState(true);
   const history = useHistory();
+  const { logout } = useContext(UserContext);
 
-  if (!token) {
-    redirectToPage("/");
-  }
-
-  const logout = () => {
-    localStorage.clear();
-    setForm(true)
-		redirectToPage("/");
-  };
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (!token) {
+  //     history.push("/login");
+  //   }
+  // }, []);
 
   const handleRoute = (route) => {
     route && history.push(`/${route}`);
@@ -48,15 +39,16 @@ const UserDashBoard = () => {
         >
           Início
         </Button>
+        <Button
+          width={"230px"}
+          onClick={() => handleRoute("user-solicitation")}
+        >
+          Solicitações
+        </Button>
         <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
           Quem somos
         </Button>
-        <Button width={"230px"} onClick={() => handleRoute("cadastrar")}>
-          Cadastrar
-        </Button>
-        <Button width={"230px"} onClick={logout}>
-          Logout
-        </Button>
+        <PhotoPerfil />
       </HeaderDekstop>
 
       <HeaderMobile selected={selected}>
@@ -70,10 +62,10 @@ const UserDashBoard = () => {
         <LinksMenu onClick={() => handleRoute("quem-somos")}>
           Quem somos
         </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("cadastrar")}>
-          Cadastrar
+        <LinksMenu onClick={() => handleRoute("user-solicitation")}>
+          Solicitações
         </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("login")}>Login</LinksMenu>
+        <LinksMenu onClick={() => logout()}>Logout</LinksMenu>
       </HeaderMobile>
 
       <MarginNavBar></MarginNavBar>

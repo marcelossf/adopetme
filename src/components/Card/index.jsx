@@ -1,29 +1,39 @@
 import { useContext, useState } from "react";
-
-import { LoginLogoutContext } from "../../context/login-logout";
-import { RedirectContext } from "../../context/redirect";
-
 import { SolicitationContext } from "../../context/solicitation";
-
 import { Button } from "../Button";
 import ModalSolicitation from "../ModalSolicitation";
-
 import { Container, DivInfos, FigureStyled } from "./styles";
+import { useHistory } from "react-router-dom";
+import { UserContext } from "../../context/user";
+
 
 function Card({ pet }) {
-  const { logado } = useContext(LoginLogoutContext);
-  const { redirectToPage } = useContext(RedirectContext);
+  
+  const token = localStorage.getItem('token')
+
+  const { user } = useContext(UserContext);
+
   const [open, setOpen] = useState(false);
+
   const { setPetData } = useContext(SolicitationContext);
 
+  const history = useHistory()
+
+  console.log(setPetData)
+
   const handleRedirect = () => {
-    if (!logado) {
-      redirectToPage("/login");
+    if (!token) {
+      history.push("/login");
     } else {
       setOpen(true);
 			setPetData(pet)
     }
   };
+
+  const handleRedirectOng =() => {
+    setPetData(pet)
+    history.push("/registerPet")
+  }
 
   return (
     <Container>
@@ -49,8 +59,8 @@ function Card({ pet }) {
 
         <span></span>
       </DivInfos>
-
-      <Button onClick={handleRedirect}>Solicitar Adoção</Button>
+        {user.type === "ong"?(<Button onClick={handleRedirectOng}>Editar</Button>):(<Button onClick={handleRedirect}>Solicitar Adoção</Button>)}
+      
     </Container>
   );
 }

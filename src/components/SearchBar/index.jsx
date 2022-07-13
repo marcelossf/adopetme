@@ -8,7 +8,7 @@ import {
 } from "./style";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { ImSearch } from "react-icons/im";
-import { SearchContext, SearchProvider } from "../../context/search";
+import { SearchContext } from "../../context/search";
 import { FilterDropDown } from "../FilterDropDown";
 
 export const SearchBar = () => {

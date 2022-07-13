@@ -1,29 +1,37 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
 import api from "../../api/api";
-import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
-import Header from "../../components/HeaderMobile";
 import { MenuFooter } from "../../components/MenuFooter";
-import { NavMenu } from "../../components/NavMenu";
 import OngTile from "../../components/OngTitle";
 import Vitrine from "../../components/Vitrine";
-import { LoginLogoutContext } from "../../context/login-logout";
 import { PetOngContext } from "../../context/ong";
-import { RedirectContext } from "../../context/redirect";
 import { Container } from "./style";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { UserContext } from "../../context/user";
+import HeaderDekstop from "../../components/HeaderDesktop";
+import HeaderMobile from "../../components/HeaderMobile";
+import { Button } from "../../components/Button";
+import { LinksMenu } from "../../components/MenuMobile/style.js";
+import PhotoPerfil from "../../components/PhotoPerfil";
+import { MarginNavBar } from "../../styles/marginNavBar";
+
 
 const OngDashBoard = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const { user, logout } = useContext(UserContext);
   const token = JSON.parse(localStorage.getItem("token"));
   const userID = user.id;
   const { setOngPets } = useContext(PetOngContext);
-  const { redirectToPage } = useContext(RedirectContext);
+  const [selected] = useState(true);
+  const history = useHistory();
+
+  const handleRoute = (route) => {
+    route && history.push(`/${route}`);
+  };
 
   useEffect(() => {
     if (!token) {
-      redirectToPage("/login");
+      history.push("/login");
     }
   }, [token]);
 
@@ -38,21 +46,51 @@ const OngDashBoard = () => {
       .catch((err) => console.log(err));
   }, [setOngPets]);
 
+
   return (
     <Container>
-      {/* <Header>
-        <NavMenu>
-          <Button>Início</Button>
-          <Button>Solicitações</Button>
-          <Button>Cadastrar Pet</Button>
-        </NavMenu>
-      </Header> */}
+      <HeaderDekstop>
+        <Button
+          className="button-selected"
+          width={"230px"}
+          onClick={() => handleRoute()}
+        >
+          Início
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("ong-solicitation")}>
+          Solicitações
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("registerPet")}>
+          Cadastrar Pet
+        </Button>
+        <PhotoPerfil />
+      </HeaderDekstop>
+
+
+      <HeaderMobile selected={selected}>
+        <LinksMenu
+          selected={selected}
+          onClick={() => handleRoute()}
+          className="link--selected "
+        >
+          Início
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("ong-solicitation")}>
+          Solicitações
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("registerPet")}>
+          Cadastrar Pet
+        </LinksMenu>
+        <LinksMenu onClick={() => logout()}>Logout</LinksMenu>
+      </HeaderMobile>
+      <MarginNavBar></MarginNavBar>
+
       <OngTile />
       <Vitrine />
       <Footer>
         <MenuFooter>
           <Link to="/">Início</Link>
-          <Link to="/solicitationOng">Solicitações</Link>
+          <Link to="/ong-solicitation">Solicitações</Link>
           <Link to="/registerPet">Cadastrar Pet</Link>
         </MenuFooter>
       </Footer>

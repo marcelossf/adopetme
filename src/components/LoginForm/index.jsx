@@ -1,15 +1,17 @@
-import React, { useContext } from "react";
 
+import React, { useContext, useEffect } from "react";
+import { FormLogin } from "./style";
+import { Input } from "../InputLabel";
+import { RedirectContext } from "../../context/redirect";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 
 import api from "../../api/api";
-import { Input } from "../InputLabel";
 
 import { LoginLogoutContext } from "../../context/login-logout";
 import { PetOngContext } from "../../context/ong";
-import { RedirectContext } from "../../context/redirect";
 import { UserContext } from "../../context/user";
 
 import { toastError, toastSucess } from "../../utils/toast";
@@ -18,6 +20,7 @@ import { BtnFormEnter, ButtonForm, TitleForm } from "../CadastreForm/style";
 import { FormLogin } from "./style";
 
 export const LoginForm = () => {
+
 	const { redirectToPage, form, setForm } = useContext(RedirectContext);
 	const { logado, changeLogado } = useContext(LoginLogoutContext);
 	const { setActiveOng } = useContext(PetOngContext);
@@ -36,37 +39,14 @@ export const LoginForm = () => {
 		formState: { errors },
 	} = useForm({ resolver: yupResolver(formSchema) });
 
-	function onLogin(dados) {
-		api.post("/login", dados)
+  const { user, onLogin } = useContext(UserContext);
 
-			.then((response) => {
-				localStorage.setItem(
-					"token",
-					JSON.stringify(response.data.accessToken)
-				);
-				localStorage.setItem(
-					"user",
-					JSON.stringify(response.data.user)
-				);
-				const user = response.data.user;
-				changeLogado();
-				toastSucess("Login Realizado com Sucesso");
-				if (user.type === "ong") {
-					setActiveOng(true);
-					return redirectToPage("/ong");
-				} else {
-					setActiveUser(true);
-					return redirectToPage("/user");
-				}
-			})
-			.catch((_) => toastError("Senha/Email incorretos"))
-			.finally((response) => console.log(response));
-	}
-
-	if (token) {
-		redirectToPage("/");
-	}
-
+useEffect(() => {
+    if (user) {
+      redirectToPage("/");
+    }
+  }, []);
+  
 	return (
 		<>
 			<FormLogin onSubmit={handleSubmit(onLogin)}>

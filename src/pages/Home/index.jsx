@@ -15,85 +15,89 @@ import { RedirectContext } from "../../context/redirect";
 import { LinksMenu } from "../../components/MenuMobile/style.js";
 
 import { MarginNavBar } from "../../styles/marginNavBar";
+import { UserContext } from "../../context/user";
+import { useEffect } from "react";
 
 function Home() {
-	const { logado, changeLogado } = useContext(LoginLogoutContext);
-	const { redirectToPage } = useContext(RedirectContext);
-	const token = JSON.parse(localStorage.getItem("token")) || "";
-	const user = JSON.parse(localStorage.getItem("user")) || "";
+  const { setForm } = useContext(RedirectContext);
+  const { user } = useContext(UserContext);
+	const token = localStorage.getItem('token')
+  const [selected, setSelected] = useState(true);
 
-	const [selected, setSelected] = useState(true);
 
-	if (token) {
-		if (user.type === "ong") {
-			redirectToPage("/ong");
-		} else {
-			redirectToPage("/user");
-		}
-	}
+  useEffect(() => {
+    if (user) {
+      if (user.type === "ong") {
+        history.push("/ong");
+      } else {
+        history.push("/user");
+      }
+    }
+  }, [user]);
 
-	const history = useHistory();
+  const history = useHistory();
 
-	const handleRoute = (route) => {
-		route && history.push(`/${route}`);
-	};
+  const handleRoute = (route) => {
+    route && history.push(`/${route}`);
+  };
 
-	return (
-		<>
-			<HeaderDekstop>
-				<Button
-					className="button-selected"
-					width={"230px"}
-					onClick={() => handleRoute()}>
-					Início
-				</Button>
-				<Button
-					width={"230px"}
-					onClick={() => handleRoute("quem-somos")}>
-					Quem somos
-				</Button>
-				<Button
-					width={"230px"}
-					onClick={() => handleRoute("cadastrar")}>
-					Cadastrar
-				</Button>
-				<Button width={"230px"} onClick={() => handleRoute("login")}>
-					Login
-				</Button>
-			</HeaderDekstop>
+  const handleRegister = (route) => {
+    route === 'login' ? setForm(true) : setForm(false)
+    history.push(`/${route}`)
+  }
 
-			<HeaderMobile selected={selected}>
-				<LinksMenu
-					selected={selected}
-					onClick={() => handleRoute()}
-					className="link--selected ">
-					Início
-				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("quem-somos")}>
-					Quem somos
-				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("cadastrar")}>
-					Cadastrar
-				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("login")}>
-					Login
-				</LinksMenu>
-			</HeaderMobile>
+  return (
+    <>
+      <HeaderDekstop>
+        <Button
+          className="button-selected"
+          width={"230px"}
+          onClick={() => handleRoute()}
+        >
+          Início
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
+          Quem somos
+        </Button>
+        <Button width={"230px"} onClick={() => handleRegister('cadastrar')} >
+          Cadastrar
+        </Button>
+        <Button width={"230px"} onClick={() => handleRegister("login")}>
+          Login
+        </Button>
+      </HeaderDekstop>
 
-			<MarginNavBar></MarginNavBar>
+      <HeaderMobile selected={selected}>
+        <LinksMenu
+          selected={selected}
+          onClick={() => handleRoute()}
+          className="link--selected "
+        >
+          Início
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("quem-somos")}>
+          Quem somos
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("cadastrar")}>
+          Cadastrar
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("login")}>Login</LinksMenu>
+      </HeaderMobile>
 
-			<SloganAdopetme />
-			<Carousel />
-			<Vitrine />
+      <MarginNavBar></MarginNavBar>
 
-			<Footer>
-				<Link to="/">Início</Link>
-				<Link to="/quem-somos">Quem Somos</Link>
-				<Link to="/cadastrar">Cadastrar</Link>
-				<Link to="/login">Login</Link>
-			</Footer>
-		</>
-	);
+      <SloganAdopetme />
+      <Carousel />
+      <Vitrine />
+
+      <Footer>
+        <Link to="/">Início</Link>
+        <Link to="/quem-somos">Quem Somos</Link>
+        <Link to="/cadastrar">Cadastrar</Link>
+        <Link to="/login">Login</Link>
+      </Footer>
+    </>
+  );
 }
 
 export default Home;
