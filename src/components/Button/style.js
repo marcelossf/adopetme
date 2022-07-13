@@ -20,8 +20,4 @@ export const StyledButton = styled.button`
 	&:hover {
 		box-shadow: 0px 0px 19px 6px rgba(0, 0, 0, 0.63) inset;
 	}
-
-	@media (min-width: 1306px) {
-		font-size: 1.3rem;
-	}
 `;
