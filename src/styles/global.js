@@ -19,12 +19,13 @@ const GlobalStyle = createGlobalStyle`
     
     body {
         font-family: 'Comfortaa';
+        overflow-x: hidden;
     }
 
     body::-webkit-scrollbar {
         width: 0;
     }
-    
+
     button {
         cursor: pointer;
     }

@@ -83,7 +83,7 @@ export const Section = styled.section`
 	}
 `;
 
-export const Link = styled.a`
+export const LinksMenu = styled.a`
 	width: 100%;
 	cursor: pointer;
 

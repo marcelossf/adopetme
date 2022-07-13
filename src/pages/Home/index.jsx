@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { Button } from "../../components/Button";
 import { Carousel } from "../../components/Carousel";
@@ -13,7 +13,7 @@ import Vitrine from "../../components/Vitrine";
 import { LoginLogoutContext } from "../../context/login-logout";
 import { RedirectContext } from "../../context/redirect";
 
-import { Link } from "../../components/MenuMobile/style.js";
+import { LinksMenu } from "../../components/MenuMobile/style.js";
 import { MarginNavBar } from "../../styles/marginNavBar";
 
 function Home() {
@@ -63,17 +63,21 @@ function Home() {
 			</HeaderDekstop>
 
 			<HeaderMobile selected={selected}>
-				<Link
+				<LinksMenu
 					selected={selected}
 					onClick={() => handleRoute()}
 					className="link--selected ">
 					Início
-				</Link>
-				<Link onClick={() => handleRoute("quem-somos")}>
+				</LinksMenu>
+				<LinksMenu onClick={() => handleRoute("quem-somos")}>
 					Quem somos
-				</Link>
-				<Link onClick={() => handleRoute("cadastrar")}>Cadastrar</Link>
-				<Link onClick={() => handleRoute("login")}>Login</Link>
+				</LinksMenu>
+				<LinksMenu onClick={() => handleRoute("cadastrar")}>
+					Cadastrar
+				</LinksMenu>
+				<LinksMenu onClick={() => handleRoute("login")}>
+					Login
+				</LinksMenu>
 			</HeaderMobile>
 
 			<MarginNavBar></MarginNavBar>
