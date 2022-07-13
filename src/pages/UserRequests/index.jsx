@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { Link, useHistory } from "react-router-dom";
 
@@ -8,15 +8,20 @@ import { Footer } from "../../components/Footer";
 import HeaderDekstop from "../../components/HeaderDesktop";
 import HeaderMobile from "../../components/HeaderMobile";
 import { LinksMenu } from "../../components/MenuMobile/style";
+import PhotoPerfil from "../../components/PhotoPerfil";
 import SloganRequest from "../../components/SloganRequest";
 import StepsRequest from "../../components/StepsRequest";
 import { TableRequest } from "../../components/TableRequest";
+import { UserContext } from "../../context/user";
 import { MarginNavBar } from "../../styles/marginNavBar";
 
 import { MainContainer } from "./style";
 const UserRequest = () => {
+	const { logout } = useContext(UserContext);
+
 	const [selected, setSelected] = useState(true);
 	const history = useHistory();
+
 	const handleRoute = (route) => {
 		route && history.push(`/${route}`);
 	};
@@ -24,41 +29,41 @@ const UserRequest = () => {
 	return (
 		<>
 			<HeaderDekstop>
-				<Button
-					className="button-selected"
-					width={"230px"}
-					onClick={() => handleRoute()}>
+				<Button width={"230px"} onClick={() => handleRoute("user")}>
 					Início
+				</Button>
+				<Button
+					width={"230px"}
+					className="button-selected"
+					onClick={() => handleRoute("user-solicitation")}>
+					Solicitações
 				</Button>
 				<Button
 					width={"230px"}
 					onClick={() => handleRoute("quem-somos")}>
 					Quem somos
 				</Button>
-				<Button
-					width={"230px"}
-					onClick={() => handleRoute("cadastrar")}>
-					Cadastrar
-				</Button>
-				<Button width={"230px"} onClick={() => handleRoute("login")}>
-					Login
-				</Button>
+				<PhotoPerfil />
 			</HeaderDekstop>
-			<HeaderMobile selected={selected}>
+
+			<HeaderMobile>
+				<LinksMenu onClick={() => handleRoute("user")}>
+					Início
+				</LinksMenu>
 				<LinksMenu
 					selected={selected}
-					onClick={() => handleRoute()}
-					className="link--selected ">
-					Início
+					className="link--selected"
+					onClick={() => handleRoute("user-solicitation")}>
+					Solicitações
 				</LinksMenu>
 				<LinksMenu onClick={() => handleRoute("quem-somos")}>
 					Quem somos
 				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("cadastrar")}>
-					Cadastrar
-				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("login")}>
-					Login
+				<LinksMenu
+					onClick={() => {
+						logout();
+					}}>
+					Logout
 				</LinksMenu>
 			</HeaderMobile>
 
