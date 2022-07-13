@@ -12,6 +12,7 @@ import { UserContext } from "../../context/user";
 import PhotoPerfil from "../../components/PhotoPerfil";
 
 function WhoWeAre() {
+
   const { user, logout } = useContext(UserContext);
 
   const [selected, setSelected] = useState(true);
@@ -114,6 +115,7 @@ function WhoWeAre() {
           </Footer>
         </>
       )}
+
     </>
   );
 }

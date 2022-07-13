@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
 import api from "../../api/api";
 import { Footer } from "../../components/Footer";
@@ -15,6 +15,8 @@ import { Button } from "../../components/Button";
 import { LinksMenu } from "../../components/MenuMobile/style.js";
 import { useState } from "react";
 import PhotoPerfil from "../../components/PhotoPerfil";
+import { MarginNavBar } from "../../styles/marginNavBar";
+
 
 const OngDashBoard = () => {
   const { user, logout } = useContext(UserContext);
@@ -23,6 +25,7 @@ const OngDashBoard = () => {
   const { setOngPets } = useContext(PetOngContext);
   const [selected] = useState(true);
   const history = useHistory();
+  const [selected, setSelected] = useState(true);
 
   const handleRoute = (route) => {
     route && history.push(`/${route}`);
@@ -45,6 +48,10 @@ const OngDashBoard = () => {
       .catch((err) => console.log(err));
   }, [setOngPets]);
 
+  const handleRoute = (route) => {
+    route && history.push(`/${route}`);
+  };
+
   return (
     <Container>
       <HeaderDekstop>
@@ -64,6 +71,7 @@ const OngDashBoard = () => {
         <PhotoPerfil />
       </HeaderDekstop>
 
+
       <HeaderMobile selected={selected}>
         <LinksMenu
           selected={selected}
@@ -80,6 +88,8 @@ const OngDashBoard = () => {
         </LinksMenu>
         <LinksMenu onClick={() => logout()}>Logout</LinksMenu>
       </HeaderMobile>
+      <MarginNavBar></MarginNavBar>
+
       <OngTile />
       <Vitrine />
       <Footer>
