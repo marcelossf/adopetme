@@ -25,7 +25,7 @@ import {
 
 function Login() {
 
-	const [formulario, setFormulario] = useState(true);
+	
 	const [disablebtn2, setDisablebtn2] = useState(true);
 	const [userOng, setUserOng] = useState(false);
 	const [disablebtn1, setDisablebtn1] = useState(false);
@@ -34,7 +34,6 @@ function Login() {
 	const { redirectToPage, form } = useContext(RedirectContext);
 
 	const muda = () => {
-		setUserOng(!userOng);
 		setDisablebtn1(!disablebtn1);
 		setDisablebtn2(!disablebtn2);
 	};

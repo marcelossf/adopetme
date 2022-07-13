@@ -19,9 +19,7 @@ function Card({ pet }) {
 
   const history = useHistory()
 
-  console.log(setPetData)
-
-  const handleRedirect = () => {
+    const handleRedirect = () => {
     if (!token) {
       history.push("/login");
     } else {
