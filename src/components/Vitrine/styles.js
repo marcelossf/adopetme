@@ -1,100 +1,93 @@
 import styled from "styled-components";
 
-
 export const ContainerVitrine = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 5rem;
-margin: 2rem 0;
-  ul {
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2em;
 
-    display: flex;
-    
-    flex-direction: row;
+	margin: 3rem 0;
+	cursor: default;
 
+	.fraseVitrine {
+		color: var(--black);
 
-    gap: 20px;
+		font-family: "Fredoka";
+		font-size: 2.3rem;
+		font-weight: 500;
+		text-align: center;
+		margin: 3rem 0;
+	}
 
-    overflow-x: auto;
-    
+	ul,
+	.vitrine-container {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: flex-start;
+		gap: 2em;
 
-  }
+		overflow-x: auto;
+		scroll-behavior: smooth;
+	}
 
-  .fraseVitrine{
-    
-    color: var(--black);
-    font-family: 'Fredoka';
-    font-size: 48px;
-    text-align: center;
-    font-weight: 500;
-  }
-
-  @media (max-width: 999px) {
-    ul {
-      margin-left: 3vw;
-    }
-  }
-
-  @media (min-width: 1000px) {
-    width: 100%;
-    max-height: 700px;
-    ul {
-      justify-content: center;
-
-      margin: auto;
-
-      flex-wrap: wrap;
-    }
-  }
+	.vitrine-container--HomePage {
+		padding: 2em 0;
+		max-width: 90%;
+		width: 100%;
+		justify-content: flex-start;
+		flex-wrap: nowrap;
+	}
 `;
-
 
 export const ContainerOng = styled.div`
-  width: 90%;
-`
+	width: 90%;
+`;
 export const AbaSolicitacoes = styled.div`
-  box-sizing: border-box;
-  padding: 15px 10px 20px 10px;
+	box-sizing: border-box;
+	padding: 15px 10px 20px 10px;
 
-  width: 120px;
-  height: 19px;
-  color: #FFFFFF;
-  background-color: #3B8788;
+	width: 120px;
+	height: 19px;
+	color: #ffffff;
+	background-color: #3b8788;
 
-  border-radius: 20px 20px 0 0;
+	border-radius: 20px 20px 0 0;
 
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: center;
-  font-size: 16px;
-  font-family: 'Freedoka';
-  font-weight: 400;
-
-
-`
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	text-align: center;
+	font-size: 16px;
+	font-family: "Freedoka";
+	font-weight: 400;
+`;
 export const DivSolicitacoes = styled.div`
-  width: 346px;
-  height: 276px;
-  background-color: var(--petroleumBlue);
+	width: 346px;
+	height: 276px;
+	background-color: var(--petroleumBlue);
 
-  border-radius: 0 15px 15px 15px;
-`
-
-export const ButtonsLeftRight = styled.div`
-  width: 90%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-left: 3vw;
-  button {
-    background-color: #FFFFFF;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+	border-radius: 0 15px 15px 15px;
 `;
 
+export const ButtonsLeftRight = styled.div`
+	width: 95%;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-left: 3vw;
+	button {
+		background-color: #ffffff;
+		border: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+`;
+
+export const ButtonContainer = styled.div`
+	display: inline-flex;
+	justify-content: space-between;
+	width: 85%;
+	margin: 0 auto;
+`;

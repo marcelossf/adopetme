@@ -1,26 +1,23 @@
-import { useEffect, useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+
 import { AnimalsListContext } from "../../context/animals";
-import { LoginLogoutContext } from "../../context/login-logout";
 import { PetOngContext } from "../../context/ong";
 import { SearchContext } from "../../context/search";
-import Card from "../Card";
-import {
-	ButtonsLeftRight,
-	Container,
-	ContainerVitrine,
-	ContainerOng,
-	AbaSolicitacoes,
-	DivSolicitacoes,
-} from "./styles";
 
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import Card from "../Card";
+
+import { ButtonContainer, ContainerVitrine } from "./styles";
+
+import { Button } from "../Button";
 
 function Vitrine() {
 	const { pets } = useContext(AnimalsListContext);
 	const { input } = useContext(SearchContext);
 	const { ongPets, activeOng } = useContext(PetOngContext);
+
 	const petsPerPage = 6;
 	const pages = Math.ceil(pets?.length / petsPerPage);
+
 	const [petsPage, setPetsPage] = useState([]);
 	const [currentPage, setCurrentPage] = useState(0);
 
@@ -64,10 +61,31 @@ function Vitrine() {
 			{!token ? (
 				<>
 					<span className="fraseVitrine">
-						Amigo não se compra,{" "}
-						<span style={{ color: "red" }}>adote</span>!
+						Amigo não se compra,
+						<span style={{ color: "red" }}> adote</span>!
 					</span>
-					<ul>
+					<ButtonContainer>
+						{currentPage === 0 ? (
+							<Button
+								isSelected
+								isDisable
+								width={"125px"}
+								onClick={() => subHandlePage()}>
+								<span>&lt;</span> voltar
+							</Button>
+						) : (
+							<Button
+								width={"125px"}
+								onClick={() => subHandlePage()}>
+								<span>&lt;</span> voltar
+							</Button>
+						)}
+						<Button width={"125px"} onClick={() => addHandlePage()}>
+							próximo <span>&gt;</span>
+						</Button>
+					</ButtonContainer>
+
+					<ul className="vitrine-container vitrine-container--HomePage">
 						{petsPage[currentPage]
 							?.filter(
 								({ petName, species }) =>
@@ -88,10 +106,11 @@ function Vitrine() {
 			) : activeOng ? (
 				<>
 					<span className="fraseVitrine">
-						Seus{" "}
+						Seus
 						<span style={{ color: "var(--orange)" }}>Pets!</span>
 					</span>
-					<ul>
+
+					<ul className="vitrine-container">
 						{ongPets.length > 0 ? (
 							ongPets
 								?.filter(
@@ -104,9 +123,11 @@ function Vitrine() {
 											.includes(input.toLowerCase())
 								)
 								.map((pet) => (
-									<li key={pet.id}>
-										<Card pet={pet} />
-									</li>
+									<>
+										<li key={pet.id}>
+											<Card pet={pet} />
+										</li>
+									</>
 								))
 						) : (
 							<h1>Você não adicionou nenhum pet Ainda :( </h1>
@@ -117,35 +138,35 @@ function Vitrine() {
 				<>
 					{/* trocar a ongPets pelo context do usarioPets */}
 					{/* <span className="fraseVitrine">
-            Seus <span style={{ color: "var(--orange)" }}>Pets!</span>
+          Seus <span style={{ color: "var(--orange)" }}>Pets!</span>
           </span>
           <ul>
-            {ongPets.length > 0 ? (
-              ongPets
-                ?.filter(
-                  ({ petName, species }) =>
-                    petName.toLowerCase().includes(input.toLowerCase()) ||
-                    species.toLowerCase().includes(input.toLowerCase())
-                )
-                .map((pet) => (
-                  <li key={pet.id}>
-                    <Card pet={pet} />
-                  </li>
-                ))
-            ) : (
-              <h1>Você não adicionou nenhum pet Ainda :(</h1>
-            )}
-          </ul> */}
+		{ongPets.length > 0 ? (
+		ongPets
+			?.filter(
+			({ petName, species }) =>
+			petName.toLowerCase().includes(input.toLowerCase()) ||
+			species.toLowerCase().includes(input.toLowerCase())
+			)
+			.map((pet) => (
+			<li key={pet.id}>
+			<Card pet={pet} />
+			</li>
+			))
+		) : (
+		<h1>Você não adicionou nenhum pet Ainda :(</h1>
+		)}
+	</ul> */}
 				</>
 			)}
-			<ButtonsLeftRight>
+			{/* <ButtonsLeftRight>
 				<button onClick={() => subHandlePage()}>
 					<AiOutlineArrowLeft size={30} />
 				</button>
 				<button onClick={() => addHandlePage()}>
 					<AiOutlineArrowRight size={30} />
 				</button>
-			</ButtonsLeftRight>
+			</ButtonsLeftRight> */}
 		</ContainerVitrine>
 	);
 }
