@@ -47,7 +47,6 @@ export const AnimalRegister = () => {
 
   ////////////////////Pegar dados da ONG//////////////////////////
 
-  ///////////Fazer o POST pra api/////////////////////////
 
   //cerejinha.ong@gmail.com
 

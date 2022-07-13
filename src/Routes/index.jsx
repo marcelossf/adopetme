@@ -7,7 +7,11 @@ import UserDashBoard from "../pages/UserDashBoard";
 import OngDashBoard from "../pages/OngDashBoard";
 import { RegisterPet } from "../pages/RegisterPet";
 import OngSolicitation from "../pages/OngSolicitation";
+
+import { Testemonials } from "../pages/Testemonials";
+
 import UserRequest from "../pages/UserRequests";
+
 
 function Routes() {
   return (
@@ -38,6 +42,9 @@ function Routes() {
       </Route>
       <Route path={"/ong-solicitation"}>
         <OngSolicitation />
+      </Route>
+      <Route path={"/testemonials"}>
+        <Testemonials />
       </Route>
     </Switch>
   );

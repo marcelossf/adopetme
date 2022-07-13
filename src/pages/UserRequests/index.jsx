@@ -47,6 +47,16 @@ const UserRequest = () => {
 				</div>
 
 
+				<StepsRequest />
+			</MainContainer>
+
+			<Footer>
+				<Link to="/">Início</Link>
+				<Link to="">Quero adotar</Link>
+				<Link to="/">Solicitações</Link>
+			</Footer>
+		</>
+	);
 
 };
 
