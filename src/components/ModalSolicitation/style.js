@@ -95,3 +95,18 @@ export const Container = styled.div`
     max-width: 374px;
   }
 `;
+
+export const ContainerPai = styled.div`
+z-index: 99999;
+width: 100vw;
+height: 100%;
+left: 0;
+top: 0;
+position: fixed;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: rgba(0,0,0,0.25);
+
+`
+

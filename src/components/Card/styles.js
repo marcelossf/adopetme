@@ -18,7 +18,7 @@ export const Container = styled.div`
 `;
 
 export const FigureStyled = styled.div`
-	border-radius: 5% 5% 1%1%;
+	border-radius: 5% 5% 1% 1%;
 	border: 5px solid white;
 
 	box-shadow: 11px 11px 10px rgba(0, 0, 0, 0.25);

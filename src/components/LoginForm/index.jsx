@@ -37,6 +37,7 @@ export const LoginForm = ({ setForm }) => {
       .post("/login", dados)
 
       .then((response) => {
+        
         localStorage.setItem(
           "token",
           JSON.stringify(response.data.accessToken)
@@ -47,15 +48,13 @@ export const LoginForm = ({ setForm }) => {
         toastSucess("Login Realizado com Sucesso");
         if (user.type === "ong") {
           setActiveOng(true);
-          setActiveUser(false)
-          redirectToPage("/ong");
+          return redirectToPage("/ong");
         } else {
-          setActiveUser(true)
-          setActiveOng(false);
-          redirectToPage("/user");
+          setActiveUser(true);
+          return redirectToPage("/user");
         }
       })
-      .catch((_) => toastError("Senha/Email incorretos"));
+      .catch((_) => toastError("Senha/Email incorretos")).finally((response)=>console.log(response));
   }
 
   if (logado) {
