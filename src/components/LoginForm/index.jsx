@@ -14,12 +14,8 @@ import { BtnFormEnter, ButtonForm, TitleForm } from "../CadastreForm/style";
 
 export const LoginForm = () => {
 	const { redirectToPage, form, setForm } = useContext(RedirectContext);
-	const { logado, changeLogado } = useContext(LoginLogoutContext);
-	const { setActiveOng } = useContext(PetOngContext);
-	const { setActiveUser } = useContext(UserContext);
-
-	const token = JSON.parse(localStorage.getItem("token"));
-
+	
+	
 	const formSchema = yup.object().shape({
 		email: yup.string().required("Campo obrigatório"),
 		password: yup.string().required("Campo obrigatório"),
