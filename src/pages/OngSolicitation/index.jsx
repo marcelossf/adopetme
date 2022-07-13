@@ -1,24 +1,31 @@
 import CardRetangle from "../../components/CardRetangle";
 import { Footer } from "../../components/Footer";
-import Header from "../../components/HeaderMobile";
 import { MenuFooter } from "../../components/MenuFooter";
 import OngTile from "../../components/OngTitle";
 import { Container } from "./style";
-import { RedirectContext } from "../../context/redirect";
+
 import { useContext, useEffect, useState } from "react";
 import HeaderDekstop from "../../components/HeaderDesktop";
-import { Button } from "../../components/Button";
-import { useHistory } from "react-router-dom";
 import HeaderMobile from "../../components/HeaderMobile";
-import { LinksMenu } from "../../components/MenuMobile/style";
+import { Button } from "../../components/Button";
+import { LinksMenu } from "../../components/MenuMobile/style.js";
+import { Link, useHistory } from "react-router-dom";
+import PhotoPerfil from "../../components/PhotoPerfil";
+import { UserContext } from "../../context/user";
+
 import { MarginNavBar } from "../../styles/marginNavBar";
 
-
 const OngSolicitation = () => {
-  const { redirectToPage } = useContext(RedirectContext);
   const token = JSON.parse(localStorage.getItem("token"));
-  const history = useHistory()
-  const [selected, setSelected] = useState(true);
+
+  const { logout } = useContext(UserContext);
+
+  const [selected] = useState(true);
+  const history = useHistory();
+
+  const handleRoute = (route) => {
+    route && history.push(`/${route}`);
+  };
 
   useEffect(() => {
     if (!token) {
@@ -26,13 +33,9 @@ const OngSolicitation = () => {
     }
   }, []);
 
-  const handleRoute = (route) => {
-    route && history.push(`/${route}`);
-  };
-
   return (
     <Container>
-       <HeaderDekstop>
+      <HeaderDekstop>
         <Button
           className="button-selected"
           width={"230px"}
@@ -40,16 +43,16 @@ const OngSolicitation = () => {
         >
           Início
         </Button>
-        <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
-          Quem somos
+
+        <Button width={"230px"} onClick={() => handleRoute("ong-solicitation")}>
+          Solicitações
         </Button>
-        <Button width={"230px"} onClick={() => handleRoute("cadastrar")}>
-          Cadastrar
+        <Button width={"230px"} onClick={() => handleRoute("registerPet")}>
+          Cadastrar Pet
         </Button>
-        <Button width={"230px"} onClick={() => handleRoute("login")}>
-          Login
-        </Button>
+        <PhotoPerfil />
       </HeaderDekstop>
+
       <HeaderMobile selected={selected}>
         <LinksMenu
           selected={selected}
@@ -58,23 +61,23 @@ const OngSolicitation = () => {
         >
           Início
         </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("quem-somos")}>
-          Quem somos
-        </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("cadastrar")}>
-          Cadastrar
-        </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("login")}>Login</LinksMenu>
-      </HeaderMobile>
 
+        <LinksMenu onClick={() => handleRoute("ong-solicitation")}>
+          Solicitações
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("registerPet")}>
+          Cadastrar Pet
+        </LinksMenu>
+        <LinksMenu onClick={() => logout()}>Logout</LinksMenu>
+      </HeaderMobile>
       <MarginNavBar></MarginNavBar>
       <OngTile />
       <CardRetangle />
       <Footer>
         <MenuFooter>
-          <li onClick={redirectToPage("/")}>início</li>
-          <li onClick={redirectToPage("/ong-solicitation")}>Solitações</li>
-          <li onClick={redirectToPage("/registerPet")}>Cadastrar Pet</li>
+          <Link to="/">Início</Link>
+          <Link to="/ong-solicitation">Solicitações</Link>
+          <Link to="/registerPet">Cadastrar Pet</Link>
         </MenuFooter>
       </Footer>
     </Container>

@@ -19,17 +19,18 @@ import { UserContext } from "../../context/user";
 import { useEffect } from "react";
 
 function Home() {
-  const { redirectToPage } = useContext(RedirectContext);
+  const { setForm } = useContext(RedirectContext);
   const { user } = useContext(UserContext);
 	const token = localStorage.getItem('token')
   const [selected, setSelected] = useState(true);
 
+
   useEffect(() => {
     if (user) {
       if (user.type === "ong") {
-        redirectToPage("/ong");
+        history.push("/ong");
       } else {
-        redirectToPage("/user");
+        history.push("/user");
       }
     }
   }, [user]);
@@ -39,6 +40,11 @@ function Home() {
   const handleRoute = (route) => {
     route && history.push(`/${route}`);
   };
+
+  const handleRegister = (route) => {
+    route === 'login' ? setForm(true) : setForm(false)
+    history.push(`/${route}`)
+  }
 
   return (
     <>
@@ -53,10 +59,10 @@ function Home() {
         <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
           Quem somos
         </Button>
-        <Button width={"230px"} onClick={() => handleRoute("cadastrar")}>
+        <Button width={"230px"} onClick={() => handleRegister('cadastrar')} >
           Cadastrar
         </Button>
-        <Button width={"230px"} onClick={() => handleRoute("login")}>
+        <Button width={"230px"} onClick={() => handleRegister("login")}>
           Login
         </Button>
       </HeaderDekstop>
