@@ -1,33 +1,5 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.header`
-	width: 100%;
-	margin: 0 auto;
-
-	display: flex;
-	flex-direction: row;
-	@media (min-width: 768px) {
-		gap: 1em;
-		flex-direction: column;
-	}
-`;
-
-export const NAVCONTAINER_MOBILE = styled.nav`
-	margin-top: 1em;
-	position: relative;
-
-	.Menu-button {
-		position: fixed;
-		background: 0 none;
-		border: 0 none;
-		z-index: 2;
-	}
-
-	@media (min-width: 768px) {
-		display: none;
-	} ;
-`;
-
 export const Title = styled.div`
 	max-width: 1450px;
 
