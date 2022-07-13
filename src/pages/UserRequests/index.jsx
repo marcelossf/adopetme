@@ -4,12 +4,8 @@ import { useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Logo from "../../assets/logoAdopet.png";
 
-
-import { Link, useHistory } from "react-router-dom";
-
 import MenuDropdown from "../../assets/Menu.png";
 import { Button } from "../../components/Button";
-
 
 import { Footer } from "../../components/Footer";
 import HeaderDekstop from "../../components/HeaderDesktop";
@@ -21,19 +17,12 @@ import { TableRequest } from "../../components/TableRequest";
 import { SolicitationContext } from "../../context/solicitation";
 
 import { HeaderContainer, MainContainer, Title } from "./style";
-import HeaderDekstop from "../../components/HeaderDesktop";
-import { Button } from "../../components/Button";
-import HeaderMobile from "../../components/HeaderMobile";
-import { LinksMenu } from "../../components/MenuMobile/style";
 import PhotoPerfil from "../../components/PhotoPerfil";
-import { useState } from "react";
 import { UserContext } from "../../context/user";
 
 import { MarginNavBar } from "../../styles/marginNavBar";
 
-
 const UserRequest = () => {
-
   const [selected] = useState(true);
   const history = useHistory();
   const { logout } = useContext(UserContext);
@@ -80,6 +69,7 @@ const UserRequest = () => {
         </LinksMenu>
         <LinksMenu onClick={() => logout()}>Logout</LinksMenu>
       </HeaderMobile>
+      <MarginNavBar></MarginNavBar>
       <HeaderContainer>
         <Title>
           <img src={Logo} alt="Logo" className="Logo" />
@@ -100,7 +90,6 @@ const UserRequest = () => {
 
         <StepsRequest />
       </MainContainer>
-
 
       <Footer>
         <Link to="/">Início</Link>

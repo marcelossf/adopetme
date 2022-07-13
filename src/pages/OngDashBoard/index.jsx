@@ -13,7 +13,6 @@ import HeaderDekstop from "../../components/HeaderDesktop";
 import HeaderMobile from "../../components/HeaderMobile";
 import { Button } from "../../components/Button";
 import { LinksMenu } from "../../components/MenuMobile/style.js";
-import { useState } from "react";
 import PhotoPerfil from "../../components/PhotoPerfil";
 import { MarginNavBar } from "../../styles/marginNavBar";
 
@@ -25,7 +24,6 @@ const OngDashBoard = () => {
   const { setOngPets } = useContext(PetOngContext);
   const [selected] = useState(true);
   const history = useHistory();
-  const [selected, setSelected] = useState(true);
 
   const handleRoute = (route) => {
     route && history.push(`/${route}`);
@@ -48,9 +46,6 @@ const OngDashBoard = () => {
       .catch((err) => console.log(err));
   }, [setOngPets]);
 
-  const handleRoute = (route) => {
-    route && history.push(`/${route}`);
-  };
 
   return (
     <Container>

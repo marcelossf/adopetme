@@ -3,7 +3,6 @@ import { Footer } from "../../components/Footer";
 import { MenuFooter } from "../../components/MenuFooter";
 import OngTile from "../../components/OngTitle";
 import { Container } from "./style";
-import { RedirectContext } from "../../context/redirect";
 
 import { useContext, useEffect, useState } from "react";
 import HeaderDekstop from "../../components/HeaderDesktop";
@@ -14,14 +13,9 @@ import { Link, useHistory } from "react-router-dom";
 import PhotoPerfil from "../../components/PhotoPerfil";
 import { UserContext } from "../../context/user";
 
-import { useContext, useEffect, useState } from "react";
-import HeaderDekstop from "../../components/HeaderDesktop";
-import { useHistory } from "react-router-dom";
 import { MarginNavBar } from "../../styles/marginNavBar";
 
-
 const OngSolicitation = () => {
-  const { redirectToPage } = useContext(RedirectContext);
   const token = JSON.parse(localStorage.getItem("token"));
 
   const { logout } = useContext(UserContext);
@@ -32,7 +26,6 @@ const OngSolicitation = () => {
   const handleRoute = (route) => {
     route && history.push(`/${route}`);
   };
-  const history = useHistory()
 
   useEffect(() => {
     if (!token) {
@@ -40,13 +33,9 @@ const OngSolicitation = () => {
     }
   }, []);
 
-  const handleRoute = (route) => {
-    route && history.push(`/${route}`);
-  };
-
   return (
     <Container>
-       <HeaderDekstop>
+      <HeaderDekstop>
         <Button
           className="button-selected"
           width={"230px"}
@@ -81,7 +70,7 @@ const OngSolicitation = () => {
         </LinksMenu>
         <LinksMenu onClick={() => logout()}>Logout</LinksMenu>
       </HeaderMobile>
-
+      <MarginNavBar></MarginNavBar>
       <OngTile />
       <CardRetangle />
       <Footer>
