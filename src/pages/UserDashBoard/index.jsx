@@ -25,6 +25,7 @@ const UserDashBoard = () => {
 	const handleRoute = (route) => {
 		route && history.push(`/${route}`);
 	};
+
 	return (
 		<>
 			<HeaderDekstop>
