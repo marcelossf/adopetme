@@ -6,7 +6,7 @@ import { MenuDropDown } from "../../components/MenuDropDown";
 import { MenuFooter } from "../../components/MenuFooter";
 import { Footer } from "../../components/Footer";
 import { RegisterPet } from "../RegisterPet";
-
+import { Link } from 'react-router-dom'
 const UserDashBoard = () => {
   return (
     <>
@@ -18,9 +18,9 @@ const UserDashBoard = () => {
       <Vitrine />
       <Footer>
         <MenuFooter> 
-            <li>Início</li>
-            <li>Solicitações</li>
-            <li>Cadastrar Pet</li>
+            <Link to="/">Início</Link>
+            <Link to='/solicitatioUser'>Solicitações</Link>
+            <Link to='/registerPet'>Cadastrar Pet</Link>
         </MenuFooter>
       </Footer>
     </>
