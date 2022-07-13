@@ -17,9 +17,7 @@ import seeYouSoon from "../../assets/seeYouSoon.png";
 function Login() {
   const [formulario, setFormulario] = useState(true);
   const { redirectToPage, form } = useContext(RedirectContext);
-
   const [userOng, setUserOng] = useState(false);
-
   const [disablebtn1, setDisablebtn1] = useState(false);
   const [disablebtn2, setDisablebtn2] = useState(true);
 
@@ -57,7 +55,7 @@ function Login() {
       <DivRigth>
         <img src={logoAdopet} className="imgLogo" alt="logo" />
 
-        {form ? <LoginForm form={formulario} setForm={!setFormulario}/> : <CadastreForm form={formulario} setForm={setFormulario}/>}
+        {form ? <LoginForm /> : <CadastreForm />}
       </DivRigth>
       <div className="linha"></div>
       <DivLeft>

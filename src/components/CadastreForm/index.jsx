@@ -13,12 +13,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { toastError, toastSucess } from "../../utils/toast";
 
-export const CadastreForm = ({ setForm, form }) => {
-  const { redirectToPage } = useContext(RedirectContext);
+export const CadastreForm = () => {
+  const { redirectToPage, setForm } = useContext(RedirectContext);
 
-  const muda = () => {
-    setForm(!form);
-  };
+  // const muda = () => {
+  //   setForm(!form);
+  // };
 
   const formSchema = yup.object().shape({
     type: yup.string().required("Campo obrigatório"),
@@ -42,12 +42,12 @@ export const CadastreForm = ({ setForm, form }) => {
   } = useForm({ resolver: yupResolver(formSchema) });
 
   function onLogin(dados) {
-    console.log(dados)
+    console.log(dados);
     api
       .post("/register", dados)
       .then(() => {
-        setForm(!form);
-        toastSucess("Cadastro realizado com sucesso")
+        toastSucess("Cadastro realizado com sucesso");
+        setForm(true);
         redirectToPage("/login");
       })
       .catch((_) => toastError("Campos Incorretos"));
@@ -60,13 +60,14 @@ export const CadastreForm = ({ setForm, form }) => {
           <button
             type="button"
             onClick={() => {
+              setForm(true);
               redirectToPage("/login");
             }}
             className="btnslogin"
           >
             Login
           </button>
-          <button type="button" onClick={muda} className="btnslogin disable">
+          <button type="button" className="btnslogin disable">
             Cadastrar
           </button>
         </div>

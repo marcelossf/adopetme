@@ -11,15 +11,13 @@ import { PetOngContext } from "../../context/ong";
 import { toastError, toastSucess } from "../../utils/toast";
 import { UserContext } from "../../context/user";
 
-export const LoginForm = ({ setForm }) => {
-  const { redirectToPage, form } = useContext(RedirectContext);
+export const LoginForm = () => {
+  const { redirectToPage, form, setForm } = useContext(RedirectContext);
   const { logado, changeLogado } = useContext(LoginLogoutContext);
   const { setActiveOng } = useContext(PetOngContext);
   const { setActiveUser } = useContext(UserContext);
 
-  const muda = () => {
-    setForm(!form);
-  };
+  const token = JSON.parse(localStorage.getItem("token"));
 
   const formSchema = yup.object().shape({
     email: yup.string().required("Campo obrigatório"),
@@ -37,7 +35,6 @@ export const LoginForm = ({ setForm }) => {
       .post("/login", dados)
 
       .then((response) => {
-        
         localStorage.setItem(
           "token",
           JSON.stringify(response.data.accessToken)
@@ -54,10 +51,11 @@ export const LoginForm = ({ setForm }) => {
           return redirectToPage("/user");
         }
       })
-      .catch((_) => toastError("Senha/Email incorretos")).finally((response)=>console.log(response));
+      .catch((_) => toastError("Senha/Email incorretos"))
+      .finally((response) => console.log(response));
   }
 
-  if (logado) {
+  if (token) {
     redirectToPage("/");
   }
 
@@ -65,20 +63,14 @@ export const LoginForm = ({ setForm }) => {
     <>
       <FormLogin onSubmit={handleSubmit(onLogin)}>
         <div className="btns">
-          <button
-            type="button"
-            className="btnslogin disable"
-            onClick={() => {
-              muda();
-              redirectToPage("/login");
-            }}
-          >
+          <button type="button" className="btnslogin disable">
             Login
           </button>
           <button
             type="button"
             className="btnslogin"
             onClick={() => {
+              setForm(false);
               redirectToPage("/cadastrar");
             }}
           >
