@@ -69,6 +69,15 @@ export const MainContainer = styled.main`
 	margin-bottom: 90px;
 	padding: 0 1em 0 0;
 
+	figure {
+		display: none;
+		@media (min-width: 1024px) {
+			width: 100%;
+			display: inline-flex;
+			justify-content: center;
+		}
+	}
+
 	.request-container {
 		height: 600px;
 		display: flex;

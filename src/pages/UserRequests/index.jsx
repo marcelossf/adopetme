@@ -11,7 +11,10 @@ import PhotoPerfil from "../../components/PhotoPerfil";
 import SloganRequest from "../../components/SloganRequest";
 import StepsRequest from "../../components/StepsRequest";
 import { TableRequest } from "../../components/TableRequest";
+
 import { UserContext } from "../../context/user";
+
+import Logo from "../../assets/logoAdopet.png";
 
 import { MarginNavBar } from "../../styles/marginNavBar";
 import { MainContainer } from "./style";
@@ -70,6 +73,10 @@ const UserRequest = () => {
 			<MarginNavBar></MarginNavBar>
 
 			<MainContainer>
+				<figure>
+					<img src={Logo} alt="Logo" />
+				</figure>
+
 				<section className="request-container">
 					<h2 className="request-caption">Processo de adoção</h2>
 					<TableRequest />

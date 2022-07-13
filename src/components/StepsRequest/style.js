@@ -14,7 +14,7 @@ export const CardSection = styled.section`
 
 	width: 100%;
 	max-width: 1450px;
-	padding: 0 2em;
+	padding: 0 1em;
 	margin: 90px auto;
 
 	h4 {
@@ -41,26 +41,44 @@ export const CardSection = styled.section`
 			width: 450px;
 		}
 		@media (min-width: 768px) {
-			font-size: 64px;
-			line-height: 77px;
+			padding-left: 0;
 
 			span {
 				font-weight: 700;
-				font-size: 48px;
-				line-height: 58px;
 			}
 		}
 	}
 
 	.cards-container {
+		width: 100%;
 		display: flex;
-		justify-content: right;
-		flex-wrap: wrap;
-		gap: 3em;
+		justify-content: start;
+		flex-wrap: nowrap;
+		gap: 1em;
 
-		@media (max-width: 768px) {
-			justify-content: center;
-			margin: 0 auto;
+		height: fit-content;
+
+		overflow-y: hidden;
+		overflow-x: scroll;
+		scroll-behavior: smooth;
+
+		padding: 2em 0.5em;
+
+		::-webkit-scrollbar {
+			height: 10px;
+			width: 10x;
+			background: #d9d9d9;
+			transition: ease-in-out 200ms;
+		}
+		::-webkit-scrollbar-thumb:horizontal {
+			background: #9747ff;
+			border-radius: 10px;
+		}
+		@media (min-width: 1024px) {
+			gap: 3em;
+			width: 80%;
+			flex-wrap: wrap;
+			overflow: hidden;
 		}
 	}
 `;
@@ -69,17 +87,18 @@ export const CardRequest = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 
 	gap: 1em;
 
 	border-radius: 15px;
 
-	padding: 2em 1em;
-	max-width: 400px;
+	padding: 2em 3em;
+	max-width: 300px;
 	width: 100%;
 
 	box-shadow: -9px 11px 11px 0px rgba(0, 0, 0, 0.25);
+
 	${(props) => {
 		switch (props.type) {
 			case "pendente":
@@ -127,9 +146,10 @@ s				`;
 	}
 
 	.status-text {
+		position: relative;
+
 		display: flex;
 		align-items: center;
-		gap: 1em;
 
 		background: #ffffff;
 		box-shadow: -6px 10px 1px rgba(0, 0, 0, 0.25);
@@ -138,19 +158,20 @@ s				`;
 
 		height: 100%;
 		max-height: 211px;
-		padding: 1em 2em;
+		width: 240px;
+		padding: 1em 3em;
 
+		text-align: start;
 		font-size: 15px;
 		line-height: 17px;
 		font-weight: 400;
-
-		@media (min-width: 768px) {
-			font-size: 20px;
-			line-height: 24px;
-		}
 	}
 
 	.status-text::before {
+		position: absolute;
+		left: 5px;
+		transform: scale(0.7);
+
 		${(props) => {
 			switch (props.type) {
 				case "pendente":
