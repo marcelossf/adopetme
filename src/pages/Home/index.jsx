@@ -1,17 +1,13 @@
 import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-
 import { Button } from "../../components/Button";
 import { Carousel } from "../../components/Carousel";
 import { Footer } from "../../components/Footer";
 import Header from "../../components/HeaderMobile";
-
 import SloganAdopetme from "../../components/SloganAdopetme";
 import Vitrine from "../../components/Vitrine";
-
 import { LoginLogoutContext } from "../../context/login-logout";
 import { RedirectContext } from "../../context/redirect";
-
 import { MarginNavBar } from "../../styles/marginNavBar";
 
 function Home() {

@@ -4,6 +4,7 @@ import AdoPet from "../../assets/logoAdopet.png";
 const OngTile = () => {
   const user = JSON.parse(localStorage.getItem("user")) || "";
   const { name } = user;
+  console.log(name)
   return (
     <>
       <DivStyled>
