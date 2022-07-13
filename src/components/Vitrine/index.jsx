@@ -17,57 +17,46 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 
 function Vitrine() {
   const { pets } = useContext(AnimalsListContext);
-  const { input } = useContext(SearchContext);
+  const { input, filtredPets } = useContext(SearchContext);
   const { ongPets, activeOng } = useContext(PetOngContext);
   const petsPerPage = 6;
   const pages = Math.ceil(pets?.length / petsPerPage);
   const [petsPage, setPetsPage] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
 
-  const type = "ong";
   // const [pets, setPets] = useState([]);
 
-  useEffect(() => {
-    setPetsPage([]);
-    const newPetsPage = [];
-    for (var i = 0; i < pets.length; i = i + petsPerPage) {
-      newPetsPage.push(pets.slice(i, i + petsPerPage));
-    }
-    setPetsPage(newPetsPage);
-  }, [pets]);
+  // useEffect(() => {
+  //   setPetsPage([]);
+  //   const newPetsPage = [];
+  //   for (var i = 0; i < pets.length; i = i + petsPerPage) {
+  //     newPetsPage.push(pets.slice(i, i + petsPerPage));
+  //   }
+  //   setPetsPage(newPetsPage);
+  // }, [pets]);
 
-  function subHandlePage() {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    }
-  }
-
-  function addHandlePage() {
-    if (currentPage < pages - 1) {
-      setCurrentPage(currentPage + 1);
-    }
-  }
-
-  const token = JSON.parse(localStorage.getItem("token")) || "";
-
-  // if(type === 'ong') {
-  //   return (
-  //     <ContainerOng>
-  //       <AbaSolicitacoes>Solicitações</AbaSolicitacoes>
-  //       <DivSolicitacoes>asdsada</DivSolicitacoes>
-  //     </ContainerOng>
-  //   )
+  // function subHandlePage() {
+  //   if (currentPage > 0) {
+  //     setCurrentPage(currentPage - 1);
+  //   }
   // }
 
+  // function addHandlePage() {
+  //   if (currentPage < pages - 1) {
+  //     setCurrentPage(currentPage + 1);
+  //   }
+  // }
+
+  const token = JSON.parse(localStorage.getItem("token")) || "";
   return (
     <ContainerVitrine>
-      {!token ? (
+      {filtredPets.length === 0 ? (
         <>
           <span className="fraseVitrine">
             Amigo não se compra, <span style={{ color: "red" }}>adote</span>!
           </span>
           <ul>
-            {petsPage[currentPage]
+            {pets
               ?.filter(
                 ({ petName, species }) =>
                   petName.toLowerCase().includes(input.toLowerCase()) ||
@@ -80,6 +69,14 @@ function Vitrine() {
               ))}
           </ul>
         </>
+      ) : filtredPets.length > 0 ? (
+        <ul>
+          {filtredPets?.map((pet) => (
+            <li key={pet.id}>
+              <Card pet={pet} />
+            </li>
+          ))}
+        </ul>
       ) : activeOng ? (
         <>
           <span className="fraseVitrine">
@@ -128,14 +125,14 @@ function Vitrine() {
           </ul> */}
         </>
       )}
-      <ButtonsLeftRight>
+      {/* <ButtonsLeftRight>
         <button onClick={() => subHandlePage()}>
           <AiOutlineArrowLeft size={30} />
         </button>
         <button onClick={() => addHandlePage()}>
           <AiOutlineArrowRight size={30} />
         </button>
-      </ButtonsLeftRight>
+      </ButtonsLeftRight> */}
     </ContainerVitrine>
   );
 }

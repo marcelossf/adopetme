@@ -7,14 +7,16 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import * as yup from "yup";
 import { SolicitationContext } from "../../context/solicitation";
+import { toastSucess } from "../../utils/toast";
+import { Error } from "../Error";
 
 const ModalSolicitation = ({ setOpen, open }) => {
   const formRes = yup.object().shape({
-    pergunta1: yup.string().required("todos os campos são obrigatórios"),
-    pergunta2: yup.string().required("todos os campos são obrigatórios"),
-    pergunta3: yup.string().required("todos os campos são obrigatórios"),
-    pergunta4: yup.string().required("todos os campos são obrigatórios"),
-    pergunta5: yup.string().required("todos os campos são obrigatórios"),
+    pergunta1: yup.string().required("Campo obrigatório"),
+    pergunta2: yup.string().required("Campo obrigatório"),
+    pergunta3: yup.string().required("Campo obrigatório"),
+    pergunta4: yup.string().required("Campo obrigatório"),
+    pergunta5: yup.string().required("Campo obrigatório"),
   });
 
   const {
@@ -28,7 +30,7 @@ const ModalSolicitation = ({ setOpen, open }) => {
     setSolicitationForm(data);
     setUserData(localStorage.getItem("user"));
     setPetData();
-
+    toastSucess("Solicitação Enviada");
   };
 
   const { setSolicitationForm, setUserData, setPetData } =
@@ -50,30 +52,31 @@ const ModalSolicitation = ({ setOpen, open }) => {
           placeholder="Pergunta 1"
           {...register("pergunta1")}
         ></input>
-
+        <Error>{errors?.pergunta1?.message}</Error>
         <input
           type="text"
           placeholder="Pergunta 2"
           {...register("pergunta2")}
         ></input>
-
+        <Error>{errors?.pergunta2?.message}</Error>
         <input
           type="text"
           placeholder="Pergunta 3"
           {...register("pergunta3")}
         ></input>
-
+        <Error>{errors?.pergunta3?.message}</Error>
         <input
           type="text"
           placeholder="Pergunta 4"
           {...register("pergunta4")}
         ></input>
-        <span className="div-error">{errors?.pergunta5?.message}</span>
+        <Error>{errors?.pergunta4?.message}</Error>
         <input
           type="text"
           placeholder="Pergunta 5"
           {...register("pergunta5")}
         ></input>
+        <Error>{errors?.pergunta5?.message}</Error>
         <button type="submit">enviar</button>
       </form>
     </Container>
