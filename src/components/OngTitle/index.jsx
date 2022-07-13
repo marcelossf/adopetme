@@ -1,15 +1,20 @@
 import { DivStyled } from "./style";
 import AdoPet from "../../assets/logoAdopet.png";
+import { UserContext } from "../../context/user";
+import { useContext } from "react";
+
 
 const OngTile = () => {
-  const user = JSON.parse(localStorage.getItem("user")) || "";
-  const { name } = user;
-  console.log(name)
+ 
+
+  const { user } = useContext(UserContext);
+
+  
   return (
     <>
       <DivStyled>
         <div className="ong-container">
-          <h1 className="title-ong">Bem vindo, {name}.</h1>
+          <h1 className="title-ong">Bem vindo, {user.name}.</h1>
           <p className="paragraph-ong">
             Aqui você encontra apoio para abrigar seus bichinhos
           </p>
