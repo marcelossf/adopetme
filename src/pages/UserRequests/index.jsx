@@ -20,12 +20,9 @@ import { TableRequest } from "../../components/TableRequest";
 import { UserContext } from "../../context/user";
 import { MarginNavBar } from "../../styles/marginNavBar";
 
-import { MainContainer } from "./style";
-
 import { SolicitationContext } from "../../context/solicitation";
 
 import { HeaderContainer, MainContainer, Title } from "./style";
-import PhotoPerfil from "../../components/PhotoPerfil";
 
 const UserRequest = () => {
 	const { logout } = useContext(UserContext);

@@ -5,7 +5,6 @@ import { Input } from "../InputLabel";
 import { RedirectContext } from "../../context/redirect";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
 import * as yup from "yup";
 
 import api from "../../api/api";
@@ -17,7 +16,6 @@ import { UserContext } from "../../context/user";
 import { toastError, toastSucess } from "../../utils/toast";
 
 import { BtnFormEnter, ButtonForm, TitleForm } from "../CadastreForm/style";
-import { FormLogin } from "./style";
 
 export const LoginForm = () => {
 
