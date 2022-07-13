@@ -11,6 +11,7 @@ import { ButtonContainer, ContainerVitrine } from "./styles";
 import { Button } from "../Button";
 
 function Vitrine() {
+
 	const { pets } = useContext(AnimalsListContext);
 	const { input } = useContext(SearchContext);
 	const { ongPets, activeOng } = useContext(PetOngContext);
@@ -46,15 +47,6 @@ function Vitrine() {
 	}
 
 	const token = JSON.parse(localStorage.getItem("token")) || "";
-
-	// if(type === 'ong') {
-	//   return (
-	//     <ContainerOng>
-	//       <AbaSolicitacoes>Solicitações</AbaSolicitacoes>
-	//       <DivSolicitacoes>asdsada</DivSolicitacoes>
-	//     </ContainerOng>
-	//   )
-	// }
 
 	return (
 		<ContainerVitrine>
@@ -169,6 +161,7 @@ function Vitrine() {
 			</ButtonsLeftRight> */}
 		</ContainerVitrine>
 	);
+
 }
 
 export default Vitrine;

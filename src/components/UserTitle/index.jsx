@@ -1,7 +1,9 @@
 import { DivStyled, DivContainerMax } from "./style";
 import AdoPet from "../../assets/logoAdopet.png";
 
-const UserTitle = ({nameUser}) => {
+const UserTitle = () => {
+  const user = JSON.parse(localStorage.getItem('user'))
+  const nameUser = user.name
   return (
     <DivContainerMax>
       <DivStyled>

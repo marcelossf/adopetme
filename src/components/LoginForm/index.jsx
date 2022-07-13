@@ -4,19 +4,18 @@ import { Input } from "../InputLabel";
 import { RedirectContext } from "../../context/redirect";
 import { useForm } from "react-hook-form";
 import { LoginLogoutContext } from "../../context/login-logout";
-
 import api from "../../api/api";
-
 import { yupResolver } from "@hookform/resolvers/yup";
-
 import * as yup from "yup";
 import { PetOngContext } from "../../context/ong";
 import { toastError, toastSucess } from "../../utils/toast";
+import { UserContext } from "../../context/user";
 
 export const LoginForm = ({ setForm }) => {
   const { redirectToPage, form } = useContext(RedirectContext);
   const { logado, changeLogado } = useContext(LoginLogoutContext);
-  const {setActiveOng} = useContext(PetOngContext)
+  const { setActiveOng } = useContext(PetOngContext);
+  const { setActiveUser } = useContext(UserContext);
 
   const muda = () => {
     setForm(!form);
@@ -45,18 +44,20 @@ export const LoginForm = ({ setForm }) => {
         localStorage.setItem("user", JSON.stringify(response.data.user));
         const user = response.data.user;
         changeLogado();
-        toastSucess('Login Realizado com Sucesso')
+        toastSucess("Login Realizado com Sucesso");
         if (user.type === "ong") {
-          setActiveOng(true)
+          setActiveOng(true);
+          setActiveUser(false)
           redirectToPage("/ong");
         } else {
-          redirectToPage('/user')
+          setActiveUser(true)
+          setActiveOng(false);
+          redirectToPage("/user");
         }
       })
-      .catch((_) => toastError('Senha/Email incorretos'));
+      .catch((_) => toastError("Senha/Email incorretos"));
   }
 
-  
   if (logado) {
     redirectToPage("/");
   }

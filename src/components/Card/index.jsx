@@ -3,6 +3,8 @@ import { useContext, useState } from "react";
 import { LoginLogoutContext } from "../../context/login-logout";
 import { RedirectContext } from "../../context/redirect";
 
+import { SolicitationContext } from "../../context/solicitation";
+
 import { Button } from "../Button";
 import ModalSolicitation from "../ModalSolicitation";
 
@@ -52,6 +54,8 @@ function Card({ pet }) {
 			<Button onClick={handleRedirect}>Solicitar Adoção</Button>
 		</Container>
 	);
+
+
 }
 
 export default Card;

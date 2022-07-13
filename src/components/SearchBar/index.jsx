@@ -8,12 +8,13 @@ import {
 } from "./style";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { ImSearch } from "react-icons/im";
-import { SearchContext } from "../../context/search";
+import { SearchContext, SearchProvider } from "../../context/search";
 import { FilterDropDown } from "../FilterDropDown";
 
 export const SearchBar = () => {
   const { setInput } = useContext(SearchContext);
   const [active, setActive] = useState(false);
+  const {setFiltredPets} = useContext(SearchContext)
   
   return (
     <Container>
@@ -27,6 +28,7 @@ export const SearchBar = () => {
         </FilterContainer>
         {active && <FilterDropDown />}
       </FilterBox>
+      <button onClick={()=>setFiltredPets([])}>Limpar Filtros</button>
       <SearchContaier>
         <input
           onChange={(event) => setInput(event.target.value)}
