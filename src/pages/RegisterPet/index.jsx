@@ -57,9 +57,6 @@ export const RegisterPet = () => {
         <LinksMenu onClick={() => handleRoute()}>Logout</LinksMenu>
       </HeaderMobile>
       <OngTile />
-      <CardRetangle />
-
-      <OngTile />
       <AnimalRegister />
       <Footer>
         <MenuFooter>

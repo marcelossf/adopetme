@@ -6,7 +6,7 @@ import { SolicitationContext } from "../../context/solicitation";
 const CardRetangle = () => {
   const { solicitationForm, userData, petData } =
     useContext(SolicitationContext);
-  console.log(solicitationForm, userData, petData)
+
   return (
     <>
       <ContainerCard>

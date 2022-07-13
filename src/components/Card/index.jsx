@@ -6,32 +6,27 @@ import { Container, DivInfos, FigureStyled } from "./styles";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../../context/user";
 
-
 function Card({ pet }) {
-  
-  const token = localStorage.getItem('token')
-
+  const token = localStorage.getItem("token");
   const { user } = useContext(UserContext);
-
   const [open, setOpen] = useState(false);
-
   const { setPetData } = useContext(SolicitationContext);
+  const history = useHistory();
 
-  const history = useHistory()
-
-    const handleRedirect = () => {
+  const handleRedirect = (pet) => {
     if (!token) {
       history.push("/login");
     } else {
       setOpen(true);
-			setPetData(pet)
+      setPetData(pet);
     }
   };
 
-  const handleRedirectOng =() => {
-    setPetData(pet)
-    history.push("/registerPet")
-  }
+  const handleRedirectOng = (pet) => {
+    // console.log(et)
+    setPetData(pet);
+    history.push("/registerPet");
+  };
 
   return (
     <Container>
@@ -51,14 +46,17 @@ function Card({ pet }) {
 
       <DivInfos>
         <span>Raça: {pet.breed}</span>
-
-        {/* <span>Idade: {pet?.age.replace(pet?.age[0], pet?.age[0].toUpperCase())}</span> */}
+        <span>Idade: {pet.age}</span>
         <span>ONG: {pet.ong}</span>
+        <span>Situação: {pet.situation}</span>
 
         <span></span>
       </DivInfos>
-        {user.type === "ong"?(<Button onClick={handleRedirectOng}>Editar</Button>):(<Button onClick={handleRedirect}>Solicitar Adoção</Button>)}
-      
+      {user.type === "ong" ? (
+        <Button onClick={() => handleRedirectOng(pet)}>Editar</Button>
+      ) : (
+        <Button onClick={() => handleRedirect(pet)}>Solicitar Adoção</Button>
+      )}
     </Container>
   );
 }

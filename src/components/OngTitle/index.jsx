@@ -6,15 +6,15 @@ import { useContext } from "react";
 
 const OngTile = () => {
  
-  const { name } = user;
   const { user } = useContext(UserContext);
+  const { name } = user;
 
   
   return (
     <>
       <DivStyled>
         <div className="ong-container">
-          <h1 className="title-ong">Bem vindo, {user.name}.</h1>
+          <h1 className="title-ong">Bem vindo, {name}.</h1>
           <p className="paragraph-ong">
             Aqui você encontra apoio para abrigar seus bichinhos
           </p>

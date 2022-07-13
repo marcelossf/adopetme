@@ -5,7 +5,7 @@ export function toastSucess(message) {
     type: "success",
     position: toast.POSITION.BOTTOM_RIGHT,
     style: {
-      "z-index": 9999
+     
     },
   });
 }
@@ -15,7 +15,7 @@ export function toastError(message) {
     type: "error",
     position: toast.POSITION.BOTTOM_RIGHT,
     style: {
-      "z-index": 9999
+    
     },
   });
 }
