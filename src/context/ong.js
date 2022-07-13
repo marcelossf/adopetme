@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createContext } from "react";
+import api from "../api/api";
 
 export const PetOngContext = createContext([]);
 
 export const PetOngProvider = ({ children }) => {
   const [ongPets, setOngPets] = useState([]);
-  const [activeOng, setActiveOng] = useState(true)
 
-
+  useEffect(() => {
+    const userID = localStorage.getItem("userID");
+    api
+      .get(`/pet?userId=${userID}`)
+      .then((response) => setOngPets(response.data))
+      .catch((err) => console.log(err));
+    }, [ongPets]);
+    
+    
   return (
-    <PetOngContext.Provider value={{ ongPets, setOngPets, activeOng, setActiveOng }}>
+    <PetOngContext.Provider value={{ ongPets, setOngPets }}>
       {children}
     </PetOngContext.Provider>
   );

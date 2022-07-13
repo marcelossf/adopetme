@@ -7,20 +7,23 @@ export const AnimalsListContext = createContext([]);
 
 export const AnimalsListProvider = ({ children }) => {
   const [pets, setPets] = useState([]);
-  const [ownerPets, setOwnerPet] = useState([])
-  
+  const [ownerPets, setOwnerPet] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     api
       .get("/pet")
       .then((response) => {
         setPets(response.data);
+        setTimeout(() => {
+          setLoading(false);
+        }, 3000);
       })
       .catch((err) => console.log(err));
   }, []);
 
-  
   return (
-    <AnimalsListContext.Provider value={{ pets, setPets }}>
+    <AnimalsListContext.Provider value={{ pets, setPets, loading }}>
       {children}
     </AnimalsListContext.Provider>
   );

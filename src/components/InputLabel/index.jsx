@@ -7,6 +7,7 @@ export const Input = ({
   TextLabelForm,
   register,
   name,
+  value,
   ...rest
 }) => {
   return (
@@ -14,6 +15,7 @@ export const Input = ({
       <Divcont>
         {TextLabelForm ? <LabelForm>{TextLabelForm}</LabelForm> : ""}
         <InputForms
+          value={value}
           placeholder={placeholderInput}
           {...register(name)}
           {...rest}
