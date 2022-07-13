@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { useContext } from "react";
 
 import { Link, useHistory } from "react-router-dom";
 
-import Logo from "../../assets/logoAdopet.png";
-import MenuDropdown from "../../assets/Menu.png";
 import { Button } from "../../components/Button";
 
 import { Footer } from "../../components/Footer";
@@ -14,60 +11,58 @@ import { LinksMenu } from "../../components/MenuMobile/style";
 import SloganRequest from "../../components/SloganRequest";
 import StepsRequest from "../../components/StepsRequest";
 import { TableRequest } from "../../components/TableRequest";
-import { SolicitationContext } from "../../context/solicitation";
 import { MarginNavBar } from "../../styles/marginNavBar";
 
-import {
-	HeaderContainer,
-	MainContainer,
-	NAVCONTAINER_MOBILE,
-	Title,
-} from "./style";
+import { MainContainer } from "./style";
 const UserRequest = () => {
 	const [selected, setSelected] = useState(true);
-  const history = useHistory();
+	const history = useHistory();
 	const handleRoute = (route) => {
-    route && history.push(`/${route}`);
-  };
+		route && history.push(`/${route}`);
+	};
 
 	return (
 		<>
-			 <HeaderDekstop>
-        <Button
-          className="button-selected"
-          width={"230px"}
-          onClick={() => handleRoute()}
-        >
-          Início
-        </Button>
-        <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
-          Quem somos
-        </Button>
-        <Button width={"230px"} onClick={() => handleRoute("cadastrar")}>
-          Cadastrar
-        </Button>
-        <Button width={"230px"} onClick={() => handleRoute("login")}>
-          Login
-        </Button>
-      </HeaderDekstop>
-      <HeaderMobile selected={selected}>
-        <LinksMenu
-          selected={selected}
-          onClick={() => handleRoute()}
-          className="link--selected "
-        >
-          Início
-        </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("quem-somos")}>
-          Quem somos
-        </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("cadastrar")}>
-          Cadastrar
-        </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("login")}>Login</LinksMenu>
-      </HeaderMobile>
+			<HeaderDekstop>
+				<Button
+					className="button-selected"
+					width={"230px"}
+					onClick={() => handleRoute()}>
+					Início
+				</Button>
+				<Button
+					width={"230px"}
+					onClick={() => handleRoute("quem-somos")}>
+					Quem somos
+				</Button>
+				<Button
+					width={"230px"}
+					onClick={() => handleRoute("cadastrar")}>
+					Cadastrar
+				</Button>
+				<Button width={"230px"} onClick={() => handleRoute("login")}>
+					Login
+				</Button>
+			</HeaderDekstop>
+			<HeaderMobile selected={selected}>
+				<LinksMenu
+					selected={selected}
+					onClick={() => handleRoute()}
+					className="link--selected ">
+					Início
+				</LinksMenu>
+				<LinksMenu onClick={() => handleRoute("quem-somos")}>
+					Quem somos
+				</LinksMenu>
+				<LinksMenu onClick={() => handleRoute("cadastrar")}>
+					Cadastrar
+				</LinksMenu>
+				<LinksMenu onClick={() => handleRoute("login")}>
+					Login
+				</LinksMenu>
+			</HeaderMobile>
 
-      <MarginNavBar></MarginNavBar>
+			<MarginNavBar></MarginNavBar>
 
 			<MainContainer>
 				<section className="request-container">
@@ -77,9 +72,8 @@ const UserRequest = () => {
 				</section>
 				<div>
 					<SloganRequest />
-           <StepsRequest />
+					<StepsRequest />
 				</div>
-
 
 				<StepsRequest />
 			</MainContainer>
@@ -91,7 +85,6 @@ const UserRequest = () => {
 			</Footer>
 		</>
 	);
-
 };
 
 export default UserRequest;

@@ -15,7 +15,7 @@ export const Section = styled.section`
 	padding: 1em 1em 2em;
 	width: max-content;
 	min-width: fit-content;
-	height: 40%;
+	min-height: fit-content;
 
 	border-top-right-radius: 15px;
 	border-bottom-right-radius: 15px;
