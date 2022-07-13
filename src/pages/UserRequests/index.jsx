@@ -2,6 +2,10 @@ import React, { useContext, useState } from "react";
 
 import { Link, useHistory } from "react-router-dom";
 
+import Logo from "../../assets/logoAdopet.png";
+
+import MenuDropdown from "../../assets/Menu.png";
+
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 import HeaderDekstop from "../../components/HeaderDesktop";
@@ -13,11 +17,19 @@ import StepsRequest from "../../components/StepsRequest";
 import { TableRequest } from "../../components/TableRequest";
 
 import { UserContext } from "../../context/user";
+import { MarginNavBar } from "../../styles/marginNavBar";
+
+import { UserContext } from "../../context/user";
 
 import Logo from "../../assets/logoAdopet.png";
 
 import { MarginNavBar } from "../../styles/marginNavBar";
 import { MainContainer } from "./style";
+
+import { SolicitationContext } from "../../context/solicitation";
+
+import { HeaderContainer, MainContainer, Title } from "./style";
+import PhotoPerfil from "../../components/PhotoPerfil";
 
 const UserRequest = () => {
 	const { logout } = useContext(UserContext);

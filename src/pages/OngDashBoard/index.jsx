@@ -10,18 +10,24 @@ import { Container } from "./style";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../../context/user";
 import HeaderDekstop from "../../components/HeaderDesktop";
-import { Button } from "../../components/Button";
 import HeaderMobile from "../../components/HeaderMobile";
-import { LinksMenu } from "../../components/MenuMobile/style";
+import { Button } from "../../components/Button";
+import { LinksMenu } from "../../components/MenuMobile/style.js";
+import PhotoPerfil from "../../components/PhotoPerfil";
 import { MarginNavBar } from "../../styles/marginNavBar";
 
+
 const OngDashBoard = () => {
-  const { user } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
   const token = JSON.parse(localStorage.getItem("token"));
   const userID = user.id;
   const { setOngPets } = useContext(PetOngContext);
+  const [selected] = useState(true);
   const history = useHistory();
-  const [selected, setSelected] = useState(true);
+
+  const handleRoute = (route) => {
+    route && history.push(`/${route}`);
+  };
 
   useEffect(() => {
     if (!token) {
@@ -40,9 +46,6 @@ const OngDashBoard = () => {
       .catch((err) => console.log(err));
   }, [setOngPets]);
 
-  const handleRoute = (route) => {
-    route && history.push(`/${route}`);
-  };
 
   return (
     <Container>
@@ -54,16 +57,16 @@ const OngDashBoard = () => {
         >
           Início
         </Button>
-        <Button width={"230px"} onClick={() => handleRoute("quem-somos")}>
-          Quem somos
+        <Button width={"230px"} onClick={() => handleRoute("ong-solicitation")}>
+          Solicitações
         </Button>
-        <Button width={"230px"} onClick={() => handleRoute("cadastrar")}>
-          Cadastrar
+        <Button width={"230px"} onClick={() => handleRoute("registerPet")}>
+          Cadastrar Pet
         </Button>
-        <Button width={"230px"} onClick={() => handleRoute("login")}>
-          Login
-        </Button>
+        <PhotoPerfil />
       </HeaderDekstop>
+
+
       <HeaderMobile selected={selected}>
         <LinksMenu
           selected={selected}
@@ -72,22 +75,22 @@ const OngDashBoard = () => {
         >
           Início
         </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("quem-somos")}>
-          Quem somos
+        <LinksMenu onClick={() => handleRoute("ong-solicitation")}>
+          Solicitações
         </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("cadastrar")}>
-          Cadastrar
+        <LinksMenu onClick={() => handleRoute("registerPet")}>
+          Cadastrar Pet
         </LinksMenu>
-        <LinksMenu onClick={() => handleRoute("login")}>Login</LinksMenu>
+        <LinksMenu onClick={() => logout()}>Logout</LinksMenu>
       </HeaderMobile>
-
       <MarginNavBar></MarginNavBar>
+
       <OngTile />
       <Vitrine />
       <Footer>
         <MenuFooter>
           <Link to="/">Início</Link>
-          <Link to="/solicitationOng">Solicitações</Link>
+          <Link to="/ong-solicitation">Solicitações</Link>
           <Link to="/registerPet">Cadastrar Pet</Link>
         </MenuFooter>
       </Footer>

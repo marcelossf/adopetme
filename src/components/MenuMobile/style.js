@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
+
 	background-color: #f2ae2f;
 
 	display: flex;
@@ -81,30 +82,32 @@ export const Section = styled.section`
 		border-bottom: 2px solid white;
 		width: 100%;
 	}
+
+  
 `;
 
 export const LinksMenu = styled.a`
-	width: 100%;
-	cursor: pointer;
+  width: 100%;
+  cursor: pointer;
 
-	font-family: "Fredoka";
-	font-weight: 500;
-	font-size: 1.3rem;
-	line-height: 27px;
+  font-family: "Fredoka";
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 27px;
 
-	text-indent: 25px;
+  text-indent: 25px;
 
-	color: white;
+  color: white;
 
-	border-bottom: 2px solid transparent;
+  border-bottom: 2px solid transparent;
 
-	transition: ease-in-out 200ms;
+  transition: ease-in-out 200ms;
 
-	&:hover {
-		border-bottom: 2px solid white;
-	}
+  &:hover {
+    border-bottom: 2px solid white;
+  }
 
-	@media (min-width: 1024px) {
-		display: none;
-	}
+  @media (min-width: 1024px) {
+    display: none;
+  }
 `;
