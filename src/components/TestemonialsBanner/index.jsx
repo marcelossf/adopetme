@@ -6,16 +6,6 @@ export const TestemonialsBanner = () => {
   return (
     <div>
       <div>
-        {/* {
-          postsList?.map((post)=>{
-            return (
-              <>
-              <h2>{post.user.name}</h2>
-              <p>{post.text}</p>
-              </>
-            )
-          })
-        } */}
       </div>
     </div>
   );

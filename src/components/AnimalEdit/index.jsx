@@ -66,7 +66,6 @@ export const EditAnimal = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         toastSucess("Animal Cadastrado");
         return history.push("/ong");
       })
