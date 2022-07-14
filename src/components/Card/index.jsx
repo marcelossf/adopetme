@@ -50,7 +50,7 @@ function Card({ pet }) {
         <span>Raça: {pet.breed}</span>
         <span>Idade: {pet.age}</span>
         <span>ONG: {pet.ong}</span>
-        <span>Situação: {pet.situation}</span>
+        <span>Genero: {pet.gender}</span>
 
         <span></span>
       </DivInfos>

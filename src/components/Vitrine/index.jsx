@@ -13,33 +13,8 @@ import { ContainerVitrine } from "./styles";
 function Vitrine() {
 	const { pets, loading } = useContext(AnimalsListContext);
 	const { input, filtredPets } = useContext(SearchContext);
-	const petsPerPage = 6;
-	const pages = Math.ceil(pets?.length / petsPerPage);
-	const [petsPage, setPetsPage] = useState([]);
-	const [currentPage, setCurrentPage] = useState(0);
 	const { user } = useContext(UserContext);
 	const { ongPets } = useContext(PetOngContext);
-
-	useEffect(() => {
-		setPetsPage([]);
-		const newPetsPage = [];
-		for (let i = 0; i < pets.length; i = i + petsPerPage) {
-			newPetsPage.push(pets.slice(i, i + petsPerPage));
-		}
-		setPetsPage(newPetsPage);
-	}, [pets]);
-
-	function subHandlePage() {
-		if (currentPage > 0) {
-			setCurrentPage(currentPage - 1);
-		}
-	}
-
-	function addHandlePage() {
-		if (currentPage < pages - 1) {
-			setCurrentPage(currentPage + 1);
-		}
-	}
 
 	return (
 		<ContainerVitrine>

@@ -7,6 +7,12 @@ export const Container = styled.div`
   }
 `;
 
+export const LoaderContainer =styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const ContainerCard = styled.section`
 
   display: flex;
@@ -173,4 +179,9 @@ export const ContainerButton =styled.div`
   align-items: center;
   gap: 1rem;
   margin-top: 1rem;
+  margin-left: 10px;
+
+  button {
+    max-width: 200px;
+  }
 `

@@ -23,27 +23,6 @@ export const RegisterPet = () => {
 		route && history.push(`/${route}`);
 	};
 
-	return (
-		<Container>
-			<HeaderDekstop>
-				<Button width={"230px"} onClick={() => history.push("/")}>
-					Início
-				</Button>
-				<Button
-					width={"230px"}
-					onClick={() => handleRoute("ong-solicitation")}>
-					Solicitações
-				</Button>
-				<Button
-					className="button-selected"
-					width={"230px"}
-					onClick={() => handleRoute("registerPet")}>
-					Cadastrar Pet
-				</Button>
-				<PhotoPerfil />
-			</HeaderDekstop>
-
-
   return (
     <Container>
       <HeaderDekstop>

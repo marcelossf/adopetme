@@ -12,6 +12,7 @@ export const SolicitationProvider = ({ children }) => {
   const [petData, setPetData] = useState({});
   const [solicitationData, setSolicitationData] = useState([]);
   const { user } = useContext(UserContext);
+  const [solicitationLoading, setSolicitationLoading] = useState(true)
   
   const postSolicitation = (data) => {
     const token = localStorage.getItem("token");
@@ -43,6 +44,9 @@ export const SolicitationProvider = ({ children }) => {
       })
       .then((response) => {
         setSolicitationData(response.data);
+        setTimeout(() => {
+          setSolicitationLoading(false);
+        }, 3000);
       })
       .catch((err) => console.log(err));
   }, []);
@@ -54,6 +58,7 @@ export const SolicitationProvider = ({ children }) => {
         petData,
         postSolicitation,
         solicitationData,
+        solicitationLoading
       }}
     >
       {children}
