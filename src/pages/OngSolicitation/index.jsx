@@ -39,10 +39,7 @@ const OngSolicitation = () => {
 	return (
 		<Container>
 			<HeaderDekstop>
-				<Button
-					className="button-selected"
-					width={"230px"}
-					onClick={() => history.push("/ong")}>
+				<Button width={"230px"} onClick={() => history.push("/ong")}>
 					Início
 				</Button>
 
