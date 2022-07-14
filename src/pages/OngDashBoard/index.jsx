@@ -7,7 +7,6 @@ import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 import HeaderDekstop from "../../components/HeaderDesktop";
 import HeaderMobile from "../../components/HeaderMobile";
-import { MenuFooter } from "../../components/MenuFooter";
 import { LinksMenu } from "../../components/MenuMobile/style.js";
 import OngTile from "../../components/OngTitle";
 import PhotoPerfil from "../../components/PhotoPerfil";
@@ -89,11 +88,9 @@ const OngDashBoard = () => {
 			<OngTile />
 			<Vitrine />
 			<Footer>
-				<MenuFooter>
-					<Link to="/">Início</Link>
-					<Link to="/ong-solicitation">Solicitações</Link>
-					<Link to="/registerPet">Cadastrar Pet</Link>
-				</MenuFooter>
+				<Link to="/">Início</Link>
+				<Link to="/ong-solicitation">Solicitações</Link>
+				<Link to="/registerPet">Cadastrar Pet</Link>
 			</Footer>
 		</Container>
 	);
