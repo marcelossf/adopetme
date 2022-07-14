@@ -1,10 +1,8 @@
-import PickDog from "../../assets/pit.png";
 import Close from "../../assets/fechar.png";
 import { Container, ContainerPai } from "./style";
-
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { SolicitationContext } from "../../context/solicitation";
 import { toastSucess } from "../../utils/toast";
@@ -12,18 +10,18 @@ import { Error } from "../Error";
 import { UserContext } from "../../context/user";
 
 const ModalSolicitation = ({ pet, setOpen, open }) => {
+
   const { postSolicitation } =
     useContext(SolicitationContext);
-    
 
-  const formRes = yup.object().shape({
-    pergunta1: yup.string().required("Todos os campos são obrigatório"),
-    pergunta2: yup.string().required("Todos os campos são obrigatório"),
-    pergunta3: yup.string().required("Todos os campos são obrigatório"),
-    pergunta4: yup.string().required("Todos os campos são obrigatório"),
-    pergunta5: yup.string().required("Todos os campos são obrigatório"),
-  });
 
+	const formRes = yup.object().shape({
+		pergunta1: yup.string().required("Todos os campos são obrigatório"),
+		pergunta2: yup.string().required("Todos os campos são obrigatório"),
+		pergunta3: yup.string().required("Todos os campos são obrigatório"),
+		pergunta4: yup.string().required("Todos os campos são obrigatório"),
+		pergunta5: yup.string().required("Todos os campos são obrigatório"),
+	});
   const {
     register,
     handleSubmit,
@@ -82,6 +80,7 @@ const ModalSolicitation = ({ pet, setOpen, open }) => {
       </Container>
     </ContainerPai>
   );
+
 };
 
 export default ModalSolicitation;

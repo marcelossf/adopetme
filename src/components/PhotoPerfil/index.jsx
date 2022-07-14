@@ -1,6 +1,9 @@
-import { useState, useContext } from "react";
+
+import { useContext, useState } from "react";
 import Profile from "../../assets/ProfileIcon.png";
+
 import { DivImg, ModalPerfil } from "./style";
+
 import { UserContext } from "../../context/user";
 
 function PhotoPerfil() {

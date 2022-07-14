@@ -1,8 +1,15 @@
+
 import { ContainerCard, Container, Separator, ContainerButton } from "./style";
+
 import { useContext } from "react";
+
+import Pitbull from "../../assets/pit.png";
+
 import { SolicitationContext } from "../../context/solicitation";
 import { UserContext } from "../../context/user";
 import { Button } from "../Button";
+
+import { ContainerCard } from "./style";
 
 const CardRetangle = () => {
   const { solicitationData } = useContext(SolicitationContext);
@@ -27,6 +34,7 @@ const CardRetangle = () => {
             <div>
               <p className="card-p">Solicitações</p>
               <div className="trace-line"></div>
+
               {newOngSolicitation?.map((solicitation, index) => {
                 return (
                   <p key={index} className="card-p">
@@ -34,10 +42,12 @@ const CardRetangle = () => {
                   </p>
                 );
               })}
+
             </div>
             <div className="trace-up"></div>
             <div className="div">
               <p className="nul">null</p>
+
               {newOngSolicitation?.map((solicitation) => {
                 return (
                   <>
@@ -108,6 +118,7 @@ const CardRetangle = () => {
                   </>
                 );
               })}
+
             </div>
           </div>
         </section>

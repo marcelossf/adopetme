@@ -8,6 +8,7 @@ export const Container = styled.div`
 `;
 
 export const ContainerCard = styled.section`
+
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -157,6 +158,7 @@ export const ContainerCard = styled.section`
       width: 50%;
     }
   }
+
 `;
 export const Separator = styled.div`
   height: 2px;

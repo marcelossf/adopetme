@@ -58,7 +58,6 @@ export const UserProvider = ({ children }) => {
         toastSucess("Login Realizado com Sucesso");
         setTimeout(() => {
           if (newUser.type === "ong") {
-            console.log('Ola')
             history.push("/ong");
           } else {
             history.push("/user");
@@ -66,7 +65,6 @@ export const UserProvider = ({ children }) => {
         }, 2500);
       })
       .catch((_) => toastError("Senha/Email incorretos"))
-      .finally((response) => console.log(response));
   }
 
   return (

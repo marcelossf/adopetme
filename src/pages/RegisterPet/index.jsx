@@ -1,25 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { AnimalRegister } from "../../components/AnimalRegister";
+import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
-import { MenuFooter } from "../../components/MenuFooter";
-import OngTile from "../../components/OngTitle";
-import { Container } from "./style";
 import HeaderDekstop from "../../components/HeaderDesktop";
 import HeaderMobile from "../../components/HeaderMobile";
-import { Button } from "../../components/Button";
 import { LinksMenu } from "../../components/MenuMobile/style.js";
-import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import OngTile from "../../components/OngTitle";
 import PhotoPerfil from "../../components/PhotoPerfil";
+
+import { MarginNavBar } from "../../styles/marginNavBar";
+import { Container } from "./style";
+import {MenuFooter} from '../../components/MenuFooter';
+
 
 
 export const RegisterPet = () => {
-  const [selected] = useState(true);
-  const history = useHistory();
+	const [selected] = useState(true);
+	const history = useHistory();
 
-  const handleRoute = (route) => {
-    route && history.push(`/${route}`);
-  };
+	const handleRoute = (route) => {
+		route && history.push(`/${route}`);
+	};
+
+	return (
+		<Container>
+			<HeaderDekstop>
+				<Button width={"230px"} onClick={() => history.push("/")}>
+					Início
+				</Button>
+				<Button
+					width={"230px"}
+					onClick={() => handleRoute("ong-solicitation")}>
+					Solicitações
+				</Button>
+				<Button
+					className="button-selected"
+					width={"230px"}
+					onClick={() => handleRoute("registerPet")}>
+					Cadastrar Pet
+				</Button>
+				<PhotoPerfil />
+			</HeaderDekstop>
+
 
   return (
     <Container>
@@ -39,6 +62,7 @@ export const RegisterPet = () => {
         </Button>
         <PhotoPerfil />
       </HeaderDekstop>
+
 
       <HeaderMobile selected={selected}>
         <LinksMenu
@@ -67,4 +91,5 @@ export const RegisterPet = () => {
       </Footer>
     </Container>
   );
+
 };

@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { SolicitationContext } from "../../context/solicitation";
+import { UserContext } from "../../context/user";
 import { Button } from "../Button";
 import ModalSolicitation from "../ModalSolicitation";
 import { Container, DivInfos, FigureStyled } from "./styles";
-import { useHistory } from "react-router-dom";
-import { UserContext } from "../../context/user";
 
 function Card({ pet }) {
   const token = localStorage.getItem("token");
@@ -27,21 +27,24 @@ function Card({ pet }) {
     history.push("/registerPet");
   };
 
-  return (
-    <Container>
-      {open === true ? (
-        <ModalSolicitation pet={pet} setOpen={setOpen} open={open} />
-      ) : (
-        false
-      )}
-      <FigureStyled>
-        <figure>
-          <img src={pet.img} alt={pet.petName} />
-        </figure>
-        <p>
-          {pet.petName.replace(pet.petName[0], pet.petName[0].toUpperCase())}
-        </p>
-      </FigureStyled>
+	return (
+		<Container>
+			{open === true ? (
+				<ModalSolicitation pet={pet} setOpen={setOpen} open={open} />
+			) : (
+				false
+			)}
+			<FigureStyled>
+				<figure>
+					<img src={pet.img} alt={pet.petName} />
+				</figure>
+				<p>
+					{pet.petName.replace(
+						pet.petName[0],
+						pet.petName[0].toUpperCase()
+					)}
+				</p>
+			</FigureStyled>
 
       <DivInfos>
         <span>Raça: {pet.breed}</span>
@@ -58,6 +61,7 @@ function Card({ pet }) {
       )}
     </Container>
   );
+
 }
 
 export default Card;

@@ -37,7 +37,6 @@ export const CadastreForm = () => {
 	} = useForm({ resolver: yupResolver(formSchema) });
 
 	function onLogin(dados) {
-		console.log(dados);
 		api.post("/register", dados)
 			.then(() => {
 				toastSucess("Cadastro realizado com sucesso");

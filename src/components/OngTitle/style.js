@@ -1,47 +1,60 @@
 import styled from "styled-components";
 
 export const DivStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 163px;
-  justify-content: center;
-  width: 100%;
-  padding: 0 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-  .title-ong {
-    color: #4db1b3;
-    font-weight: 500;
-    font-family: "Fredoka";
-    margin-left: 20px;
-    margin-bottom: 13px;
-    font-size: 40px;
-  }
+	text-align: start;
+	width: 100%;
+	padding: 0 1rem;
+	gap: 2em;
 
-  .paragraph-ong {
-    color: #000000;
-    font-family: "Fredoka";
-    font-size: 25px;
-    text-align: center;
-  }
+	.ong-container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
 
-  .adopet-logo {
-    display: none;
-  }
+		justify-content: center;
 
-  @media (min-width: 1024px) {
-    flex-direction: row;
+		gap: 1rem;
 
-    .adopet-logo {
-      display: block;
-      max-width: 30%;
-    }
-    .ong-container {
-      width: 90%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 50%;
-    }
-  }
+		max-width: 80%;
+	}
+	.title-ong {
+		font-family: "Fredoka";
+		font-weight: 500;
+		font-size: 2rem;
+
+		color: #4db1b3;
+	}
+
+	.paragraph-ong {
+		color: #000000;
+		font-family: "Fredoka";
+		font-size: 25px;
+	}
+
+	.adopet-logo {
+		display: none;
+	}
+
+	@media (min-width: 1024px) {
+		flex-direction: row;
+		justify-content: center;
+
+		margin: 0 auto;
+		width: 100%;
+
+		.adopet-logo {
+			display: block;
+			max-width: 30%;
+		}
+		.ong-container {
+			gap: 2rem;
+
+			width: 30%;
+		}
+	}
 `;
