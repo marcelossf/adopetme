@@ -11,7 +11,7 @@ import { LinksMenu } from "../../components/MenuMobile/style.js";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import PhotoPerfil from "../../components/PhotoPerfil";
-import CardRetangle from "../../components/CardRetangle";
+
 
 export const RegisterPet = () => {
   const [selected] = useState(true);
@@ -27,7 +27,7 @@ export const RegisterPet = () => {
         <Button
           className="button-selected"
           width={"230px"}
-          onClick={() => handleRoute()}
+          onClick={() => history.push('/ong')}
         >
           Início
         </Button>
@@ -43,7 +43,7 @@ export const RegisterPet = () => {
       <HeaderMobile selected={selected}>
         <LinksMenu
           selected={selected}
-          onClick={() => handleRoute()}
+          onClick={() => history.push('/')}
           className="link--selected "
         >
           Início

@@ -1,11 +1,20 @@
-import { ContainerCard } from "./style";
-import Pitbull from "../../assets/pit.png";
+import { ContainerCard, Container, Separator, ContainerButton } from "./style";
 import { useContext } from "react";
 import { SolicitationContext } from "../../context/solicitation";
+import { UserContext } from "../../context/user";
+import { Button } from "../Button";
 
 const CardRetangle = () => {
-  const { solicitationForm, userData, petData } =
-    useContext(SolicitationContext);
+  const { solicitationData } = useContext(SolicitationContext);
+  const { user } = useContext(UserContext);
+  const ongName = user?.name;
+
+  const ongSolicitation = solicitationData.filter(
+    (solicitation) => solicitation?.petData.ong === ongName
+  );
+  const newOngSolicitation = ongSolicitation.filter(
+    (solicitation) => solicitation.user
+  );
 
   return (
     <>
@@ -18,64 +27,87 @@ const CardRetangle = () => {
             <div>
               <p className="card-p">Solicitações</p>
               <div className="trace-line"></div>
-              {userData ? (
-                <p className="card-p">{userData.name}</p>
-              ) : (
-                <p className="card-p">User 123</p>
-              )}
-              <p className="card-p">User 123</p>
-              <p className="card-p">User 123</p>
-              <p className="card-p">User 123</p>
+              {newOngSolicitation?.map((solicitation, index) => {
+                return (
+                  <p key={index} className="card-p">
+                    {solicitation.user.name}
+                  </p>
+                );
+              })}
             </div>
             <div className="trace-up"></div>
             <div className="div">
               <p className="nul">null</p>
-              {userData ? (
-                <p className="card-p">{userData.name}</p>
-              ) : (
-                <p className="card-p-block">User 123</p>
-              )}
-              {userData ? (
-                <p className="card-p-block">{solicitationForm.pergunta1}</p>
-              ) : (
-                <p className="card-p-block">pergunta 1 : resposta</p>
-              )}
-              <p className="card-p-block">pergunta 2 : resposta</p>
-              <p className="card-p-block">pergunta 3 : resposta</p>
-              <p className="card-p-block">pergunta 4 : resposta</p>
-              <p className="card-p-block">pergunta 5 : resposta</p>
-              <input placeholder="User 123"></input>
-              <label>pergunta 1</label>
+              {newOngSolicitation?.map((solicitation) => {
+                return (
+                  <>
+                    <Container>
+                      <p className="card-p-block">
+                        pergunta 1 : {solicitation.data.pergunta1}
+                      </p>
+                      <p className="card-p-block">
+                        pergunta 2 : {solicitation.data.pergunta2}
+                      </p>
+                      <p className="card-p-block">
+                        pergunta 3 : {solicitation.data.pergunta3}
+                      </p>
+                      <p className="card-p-block">
+                        pergunta 4 : {solicitation.data.pergunta4}
+                      </p>
+                      <p className="card-p-block">
+                        pergunta 5 : {solicitation.data.pergunta5}
+                      </p>
+                      <div className="divpergutnas">
+                        <label>Tem tela em casa?</label>
+                        <input value={solicitation.data.pergunta1} />
 
-              <input placeholder="User 123"></input>
-              <label>pergunta 2</label>
+                        <label>Tem outros animais?</label>
+                        <input value={solicitation.data.pergunta2} />
 
-              <input placeholder="resposta"></input>
-              <label>pergunta 3</label>
+                        <label>Tem condições de dar auxílio médico?</label>
+                        <input value={solicitation.data.pergunta3} />
 
-              <input placeholder="resposta"></input>
-              <label>pergunta 4</label>
+                        <label>Tem um ambiente adequado?</label>
+                        <input value={solicitation.data.pergunta4} />
 
-              <input placeholder="resposta"></input>
-              <label>pergunta 5</label>
+                        <label>Tem Crianças?</label>
+                        <input value={solicitation.data.pergunta5} />
+                      </div>
 
-              <input placeholder="resposta"></input>
-              <label>pergunta 6</label>
-            </div>
-            <div className="container-inputs">
-              <img src={Pitbull} alt="pitbull"></img>
-              <span>
-                <p className="p-hide">Nome: Pitbull fofo</p>
-              </span>
-              <span>
-                <p className="p-hide">Idade: 1 ano</p>
-              </span>
-              <span>
-                <p className="p-hide">Cidade: guarulhos</p>
-              </span>
-              <span>
-                <p className="p-hide">sexo: Masculino</p>
-              </span>
+                      <div className="container-inputs">
+                        <img
+                          src={solicitation.petData.img}
+                          alt={solicitation.petData.petName}
+                        ></img>
+                        <span>
+                          <p className="p-hide">
+                            Nome: {solicitation.petData.petName}
+                          </p>
+                        </span>
+                        <span>
+                          <p className="p-hide">
+                            Idade: {solicitation.petData.age}
+                          </p>
+                        </span>
+                        <span>
+                          <p className="p-hide">
+                            Sexo: {solicitation.petData.gender}
+                          </p>
+                        </span>
+                      </div>
+                    </Container>
+                    <ContainerButton>
+                      <Button blackSchema width={"30%"}>
+                        Aceitar
+                      </Button>
+                      <Button blackSchema width={"30%"}>
+                        Rejeitar
+                      </Button>
+                    </ContainerButton>
+                    <Separator></Separator>
+                  </>
+                );
+              })}
             </div>
           </div>
         </section>

@@ -27,7 +27,7 @@ const UserDashBoard = () => {
 				<Button
 					className="button-selected"
 					width={"230px"}
-					onClick={() => handleRoute()}>
+					onClick={() => history.push('/')}>
 					Início
 				</Button>
 				<Button
@@ -63,7 +63,6 @@ const UserDashBoard = () => {
 					Logout
 				</LinksMenu>
 			</HeaderMobile>
-
 			<MarginNavBar></MarginNavBar>
 			<UserTitle />
 			<SearchBar />

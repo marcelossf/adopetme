@@ -9,10 +9,12 @@ import * as yup from "yup";
 import { SolicitationContext } from "../../context/solicitation";
 import { toastSucess } from "../../utils/toast";
 import { Error } from "../Error";
+import { UserContext } from "../../context/user";
 
 const ModalSolicitation = ({ pet, setOpen, open }) => {
-  const { setSolicitationForm, setUserData } =
+  const { postSolicitation } =
     useContext(SolicitationContext);
+    
 
   const formRes = yup.object().shape({
     pergunta1: yup.string().required("Todos os campos são obrigatório"),
@@ -28,13 +30,12 @@ const ModalSolicitation = ({ pet, setOpen, open }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(formRes) });
   const submitForm = (data) => {
-    setSolicitationForm(data);
-    setUserData(JSON.parse(localStorage.getItem("user")));
+    postSolicitation(data)
     toastSucess("Solicitação Enviada");
   };
 
   return (
-    <ContainerPai onClick={() => setOpen(false)}>
+    <ContainerPai>
       <Container>
         <div className="container-adopet">
           <p className="text-solicitation">Solicitação de Adoção</p>
@@ -50,36 +51,32 @@ const ModalSolicitation = ({ pet, setOpen, open }) => {
           <p className="pet-name">{pet.petName}</p>
         </div>
         <form onClick={handleSubmit(submitForm)}>
-          <input
-            type="text"
-            placeholder="Pergunta 1"
-            {...register("pergunta1")}
-          ></input>
           <Error>{errors?.pergunta1?.message}</Error>
           <input
             type="text"
-            placeholder="Pergunta 2"
+            placeholder="Tem grade em casa?"
+            {...register("pergunta1")}
+          ></input>
+          <input
+            type="text"
+            placeholder="Tem outros animais?"
             {...register("pergunta2")}
           ></input>
-          <Error>{errors?.pergunta2?.message}</Error>
           <input
             type="text"
-            placeholder="Pergunta 3"
+            placeholder="Tem condições de dar auxílio médico ao animal"
             {...register("pergunta3")}
           ></input>
-          <Error>{errors?.pergunta3?.message}</Error>
           <input
             type="text"
-            placeholder="Pergunta 4"
+            placeholder="Tem um ambiente adequado?"
             {...register("pergunta4")}
           ></input>
-          <Error>{errors?.pergunta4?.message}</Error>
           <input
             type="text"
-            placeholder="Pergunta 5"
+            placeholder="Tem crianças?"
             {...register("pergunta5")}
           ></input>
-          <Error>{errors?.pergunta5?.message}</Error>
           <button type="submit">enviar</button>
         </form>
       </Container>

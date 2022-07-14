@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  @media (min-width: 1025px) {
+    display: flex;
+    max-width: 650px;
+  }
+`;
+
 export const ContainerCard = styled.section`
   display: flex;
   flex-direction: column;
@@ -107,7 +114,6 @@ export const ContainerCard = styled.section`
       color: white;
       padding: 6px;
       width: 280px;
-      margin-top: 17px;
       margin-left: 16px;
       display: block;
       ::placeholder {
@@ -115,6 +121,7 @@ export const ContainerCard = styled.section`
       }
     }
     label {
+      margin-top: 8px;
       color: white;
       margin-left: 16px;
       display: block;
@@ -124,7 +131,7 @@ export const ContainerCard = styled.section`
       display: flex;
       align-items: center;
       justify-content: space-evenly;
-      width: 100%;
+      width: 50%;
       flex-direction: column;
       padding-left: 24px;
     }
@@ -147,6 +154,21 @@ export const ContainerCard = styled.section`
     img {
       margin-top: 38px;
       display: block;
+      width: 50%;
     }
   }
 `;
+export const Separator = styled.div`
+  height: 2px;
+  width: 100%;
+  background-color: white;
+  margin: 1rem 0;
+`;
+export const ContainerButton =styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+`

@@ -13,7 +13,7 @@ export const PetOngProvider = ({ children }) => {
       .get(`/pet?userId=${userID}`)
       .then((response) => setOngPets(response.data))
       .catch((err) => console.log(err));
-    }, [ongPets]);
+    }, []);
     
     
   return (

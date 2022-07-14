@@ -23,7 +23,6 @@ function Card({ pet }) {
   };
 
   const handleRedirectOng = (pet) => {
-    // console.log(et)
     setPetData(pet);
     history.push("/registerPet");
   };

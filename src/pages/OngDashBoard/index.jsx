@@ -70,7 +70,7 @@ const OngDashBoard = () => {
       <HeaderMobile selected={selected}>
         <LinksMenu
           selected={selected}
-          onClick={() => handleRoute()}
+          onClick={() => history.push('/')}
           className="link--selected "
         >
           Início
