@@ -15,7 +15,7 @@ const OngTile = () => {
 						Aqui você encontra apoio para abrigar seus bichinhos
 					</p>
 				</div>
-				<img className="adopet-logo" src={AdoPet} alt="logoPet"></img>
+				<img className="adopet-logo" src={AdoPet} alt="logoPet" />
 			</DivStyled>
 		</>
 	);
