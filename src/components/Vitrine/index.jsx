@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 import { AnimalsListContext } from "../../context/animals";
 import { PetOngContext } from "../../context/ong";
@@ -28,7 +28,7 @@ function Vitrine() {
 								Seus
 								<span style={{ color: "red" }}> Pets</span>!
 							</h1>
-							<ul className="vitrine-container vitrine-container--Ong">
+							<ul className="vitrine-container ">
 								{ongPets?.map((pet) => {
 									return (
 										<li key={pet.id}>
@@ -49,7 +49,7 @@ function Vitrine() {
 										</span>
 										!
 									</h1>
-									<ul className="vitrine-container vitrine-container--HomePage">
+									<ul className="vitrine-container ">
 										{pets
 											?.filter(
 												({ petName, species }) =>
@@ -73,7 +73,7 @@ function Vitrine() {
 								</>
 							) : filtredPets.length > 0 ? (
 								<>
-									<ul className="vitrine-container">
+									<ul className="vitrine-container ">
 										{filtredPets.length > 0 ? (
 											filtredPets.map((pet) => (
 												<li key={pet.id}>
