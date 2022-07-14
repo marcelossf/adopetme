@@ -75,7 +75,7 @@ const ModalSolicitation = ({ pet, setOpen, open }) => {
             placeholder="Tem crianças?"
             {...register("pergunta5")}
           ></input>
-          <button type="submit">enviar</button>
+          <button type="submit">ENVIAR</button>
         </form>
       </Container>
     </ContainerPai>

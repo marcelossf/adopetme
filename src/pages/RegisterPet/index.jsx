@@ -8,16 +8,18 @@ import HeaderMobile from "../../components/HeaderMobile";
 import { LinksMenu } from "../../components/MenuMobile/style.js";
 import OngTile from "../../components/OngTitle";
 import PhotoPerfil from "../../components/PhotoPerfil";
-
 import { MarginNavBar } from "../../styles/marginNavBar";
 import { Container } from "./style";
 import {MenuFooter} from '../../components/MenuFooter';
+import { UserContext } from "../../context/user";
+import { useContext } from "react";
 
 
 
 export const RegisterPet = () => {
 	const [selected] = useState(true);
 	const history = useHistory();
+  const { logout} = useContext(UserContext);
 
 	const handleRoute = (route) => {
 		route && history.push(`/${route}`);
@@ -57,8 +59,9 @@ export const RegisterPet = () => {
         <LinksMenu onClick={() => handleRoute("registerPet")}>
           Cadastrar Pet
         </LinksMenu>
-        <LinksMenu onClick={() => handleRoute()}>Logout</LinksMenu>
+        <LinksMenu onClick={logout}>Logout</LinksMenu>
       </HeaderMobile>
+      <MarginNavBar></MarginNavBar>
       <OngTile />
       <AnimalRegister />
       <Footer>

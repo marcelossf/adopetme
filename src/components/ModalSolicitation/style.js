@@ -12,6 +12,7 @@ export const Container = styled.div`
   max-width: 305px;
   width: 100%;
   position: absolute;
+  gap: 0.5rem;
 
   .container-adopet {
     display: flex;
@@ -38,11 +39,13 @@ export const Container = styled.div`
     justify-content: flex-start;
     max-width: 258px;
     min-width: 17%;
+    
   }
 
   img {
     max-width: 244px;
     width: 100%;
+    max-height: 180px;
   }
 
   .button-close {
@@ -64,6 +67,8 @@ export const Container = styled.div`
     min-height: 277px;
     justify-content: space-evenly;
     width: 25%;
+    gap: 1.5rem;
+    padding: 10px 0;
   }
 
   input {
