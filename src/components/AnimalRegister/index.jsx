@@ -1,81 +1,80 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import {
-  ButtonContainer,
-  ColumnContainer,
-  ColumnForm,
-  Container,
-  FolderContainer,
-  FormContainer,
-  HeaderFormContainer,
-  SectionContainer,
-} from "./style";
+import api from "../../api/api";
+import { AnimalsListContext } from "../../context/animals";
+import { PetOngContext } from "../../context/ong";
+import { RedirectContext } from "../../context/redirect";
+import { UserContext } from "../../context/user";
+import { toastSucess } from "../../utils/toast";
+import { EditAnimal } from "../AnimalEdit";
 import { Button } from "../Button";
 import { Error } from "../Error";
-import { AnimalsListContext } from "../../context/animals";
 import { Input } from "../InputLabel";
 import { SelectForm } from "../SelectForm";
-import api from "../../api/api";
-import { toastError, toastSucess } from "../../utils/toast";
-import { RedirectContext } from "../../context/redirect";
-import { PetOngContext } from "../../context/ong";
-import { EditAnimal } from "../AnimalEdit";
-import { UserContext } from "../../context/user";
-import { useHistory } from "react-router-dom";
+import {
+	ButtonContainer,
+	ColumnContainer,
+	ColumnForm,
+	Container,
+	FolderContainer,
+	FormContainer,
+	HeaderFormContainer,
+	SectionContainer,
+} from "./style";
 
 export const AnimalRegister = () => {
-  const { redirectToPage } = useContext(RedirectContext);
-  const { pets } = useContext(AnimalsListContext);
-  const { OngPets } = useContext(PetOngContext);
+	const { redirectToPage } = useContext(RedirectContext);
+	const { pets } = useContext(AnimalsListContext);
+	const { OngPets } = useContext(PetOngContext);
 
-  const [active, setActive] = useState(true);
+	const [active, setActive] = useState(true);
 
-  const token = JSON.parse(localStorage.getItem("token"));
-  const {user} = useContext(UserContext)
-  const userID = user.id;
+	const token = JSON.parse(localStorage.getItem("token"));
+	const { user } = useContext(UserContext);
+	const userID = user.id;
 
-  const history = useHistory()
+	const history = useHistory();
 
-  const formSchema = yup.object().shape({
-    petName: yup.string().required("Nome Obrigatório"),
-    img: yup.string().required("URL Da imagem obrigatória"),
-    breed: yup.string().required("Campo Obrigatório"),
-    species: yup.string().required("Campo Obrigatório"),
-    color: yup.string().required("Campo Obrigatório"),
-    gender: yup.string().required("Campo Obrigatório"),
-    age: yup.number().required("Campo Obrigatório"),
-    porte: yup.string().required("Campo Obrigatório"),
-    ong: yup.string().required("Campo Obrigatório"),
-    description: yup.string().required("Campo Obrigatório"),
-    situation: yup.string().required("Campo Obrigatório"),
-  });
+	const formSchema = yup.object().shape({
+		petName: yup.string().required("Nome Obrigatório"),
+		img: yup.string().required("URL Da imagem obrigatória"),
+		breed: yup.string().required("Campo Obrigatório"),
+		species: yup.string().required("Campo Obrigatório"),
+		color: yup.string().required("Campo Obrigatório"),
+		gender: yup.string().required("Campo Obrigatório"),
+		age: yup.number().required("Campo Obrigatório"),
+		porte: yup.string().required("Campo Obrigatório"),
+		ong: yup.string().required("Campo Obrigatório"),
+		description: yup.string().required("Campo Obrigatório"),
+		situation: yup.string().required("Campo Obrigatório"),
+	});
 
-  ////////////////////Pegar dados da ONG//////////////////////////
+	////////////////////Pegar dados da ONG//////////////////////////
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(formSchema) });
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({ resolver: yupResolver(formSchema) });
 
-  function onSubmitFunction(animalData) {
-    const newData = { ...animalData, userId: userID };
-    api
-      .post("/pet", newData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((_) => {
-        toastSucess("Animal Cadastrado");
-        history.push("/ong");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+	function onSubmitFunction(animalData) {
+		const newData = { ...animalData, userId: userID };
+		api.post("/pet", newData, {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		})
+			.then((_) => {
+				toastSucess("Animal Cadastrado");
+				history.push("/ong");
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}
 
   return (
     <SectionContainer>

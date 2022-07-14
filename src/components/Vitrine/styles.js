@@ -16,7 +16,6 @@ export const ContainerVitrine = styled.div`
 		font-size: 2.3rem;
 		font-weight: 500;
 		text-align: center;
-		margin: 3rem 0;
 	}
 
 	ul,
@@ -30,7 +29,8 @@ export const ContainerVitrine = styled.div`
 		scroll-behavior: smooth;
 	}
 
-	.vitrine-container--HomePage {
+	.vitrine-container--HomePage,
+	.vitrine-container--Ong {
 		padding: 2em 0;
 		max-width: 90%;
 		width: 100%;
