@@ -39,28 +39,33 @@ export const RegisterPet = () => {
 				<PhotoPerfil />
 			</HeaderDekstop>
 
-			<HeaderMobile selected={selected}>
-				<LinksMenu onClick={() => handleRoute()}>Início</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("ong-solicitation")}>
-					Solicitações
-				</LinksMenu>
-				<LinksMenu
-					lected={selected}
-					className="link--selected"
-					onClick={() => handleRoute("registerPet")}>
-					Cadastrar Pet
-				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute()}>Logout</LinksMenu>
-			</HeaderMobile>
-			<MarginNavBar></MarginNavBar>
-			<OngTile />
 
-			<AnimalRegister />
-			<Footer>
-				<Link to="/">Início</Link>
-				<Link to="/ong-solicitation">Solicitações</Link>
-				<Link to="/registerPet">Cadastrar Pet</Link>
-			</Footer>
-		</Container>
-	);
+      <HeaderMobile selected={selected}>
+        <LinksMenu
+          selected={selected}
+          onClick={() => handleRoute()}
+          className="link--selected "
+        >
+          Início
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("ong-solicitation")}>
+          Solicitações
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("registerPet")}>
+          Cadastrar Pet
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute()}>Logout</LinksMenu>
+      </HeaderMobile>
+      <OngTile />
+      <AnimalRegister />
+      <Footer>
+        <MenuFooter>
+          <Link to="/">Início</Link>
+          <Link to="/ong-solicitation">Solicitações</Link>
+          <Link to="/registerPet">Cadastrar Pet</Link>
+        </MenuFooter>
+      </Footer>
+    </Container>
+  );
+
 };

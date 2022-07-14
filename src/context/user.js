@@ -58,10 +58,9 @@ export const UserProvider = ({ children }) => {
         toastSucess("Login Realizado com Sucesso");
         setTimeout(() => {
           if (newUser.type === "ong") {
-            setActiveOng(true);
+            console.log('Ola')
             history.push("/ong");
           } else {
-            setActiveUser(true);
             history.push("/user");
           }
         }, 2500);

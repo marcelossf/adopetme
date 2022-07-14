@@ -1,20 +1,15 @@
 import { useContext, useState } from "react";
-
 import { Link, useHistory } from "react-router-dom";
-
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 import HeaderDekstop from "../../components/HeaderDesktop";
 import HeaderMobile from "../../components/HeaderMobile";
 import { LinksMenu } from "../../components/MenuMobile/style";
 import PhotoPerfil from "../../components/PhotoPerfil";
-
 import { SearchBar } from "../../components/SearchBar";
 import UserTitle from "../../components/UserTitle";
 import Vitrine from "../../components/Vitrine";
-
 import { UserContext } from "../../context/user";
-
 import { MarginNavBar } from "../../styles/marginNavBar";
 
 const UserDashBoard = () => {

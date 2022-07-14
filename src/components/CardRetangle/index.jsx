@@ -7,26 +7,47 @@ import { SolicitationContext } from "../../context/solicitation";
 import { ContainerCard } from "./style";
 
 const CardRetangle = () => {
-	const { solicitationForm, userData, petData } =
-		useContext(SolicitationContext);
 
-	return (
-		<>
-			<ContainerCard>
-				<section className="start-align">
-					<div className="page">
-						<h2 className="solicitacao">Solicitações</h2>
-					</div>
-					<div className="card-blue">
-						<div>
-							<p className="card-p">Solicitações</p>
-							<div className="trace-line"></div>
+  const { solicitationForm, userData, petData } =
+    useContext(SolicitationContext);
 
-							{userData ? (
-								<p className="card-p">{userData.name}</p>
-							) : (
-								<p className="card-p">User 123</p>
-							)}
+  return (
+    <>
+      <ContainerCard>
+        <section className="start-align">
+          <div className="page">
+            <h2 className="solicitacao">Solicitações</h2>
+          </div>
+          <div className="card-blue">
+            <div>
+              <p className="card-p">Solicitações</p>
+              <div className="trace-line"></div>
+              {userData ? (
+                <p className="card-p">{userData.name}</p>
+              ) : (
+                <p className="card-p">User 123</p>
+              )}
+              <p className="card-p">User 123</p>
+              <p className="card-p">User 123</p>
+              <p className="card-p">User 123</p>
+            </div>
+            <div className="trace-up"></div>
+            <div className="div">
+              <p className="nul">null</p>
+              {userData ? (
+                <p className="card-p">{userData.name}</p>
+              ) : (
+                <p className="card-p-block">User 123</p>
+              )}
+              {userData ? (
+                <p className="card-p-block">{solicitationForm.pergunta1}</p>
+              ) : (
+                <p className="card-p-block">pergunta 1 : resposta</p>
+              )}
+              
+              <input placeholder="User 123"></input>
+              <label>pergunta 1</label>
+
 
 							<p className="card-p">Ivete </p>
 							<p className="card-p">Didi </p>
@@ -47,18 +68,7 @@ const CardRetangle = () => {
 							) : (
 								<p className="card-p-block">pergunta</p>
 							)}
-							<p className="card-p-block">
-								pergunta 2 : resposta
-							</p>
-							<p className="card-p-block">
-								pergunta 3 : resposta
-							</p>
-							<p className="card-p-block">
-								pergunta 4 : resposta
-							</p>
-							<p className="card-p-block">
-								pergunta 5 : resposta
-							</p>
+						
 							<input placeholder="User 123"></input>
 							<label>A casa é telada?</label>
 

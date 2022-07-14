@@ -4,6 +4,7 @@ import { UserContext } from "../../context/user";
 import { DivStyled } from "./style";
 
 const OngTile = () => {
+
 	const { user } = useContext(UserContext);
 
 	return (
@@ -19,6 +20,7 @@ const OngTile = () => {
 			</DivStyled>
 		</>
 	);
+
 };
 
 export default OngTile;
