@@ -1,23 +1,28 @@
+
+import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useContext } from "react";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { PetOngContext } from "../../context/ong";
+import { UserContext } from "../../context/user";
+import { Button } from "../Button";
+import api from '../../api/api'
 import { Error } from "../Error";
 import { Input } from "../InputLabel";
 import { SelectForm } from "../SelectForm";
 import {
-  ButtonContainer,
-  ColumnContainer,
-  ColumnForm,
-  Container,
-  FormContainer,
+	ButtonContainer,
+	ColumnContainer,
+	ColumnForm,
+	Container,
+	FormContainer,
 } from "./style";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { toastSucess } from "../../utils/toast";
-import api from "../../api/api";
-import { Button } from "../Button";
-import { UserContext } from "../../context/user";
+
+import { toastSucess,toastError } from "../../utils/toast";
 import { SolicitationContext } from "../../context/solicitation";
 import { useHistory } from "react-router-dom";
+
+
 
 export const EditAnimal = () => {
   const { user } = useContext(UserContext);
@@ -40,11 +45,12 @@ export const EditAnimal = () => {
     situation: yup.string(),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(formSchema) });
+
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm({ resolver: yupResolver(formSchema) });
 
   function onSubmitFunction(animalData) {
     const formatedData = {};
@@ -66,10 +72,12 @@ export const EditAnimal = () => {
         },
       })
       .then((response) => {
-        toastSucess("Animal Cadastrado");
+        console.log(response);
+        toastSucess("Animal atualizado");
         return history.push("/ong");
       })
       .catch((err) => {
+        toastError("Animal não foi atualizado.")
         console.log(err);
       });
   }
@@ -179,4 +187,5 @@ export const EditAnimal = () => {
       </Container>
     </FormContainer>
   );
+
 };
