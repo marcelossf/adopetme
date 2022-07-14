@@ -12,7 +12,7 @@ import {
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { toastSucess } from "../../utils/toast";
+import { toastSucess,toastError } from "../../utils/toast";
 import api from "../../api/api";
 import { Button } from "../Button";
 import { UserContext } from "../../context/user";
@@ -67,10 +67,11 @@ export const EditAnimal = () => {
       })
       .then((response) => {
         console.log(response);
-        toastSucess("Animal Cadastrado");
+        toastSucess("Animal atualizado");
         return history.push("/ong");
       })
       .catch((err) => {
+        toastError("Animal não foi atualizado.")
         console.log(err);
       });
   }
