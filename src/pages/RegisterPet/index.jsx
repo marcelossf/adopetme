@@ -8,9 +8,11 @@ import HeaderMobile from "../../components/HeaderMobile";
 import { LinksMenu } from "../../components/MenuMobile/style.js";
 import OngTile from "../../components/OngTitle";
 import PhotoPerfil from "../../components/PhotoPerfil";
+
 import { MarginNavBar } from "../../styles/marginNavBar";
 import { Container } from "./style";
 import {MenuFooter} from '../../components/MenuFooter';
+
 
 
 export const RegisterPet = () => {
@@ -42,10 +44,30 @@ export const RegisterPet = () => {
 			</HeaderDekstop>
 
 
+  return (
+    <Container>
+      <HeaderDekstop>
+        <Button
+          className="button-selected"
+          width={"230px"}
+          onClick={() => history.push('/ong')}
+        >
+          Início
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("ong-solicitation")}>
+          Solicitações
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("registerPet")}>
+          Cadastrar Pet
+        </Button>
+        <PhotoPerfil />
+      </HeaderDekstop>
+
+
       <HeaderMobile selected={selected}>
         <LinksMenu
           selected={selected}
-          onClick={() => handleRoute()}
+          onClick={() => history.push('/')}
           className="link--selected "
         >
           Início

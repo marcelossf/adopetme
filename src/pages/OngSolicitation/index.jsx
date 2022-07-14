@@ -2,7 +2,6 @@ import CardRetangle from "../../components/CardRetangle";
 import { Footer } from "../../components/Footer";
 import OngTile from "../../components/OngTitle";
 import { Container } from "./style";
-
 import { useContext, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Button } from "../../components/Button";
@@ -11,20 +10,26 @@ import HeaderMobile from "../../components/HeaderMobile";
 import { LinksMenu } from "../../components/MenuMobile/style.js";
 import PhotoPerfil from "../../components/PhotoPerfil";
 import { UserContext } from "../../context/user";
-
 import { MarginNavBar } from "../../styles/marginNavBar";
+import { SolicitationContext } from "../../context/solicitation";
 
 const OngSolicitation = () => {
-	const token = JSON.parse(localStorage.getItem("token"));
 
-	const { logout } = useContext(UserContext);
+  const token = JSON.parse(localStorage.getItem("token"));
+  const { logout } = useContext(UserContext);
+  const [selected] = useState(true);
+  const history = useHistory();
+  const {solicitationData} = useContext(SolicitationContext)
+  const {user} = useContext(UserContext)
+  const ongName = user?.name   
 
-	const [selected] = useState(true);
-	const history = useHistory();
+  const ongSolicitation = solicitationData.filter((solicitation)=> solicitation?.petData.ong === ongName)
 
-	const handleRoute = (route) => {
-		route && history.push(`/${route}`);
-	};
+  
+  const handleRoute = (route) => {
+    route && history.push(`/${route}`);
+  };
+
 
 	useEffect(() => {
 		if (!token) {
@@ -32,12 +37,17 @@ const OngSolicitation = () => {
 		}
 	}, []);
 
-	return (
-		<Container>
-			<HeaderDekstop>
-				<Button width={"230px"} onClick={() => handleRoute()}>
-					Início
-				</Button>
+  return (
+    <Container>
+      <HeaderDekstop>
+        <Button
+          className="button-selected"
+          width={"230px"}
+          onClick={() => history.push("/ong")}
+        >
+          Início
+        </Button>
+
 				<Button
 					className="button-selected"
 					width={"230px"}
@@ -55,6 +65,7 @@ const OngSolicitation = () => {
 				<LinksMenu selected={selected} onClick={() => history.push("/")}>
 					Início
 				</LinksMenu>
+
 
 				<LinksMenu
 					className="link--selected "

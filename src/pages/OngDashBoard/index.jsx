@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-
 import api from "../../api/api";
-
 import { Button } from "../../components/Button";
 import { Footer } from "../../components/Footer";
 import HeaderDekstop from "../../components/HeaderDesktop";
@@ -11,11 +9,9 @@ import { LinksMenu } from "../../components/MenuMobile/style.js";
 import OngTile from "../../components/OngTitle";
 import PhotoPerfil from "../../components/PhotoPerfil";
 import Vitrine from "../../components/Vitrine";
-
 import { PetOngContext } from "../../context/ong";
 import { UserContext } from "../../context/user";
 import { MarginNavBar } from "../../styles/marginNavBar";
-
 import { Container } from "./style";
 
 const OngDashBoard = () => {
@@ -52,7 +48,7 @@ const OngDashBoard = () => {
 				<Button
 					className="button-selected"
 					width={"230px"}
-					onClick={() => handleRoute()}>
+					onClick={() => history.push('/')}>
 					Início
 				</Button>
 				<Button
@@ -68,22 +64,25 @@ const OngDashBoard = () => {
 				<PhotoPerfil />
 			</HeaderDekstop>
 
-			<HeaderMobile selected={selected}>
-				<LinksMenu
-					selected={selected}
-					onClick={() => handleRoute()}
-					className="link--selected ">
-					Início
-				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("ong-solicitation")}>
-					Solicitações
-				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("registerPet")}>
-					Cadastrar Pet
-				</LinksMenu>
-				<LinksMenu onClick={() => logout()}>Logout</LinksMenu>
-			</HeaderMobile>
-			<MarginNavBar></MarginNavBar>
+
+      <HeaderMobile selected={selected}>
+        <LinksMenu
+          selected={selected}
+          onClick={() => history.push('/')}
+          className="link--selected "
+        >
+          Início
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("ong-solicitation")}>
+          Solicitações
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("registerPet")}>
+          Cadastrar Pet
+        </LinksMenu>
+        <LinksMenu onClick={() => logout()}>Logout</LinksMenu>
+      </HeaderMobile>
+      <MarginNavBar></MarginNavBar>
+
 
 			<OngTile />
 			<Vitrine />
