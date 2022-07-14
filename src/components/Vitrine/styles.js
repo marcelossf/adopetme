@@ -25,12 +25,9 @@ export const ContainerVitrine = styled.div`
 		align-items: flex-start;
 		gap: 2em;
 
-		overflow-x: auto;
+		overflow-x: scroll;
 		scroll-behavior: smooth;
-	}
 
-	.vitrine-container--HomePage,
-	.vitrine-container--Ong {
 		padding: 2em 0;
 		max-width: 90%;
 		width: 100%;

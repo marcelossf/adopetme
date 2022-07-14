@@ -19,7 +19,6 @@ const GlobalStyle = createGlobalStyle`
     
     body {
         font-family: 'Comfortaa';
-        overflow-x: hidden;
     }
 
     body::-webkit-scrollbar {
