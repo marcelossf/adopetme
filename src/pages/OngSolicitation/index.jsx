@@ -14,28 +14,27 @@ import { MarginNavBar } from "../../styles/marginNavBar";
 import { SolicitationContext } from "../../context/solicitation";
 
 const OngSolicitation = () => {
-
   const token = JSON.parse(localStorage.getItem("token"));
   const { logout } = useContext(UserContext);
   const [selected] = useState(true);
   const history = useHistory();
-  const {solicitationData} = useContext(SolicitationContext)
-  const {user} = useContext(UserContext)
-  const ongName = user?.name   
+  const { solicitationData } = useContext(SolicitationContext);
+  const { user } = useContext(UserContext);
+  const ongName = user?.name;
 
-  const ongSolicitation = solicitationData.filter((solicitation)=> solicitation?.petData.ong === ongName)
+  const ongSolicitation = solicitationData.filter(
+    (solicitation) => solicitation?.petData.ong === ongName
+  );
 
-  
   const handleRoute = (route) => {
     route && history.push(`/${route}`);
   };
 
-
-	useEffect(() => {
-		if (!token) {
-			history.push("/");
-		}
-	}, []);
+  useEffect(() => {
+    if (!token) {
+      history.push("/");
+    }
+  }, []);
 
   return (
     <Container>
@@ -48,47 +47,52 @@ const OngSolicitation = () => {
           Início
         </Button>
 
-				<Button
-					className="button-selected"
-					width={"230px"}
-					onClick={() => handleRoute("ong-solicitation")}>
-					Solicitações
-				</Button>
-				<Button
-					width={"230px"}
-					onClick={() => handleRoute("registerPet")}>
-					Cadastrar Pet
-				</Button>
-				<PhotoPerfil />
-			</HeaderDekstop>
-			<HeaderMobile selected={selected}>
-				<LinksMenu selected={selected} onClick={() => history.push("/")}>
-					Início
-				</LinksMenu>
+        <Button
+          className="button-selected"
+          width={"230px"}
+          onClick={() => handleRoute("ong-solicitation")}
+        >
+          Solicitações
+        </Button>
+        <Button width={"230px"} onClick={() => handleRoute("registerPet")}>
+          Cadastrar Pet
+        </Button>
+        <PhotoPerfil />
+      </HeaderDekstop>
+      <HeaderMobile selected={selected}>
+        <LinksMenu selected={selected} onClick={() => history.push("/")}>
+          Início
+        </LinksMenu>
 
+        <LinksMenu
+          className="link--selected "
+          onClick={() => handleRoute("ong-solicitation")}
+        >
+          Solicitações
+        </LinksMenu>
+        <LinksMenu onClick={() => handleRoute("registerPet")}>
+          Cadastrar Pet
+        </LinksMenu>
+        <LinksMenu onClick={() => logout()}>Logout</LinksMenu>
+      </HeaderMobile>
+      <MarginNavBar></MarginNavBar>
 
-				<LinksMenu
-					className="link--selected "
-					onClick={() => handleRoute("ong-solicitation")}>
-					Solicitações
-				</LinksMenu>
-				<LinksMenu onClick={() => handleRoute("registerPet")}>
-					Cadastrar Pet
-				</LinksMenu>
-				<LinksMenu onClick={() => logout()}>Logout</LinksMenu>
-			</HeaderMobile>
-			<MarginNavBar></MarginNavBar>
+      <OngTile />
+      {solicitationData.length < 0 ? (
+        <CardRetangle />
+      ) : (
+        <div>
+          <p>Você não tem nenhuma solicitação</p>
+        </div>
+      )}
 
-			<OngTile />
-			<CardRetangle />
-
-			<Footer>
-				<Link to="/">Início</Link>
-				<Link to="/ong-solicitation">Solicitações</Link>
-				<Link to="/registerPet">Cadastrar Pet</Link>
-			</Footer>
-		</Container>
-	);
+      <Footer>
+        <Link to="/">Início</Link>
+        <Link to="/ong-solicitation">Solicitações</Link>
+        <Link to="/registerPet">Cadastrar Pet</Link>
+      </Footer>
+    </Container>
+  );
 };
 
 export default OngSolicitation;
